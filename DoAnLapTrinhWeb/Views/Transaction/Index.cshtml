@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DoAnLapTrinhWeb.Models.Transaction>
+
+@{
+    ViewData["PageTitle"] = "Transaction";
+    ViewData["PageActionText"] = "+ New Transaction";
+    ViewData["PageActionURL"] = "/Transaction/AddorEdit";
+
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" gridLines="None" allowPaging="true">
+            <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
+            <e-grid-columns>
+                <e-grid-column headerText="Transaction" field="CategoryNameWithIcon"></e-grid-column>
+                <e-grid-column headerText="Date" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
+                <e-grid-column headerText="Amount" field="FormatAmount"></e-grid-column>
+               <e-grid-column headerText="Actions" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
+            <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
+        </div>
+    </div>
+</div>
+<script id="ActionCoumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Transaction/AddorEdit/${TransactionId}">
+            <i class="fa-solid fa-wand-magic"></i>
+        </a>
+        <form action="/Transaction/Delete/${TransactionId}" method="post">
+    @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
+                <i class="fa-solid fa-eraser fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
+</script>

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnLapTrinhWeb", "DoAnLapTrinhWeb\DoAnLapTrinhWeb.csproj", "{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19ED8FB5-62B3-419F-96AB-3B5EB2A3DF3E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4D3DC5D-8359-47F1-9C2D-9ADE1071D9FF}
+	EndGlobalSection
+EndGlobal

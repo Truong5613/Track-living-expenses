@@ -1,0 +1,42 @@
+﻿@model DoAnLapTrinhWeb.Models.Category
+
+@{
+    ViewData["PageTitle"]= Model.CategoryId==0? "Tạo mới một category" : "Chỉnh sửa category";
+}
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form asp-action="AddorEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+                <div class="form-group">
+                    <div class='e-btn-group custom-rbt-group'>
+                        <input type="radio" id="radioleft" name="Type" value="Expense" checked="@(Model.Type=="Expense")" />
+                        <label class="e-btn" for="radioleft">Expense</label>
+                        <input type="radio" id="radiomiddle" name="Type" value="Income" checked="@(Model.Type=="Income")" />
+                        <label class="e-btn" for="radiomiddle">Income</label>
+                    </div>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <ejs-textbox id="Name" placeholder="Name" ejs-for="Name" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <ejs-textbox id="Icon" placeholder="Icon" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
+                </div>
+                
+                <div class="form-group">
+                    <ejs-button id="submit" type="submit" cssClass="e-success" content="Nhập"></ejs-button>
+                </div>
+            </form>
+    </div>
+</div>
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
+            <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
+        </div>
+    </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
