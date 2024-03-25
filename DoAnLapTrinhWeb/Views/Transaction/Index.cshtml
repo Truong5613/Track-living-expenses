@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<DoAnLapTrinhWeb.Models.Transaction>
 
 @{
-    ViewData["PageTitle"] = "Transaction";
-    ViewData["PageActionText"] = "+Giao Dịch Mới";
+    ViewData["PageTitle"] = "Giao Dịch";
+    ViewData["PageActionText"] = "+ Giao Dịch Mới";
     ViewData["PageActionURL"] = "/Transaction/AddorEdit";
 
 }
@@ -15,7 +15,7 @@
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
                 <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
                 <e-grid-column headerText="Số Lượng" field="FormatAmount"></e-grid-column>
-               <e-grid-column headerText="Sửa" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
+               <e-grid-column headerText="Tác Vụ" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>

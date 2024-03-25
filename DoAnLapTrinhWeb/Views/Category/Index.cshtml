@@ -12,7 +12,7 @@
             <e-grid-columns>
                 <e-grid-column headerText="Danh Mục" field="TitleWithIcon"></e-grid-column>
                 <e-grid-column headerText="Loại" template="#TypeCoumnTemplate" width="150px"></e-grid-column>
-                <e-grid-column headerText="Sửa" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
+                <e-grid-column headerText="Tác Vụ" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
@@ -25,9 +25,9 @@
 
 <script id="TypeCoumnTemplate" type="text/x-template">
     ${if(Type=="Income")}
-        <span class="badge bg-success">${Type}</span>
+        <span class="badge bg-success">Thu nhập</span>
     ${else}
-        <span class="badge bg-danger">${Type}</span>
+        <span class="badge bg-danger">Tiêu dùng</span>
     ${/if}
 </script>
 <script id="ActionCoumnTemplate" type="text/x-template">
