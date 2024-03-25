@@ -8,10 +8,10 @@
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary income">
             <div class="d-flex flex-column justify-content-center p-5">
-                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+                <i class="fa-solid fa-coins fa-2xl"></i>
             </div>
             <div class="d-flex flex-column m-auto py-3">
-                <span class="lead">Total Income</span>
+                <span class="lead">Tổng thu nhập</span>
                 <h1 class="display-6 fw-bold">@ViewBag.TotalIncome</h1>
             </div>
         </div>
@@ -19,10 +19,10 @@
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary expense">
             <div class="d-flex flex-column justify-content-center p-5">
-                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+                <i class="fa-solid fa-cart-shopping fa-2xl"></i>
             </div>
             <div class="d-flex flex-column m-auto py-3">
-                <span class="lead">Total Expense</span>
+                <span class="lead">Tổng tiêu dùng</span>
                 <h1 class="display-6 fw-bold">@ViewBag.TotalExpense</h1>
             </div>
         </div>
@@ -30,10 +30,10 @@
     <div class="col-md-4">
             <div class="d-flex flex-row widget summary balance">
                     <div class="d-flex flex-column justify-content-center p-5">
-                        <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+                        <i class="fa-solid fa-wallet fa-2xl"></i>
                     </div>
                     <div class="d-flex flex-column m-auto py-3">
-                        <span class="lead">Balance</span>
+                        <span class="lead">Tổng tiền</span>
                         <h1 class="display-6 fw-bold">@ViewBag.Balance</h1>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
     <div class="col-md-4">
         <div class="widget chart">
             <div class="p-4">
-                <h5 class="fw-bold">Expense By Category</h5>
+                <h5 class="fw-bold">Bảng tiêu dùng theo thể loại</h5>
             </div>
             <ejs-accumulationchart id="doughnutchart" background="#1a222b">
                 <e-accumulation-series-collection>
@@ -64,7 +64,7 @@
     <div class="col-md-8">
         <div class="widget chart">
             <div class="p-4">
-                <h5 class="fw-bold">Income vs Expense</h5>
+                <h5 class="fw-bold">Đồ thị so sánh thu nhập với tiêu dùng (Trong 7 ngày)</h5>
             </div>
             <ejs-chart id="spline-chart" background="#1a222b"
                        palettes="@(new string[]{"#ff1a1a","#0040ff"})">
@@ -81,8 +81,8 @@
                     <e-chartarea-border width="0"></e-chartarea-border>
                 </e-chart-chartarea>
                 <e-series-collection>
-                    <e-series dataSource="@ViewBag.SplineChartData" width="4" xName="day" yName="income" name="Income" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
-                    <e-series dataSource="@ViewBag.SplineChartData" width="4" xName="day" yName="expense" name="Expense" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                    <e-series dataSource="@ViewBag.SplineChartData" width="4" xName="day" yName="income" name="Thu Nhập" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                    <e-series dataSource="@ViewBag.SplineChartData" width="4" xName="day" yName="expense" name="Tiêu Dùng" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
                     <e-series>
 
                     </e-series>
@@ -99,14 +99,14 @@
     <div class="col-md-6">
         <div class="widget chart">
             <div class="p-4">
-                <h5 class="fw-bold">Recent Transactions</h5>
+                <h5 class="fw-bold">Bảng chi tiêu hoặc thu nhập gần đây</h5>
             </div>
             <div class="px-4 pb-4">
                 <ejs-grid id="recent-transaction" datasource="@ViewBag.RecentTransactions" gridline="none">
                     <e-grid-columns>
-                        <e-grid-column headerText="Transaction" field="CategoryNameWithIcon"></e-grid-column>
-                        <e-grid-column headerText="Date" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
-                        <e-grid-column headerText="Amount" field="FormatAmount"></e-grid-column>
+                        <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
+                        <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
+                        <e-grid-column headerText="Số Tiền" field="FormatAmount"></e-grid-column>
                     </e-grid-columns>
                 </ejs-grid>
             </div>
