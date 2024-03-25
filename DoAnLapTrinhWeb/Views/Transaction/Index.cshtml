@@ -2,7 +2,7 @@
 
 @{
     ViewData["PageTitle"] = "Transaction";
-    ViewData["PageActionText"] = "+ New Transaction";
+    ViewData["PageActionText"] = "+Giao Dịch Mới";
     ViewData["PageActionURL"] = "/Transaction/AddorEdit";
 
 }
@@ -12,10 +12,10 @@
         <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" gridLines="None" allowPaging="true">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
-                <e-grid-column headerText="Transaction" field="CategoryNameWithIcon"></e-grid-column>
-                <e-grid-column headerText="Date" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
-                <e-grid-column headerText="Amount" field="FormatAmount"></e-grid-column>
-               <e-grid-column headerText="Actions" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
+                <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
+                <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
+                <e-grid-column headerText="Số Lượng" field="FormatAmount"></e-grid-column>
+               <e-grid-column headerText="Sửa" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>

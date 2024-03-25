@@ -12,14 +12,14 @@
                 <div class="form-group">
                     <div class='e-btn-group custom-rbt-group'>
                         <input type="radio" id="radioleft" name="Type" value="Expense" checked="@(Model.Type=="Expense")" />
-                        <label class="e-btn" for="radioleft">Expense</label>
+                        <label class="e-btn" for="radioleft">Tiêu Dùng</label>
                         <input type="radio" id="radiomiddle" name="Type" value="Income" checked="@(Model.Type=="Income")" />
-                        <label class="e-btn" for="radiomiddle">Income</label>
+                        <label class="e-btn" for="radiomiddle">Thu Nhập</label>
                     </div>
                     <span asp-validation-for="Type" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <ejs-textbox id="Name" placeholder="Name" ejs-for="Name" floatLabelType="Always"></ejs-textbox>
+                    <ejs-textbox id="Tên" placeholder="Tên" ejs-for="Name" floatLabelType="Always"></ejs-textbox>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">

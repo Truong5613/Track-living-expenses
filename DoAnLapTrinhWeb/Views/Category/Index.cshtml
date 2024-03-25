@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DoAnLapTrinhWeb.Models.Category>
 @{
-    ViewData["PageTitle"] = "Categories";
-    ViewData["PageActionText"] = "+ New Category";
+    ViewData["PageTitle"] = "Danh Mục";
+    ViewData["PageActionText"] = "+ Danh Mục Mới";
     ViewData["PageActionURL"] = "/Category/AddorEdit";
 
 }
@@ -10,9 +10,9 @@
         <ejs-grid id="categories" dataSource="@Model" allowSorting="true" allowPaging="true" gridLines="None">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
-                <e-grid-column headerText="Category" field="TitleWithIcon"></e-grid-column>
-                <e-grid-column headerText="Type" template="#TypeCoumnTemplate" width="150px"></e-grid-column>
-                <e-grid-column headerText="Actions" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
+                <e-grid-column headerText="Danh Mục" field="TitleWithIcon"></e-grid-column>
+                <e-grid-column headerText="Loại" template="#TypeCoumnTemplate" width="150px"></e-grid-column>
+                <e-grid-column headerText="Sửa" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
