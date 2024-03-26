@@ -30,7 +30,6 @@ body {
 }
 
 .main-content {
-    margin-left: 290px;
     overflow-y: auto;
     height: 92vh;
 }
@@ -202,10 +201,6 @@ nav.navbar {
             background-color: #48545f14;
             transform: scale(1.05) translateZ(0px);
         }
-
-nav.navbar {
-    margin-left: 290px;
-}
 
 /*Profile Pic*/
 img.profile-pic {

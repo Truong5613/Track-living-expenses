@@ -1,4 +1,30 @@
-﻿<!DOCTYPE html>
+﻿@{
+    List<Object> menuItems = new List<Object>();
+    menuItems.Add(new
+    {
+        text = "Chung",
+        separator = true,
+    });
+    menuItems.Add(new
+    {
+        text = "Trang chủ",
+        url = "/",
+        iconCss = "fa-solid fa-box",
+    });
+    menuItems.Add(new
+    {
+        text = "Danh mục",
+        url = "/Category",
+        iconCss = "fa-solid fa-folder-closed",
+    });
+    menuItems.Add(new
+    {
+        text = "Giao Dịch",
+        iconCss = "fa-solid fa-arrow-right-arrow-left",
+        url = "/Transaction"
+    });
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,43 +40,59 @@
     <script src="https://cdn.syncfusion.com/ej2/25.1.35/dist/ej2.min.js"></script>
 </head>
 <body class="e-bigger">
-    <partial name="_sideBar" />
-    <nav class="navbar sticky-top bg-body-tertiary">
-        <div class="container-fluid py-2 px-4">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <div>
-                <i class="fa-solid fa-bell"></i>
-                <i class="fa-solid fa-comment"></i>
+    <ejs-sidebar id="sidebar" width="290px" enableDock dockSize="100px"
+                 target=".dock-target" enableGestures="false">
+        <e-content-template>
+
+            <div class="logo-wrapper">
+                <div class="app-logo">
+                    <img src="~/images/logo.png" style="width:35px" />
+                </div>
+                <div class="w-100"></div>
+                <i id="sidebar-toggler" class="fa-solid"></i>
             </div>
-        </div>
-    </nav>
+
+            <div class="profile-wrapper">
+                <img class="profile-pic" src="~/images/profile.png" />
+                <div class="titles d-flex flex-column ps-3">
+                    <h5 class="mb-0">Theo dõi chi tiêu</h5>
+                    <span class="text-muted">Mommy Kafka</span>
+                </div>
+            </div>
+
+            <ejs-menu id="menu"
+                      items="menuItems"
+                      orientation="Vertical"
+                      hamburgerMode></ejs-menu>
+        </e-content-template>
+    </ejs-sidebar>
     <div class="main-content">
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="@(ViewData["isDashboard"] == null ? "col-md-10":"col-md-12")">
                     <main role="main" class="pb-3">
-                        @if(ViewData["isDashboard"] == null)
+                        @if (ViewData["isDashboard"] == null)
                         {
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="d-flex flex-column mb-5">
-                                    <div class="d-flex mb-1">
-                                        <div class="flex-grow-1">
-                                            <h3 class="fw-bold">@ViewData["PageTitle"]</h3>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="d-flex flex-column mb-5">
+                                        <div class="d-flex mb-1">
+                                            <div class="flex-grow-1">
+                                                <h3 class="fw-bold">@ViewData["PageTitle"]</h3>
+                                            </div>
+                                            <div>
+                                                @if (ViewData["PageActionText"] != null)
+                                                {
+                                                    <a class="btn btn-success" style="color:inherit" href="@ViewData["PageActionURL"]">
+                                                        @ViewData["PageActionText"]
+                                                    </a>
+                                                }
+                                            </div>
                                         </div>
-                                        <div>
-                                            @if (ViewData["PageActionText"] != null)
-                                            {
-                                                <a class="btn btn-success" style="color:inherit" href="@ViewData["PageActionURL"]">
-                                                    @ViewData["PageActionText"]
-                                                </a>
-                                            }
-                                        </div>
+                                        <ejs-breadcrumb id="breedcrumb" separatorTemplate="@Html.Raw("<span class='fa-solid fa-angle-right'></span>")"></ejs-breadcrumb>
                                     </div>
-                                    <ejs-breadcrumb id="breedcrumb" separatorTemplate="@Html.Raw("<span class='fa-solid fa-angle-right'></span>")"></ejs-breadcrumb>
                                 </div>
                             </div>
-                        </div>
                         }
                         @RenderBody()
                     </main>
@@ -58,7 +100,6 @@
             </div>
         </div>
     </div>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -67,3 +108,12 @@
     <ejs-scripts></ejs-scripts>
 </body>
 </html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        dockBar = document.getElementById('sidebar').ej2_instances[0];
+        document.getElementById('sidebar-toggler').onclick = function () {
+            dockBar.toggle();
+        };
+    });
+
+</script>
