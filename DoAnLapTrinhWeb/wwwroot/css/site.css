@@ -351,8 +351,7 @@ img.profile-pic {
 }
     .emoji-textbox button, .emoji-textbox button {
         position: absolute;
-        bottom: 0%;
-        left: 90%;
+        
         background-color: Transparent;
         background-repeat: no-repeat;
         border: none;

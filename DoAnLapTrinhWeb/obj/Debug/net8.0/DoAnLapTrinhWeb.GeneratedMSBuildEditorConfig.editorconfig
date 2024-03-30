@@ -17,51 +17,51 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DoAnLapTrinhWeb
 build_property.RootNamespace = DoAnLapTrinhWeb
-build_property.ProjectDir = C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb Clonne\Track-living-expenses\DoAnLapTrinhWeb\
+build_property.ProjectDir = C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoAnLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb Clonne\Track-living-expenses\DoAnLapTrinhWeb
+build_property.MSBuildProjectDirectory = C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoAnLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/Category/AddorEdit.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Category/AddorEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWRkb3JFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/Category/Index.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/DashBoard/Index.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/DashBoard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaEJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/Shared/Error.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/Transaction/AddorEdit.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Transaction/AddorEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cQWRkb3JFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/Transaction/Index.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Transaction/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/_ViewImports.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/_ViewStart.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb Clonne/Track-living-expenses/DoAnLapTrinhWeb/Views/Shared/_Layout.cshtml]
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoAnLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-f6zo0yalrz

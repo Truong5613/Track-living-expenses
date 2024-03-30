@@ -15,7 +15,7 @@
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
                 <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
                 <e-grid-column headerText="Số Lượng" field="FormatAmount"></e-grid-column>
-               <e-grid-column headerText="Tác Vụ" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
+               <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
@@ -25,7 +25,7 @@
         </div>
     </div>
 </div>
-<script id="ActionCoumnTemplate" type="text/x-template">
+<script id="ActionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
         <a class="btn btn-sm no-a-decoration" href="/Transaction/AddorEdit/${TransactionId}">
             <i class="fa-solid fa-wand-magic"></i>

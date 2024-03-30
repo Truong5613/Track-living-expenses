@@ -11,8 +11,8 @@
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Danh Mục" field="TitleWithIcon"></e-grid-column>
-                <e-grid-column headerText="Loại" template="#TypeCoumnTemplate" width="150px"></e-grid-column>
-                <e-grid-column headerText="Tác Vụ" template="#ActionCoumnTemplate" width="100px"></e-grid-column>
+                <e-grid-column headerText="Loại" template="#TypeColumnTemplate" width="150px"></e-grid-column>
+                <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
@@ -23,14 +23,14 @@
     </div>
 </div>
 
-<script id="TypeCoumnTemplate" type="text/x-template">
+<script id="TypeColumnTemplate" type="text/x-template">
     ${if(Type=="Income")}
         <span class="badge bg-success">Thu nhập</span>
     ${else}
         <span class="badge bg-danger">Tiêu dùng</span>
     ${/if}
 </script>
-<script id="ActionCoumnTemplate" type="text/x-template">
+<script id="ActionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
         <a class="btn btn-sm no-a-decoration" href="/Category/AddorEdit/${CategoryId}">
             <i class="fa-solid fa-wand-magic"></i>
