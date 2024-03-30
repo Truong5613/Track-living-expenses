@@ -20,12 +20,14 @@
                 </div>
                 <div class="form-group">
                     <ejs-textbox id="Tên" placeholder="Tên" ejs-for="Name" floatLabelType="Always"></ejs-textbox>
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    
                 </div>
                 <div class="form-group">
-                    <ejs-textbox id="Icon" placeholder="Icon" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
-                </div>
-                
+                    <div class="emoji-textbox">
+                        <ejs-textbox  id="Icon" placeholder="Icon (Chọn 1 icon)" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>       
+                           <button class="btn1">😀</button>
+                    </div>
+                </div>       
                 <br />
                 <div class="form-group">
                     <ejs-button id="submit" type="submit" cssClass="e-success" content="Nhập"></ejs-button>
@@ -41,3 +43,31 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+    <script>
+        new EmojiPicker({
+            trigger: [
+                {
+                    insertInto: ['#Icon'],
+                    selector: '.btn1'
+                }
+                
+            ],
+            closeButton: true,
+            width: 350,
+            height: 370,
+            
+            animation: "fade",
+            animationDuration: "1s",
+            
+            disableSearch: false,
+            hiddenScrollBar: true,
+            emojiDim: {
+                emojiPerRow: 5,
+                emojiSize: 30,
+                emojiButtonHeight: 80,
+                hideCategory: true
+            },
+
+        })
+    </script>

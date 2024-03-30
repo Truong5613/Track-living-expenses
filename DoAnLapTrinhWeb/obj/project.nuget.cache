@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0pY7aUNObdoGGc7lSN0N2en12InAV+NPJTLAcERnA3Ee/OvmhC2f4rE0eJJ7jasw8ieGZXSPrgVzUxBDr5nC/g==",
+  "dgSpecHash": "QUnI7NOxEvkvu70wCrok58O1DExgmZRD3AHgpMEN5+DICI+15n444q15VGgd5W+o2oyUmI2YB9FTM46QBtwcUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoAnLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
+  "projectFilePath": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb Clonne\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrtru\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\mrtru\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

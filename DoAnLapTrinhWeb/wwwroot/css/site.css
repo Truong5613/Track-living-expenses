@@ -344,3 +344,23 @@ img.profile-pic {
     .widget.chart {
         padding: 5px;
     }
+/*Flex*/
+
+.emoji-textbox{
+    position:relative;
+}
+    .emoji-textbox button, .emoji-textbox button {
+        position: absolute;
+        bottom: 0%;
+        left: 90%;
+        background-color: Transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+    }
+.emoji-textbox button:hover{
+        cursor: pointer;
+        background-color: #48545f14;
+        transform: scale(1.1) translateZ(0px);
+    }
