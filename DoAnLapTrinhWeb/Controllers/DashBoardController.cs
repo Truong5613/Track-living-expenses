@@ -37,13 +37,22 @@ namespace DoAnLapTrinhWeb.Controllers
             ViewBag.Balance = String.Format(culture,"{0:C0}",Balance);
 
             //Doughtnut Chart - Expense By Category
-            ViewBag.DoughnutChartData = SelectedTransaction.Where(x => x.Category.Type == "Expense")
+            ViewBag.ExpenseDoughnutChartData = SelectedTransaction.Where(x => x.Category.Type == "Expense")
+                 .GroupBy(y => y.Category.CategoryId)
+                 .Select(z => new
+                 {
+                     CategoryTitleWithIcon = z.First().Category.Icon + " " + z.First().Category.Name,
+                     amount = z.Sum(n => n.Amount),
+                     FormattedAmount = z.Sum(n => n.Amount).ToString("C0"),
+                 }).OrderByDescending(m => m.amount).ToList();
+
+            ViewBag.IncomeDoughnutChartData = SelectedTransaction.Where(x => x.Category.Type == "Income")
                 .GroupBy(y => y.Category.CategoryId)
                 .Select(z => new
                 {
-                    CategorTitleWithIcon = z.First().Category.Icon + " " + z.First().Category.Name,
+                    CategoryTitleWithIcon = z.First().Category.Icon + " " + z.First().Category.Name,
                     amount = z.Sum(n => n.Amount),
-                    formattedamount = z.Sum(n => n.Amount).ToString("C0"),
+                    FormattedAmount = z.Sum(n => n.Amount).ToString("C0"),
                 }).OrderByDescending(m => m.amount).ToList();
 
             //spline chart - Income vs Expense

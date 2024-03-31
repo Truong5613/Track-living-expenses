@@ -43,20 +43,41 @@
     <div class="col-md-4">
         <div class="widget chart">
             <div class="p-4">
-                <h5 class="fw-bold">Bảng tiêu dùng theo thể loại</h5>
+                <div class='e-btn-group custom-rbt-group'>
+                    <input type="radio" id="radioleft" name="align" value="Expense" checked />
+                    <label class="e-btn" for="radioleft">Expense</label>
+                    <input type="radio" id="radiomiddle" name="align" value="Income" />
+                    <label class="e-btn" for="radiomiddle">Income</label>
+                </div>
+                <h5 class="fw-bold">Bảng tiêu dùng và thu nhập theo thể loại</h5>
             </div>
-            <ejs-accumulationchart id="doughnutchart" background="#1a222b">
+            <ejs-accumulationchart id="expenseDoughnutChart" background="#1a222b">
                 <e-accumulation-series-collection>
-                    <e-accumulation-series datasource="@ViewBag.DoughnutChartData"
-                                             xName="CategorTitleWithIcon" yName="amount"
+                    <e-accumulation-series datasource="@ViewBag.ExpenseDoughnutChartData"
+                                             xName="CategoryTitleWithIcon" yName="amount"
                     innerradius="50%">
-                         <e-accumulationseries-datalabel name="formattedamount" visible></e-accumulationseries-datalabel>
+                         <e-accumulationseries-datalabel name="FormattedAmount" visible></e-accumulationseries-datalabel>
                     </e-accumulation-series>   
                 </e-accumulation-series-collection>
                 <e-accumulationchart-center x="50%" y="50%"></e-accumulationchart-center>
                 <e-accumulationchart-tooltipsettings enable="true" format="<b>${point.x}</b><br>Tiền:${point.y}</b>" header=""></e-accumulationchart-tooltipsettings>
                 <e-accumulationchart-legendsettings position="Top" visible="true" toggleVisibility="false">
                     <e-legendsettings-textstyle color="#fff" size ="1rem"></e-legendsettings-textstyle>
+                </e-accumulationchart-legendsettings>
+            </ejs-accumulationchart>
+
+            <ejs-accumulationchart id="incomeDoughnutChart" background="#1a222b" style="display:none">
+                <e-accumulation-series-collection>
+                    <e-accumulation-series datasource="@ViewBag.IncomeDoughnutChartData"
+                                           xName="CategoryTitleWithIcon" yName="amount"
+                                           innerradius="50%">
+                        <e-accumulationseries-datalabel name="FormattedAmount" visible></e-accumulationseries-datalabel>
+                    </e-accumulation-series>
+                </e-accumulation-series-collection>
+                <e-accumulationchart-center x="50%" y="50%"></e-accumulationchart-center>
+                <e-accumulationchart-tooltipsettings enable="true" format="<b>${point.x}</b><br>Tiền:${point.y}</b>" header=""></e-accumulationchart-tooltipsettings>
+                <e-accumulationchart-legendsettings position="Top" visible="true" toggleVisibility="false">
+                    <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
                 </e-accumulationchart-legendsettings>
             </ejs-accumulationchart>
         </div>
@@ -120,3 +141,23 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var radioLeft = document.getElementById('radioleft');
+        var radioMiddle = document.getElementById('radiomiddle');
+        var expenseChart = document.getElementById('expenseDoughnutChart');
+        var incomeChart = document.getElementById('incomeDoughnutChart');
+        expenseChart.style.display = 'block';
+        incomeChart.style.display = 'none';
+
+        radioLeft.addEventListener('change', function () {
+            expenseChart.style.display = 'block';
+            incomeChart.style.display = 'none';
+        });
+
+        radioMiddle.addEventListener('change', function () {
+            expenseChart.style.display = 'none';
+            incomeChart.style.display = 'block';
+        });
+    });
+</script>
