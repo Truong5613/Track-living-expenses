@@ -13,11 +13,12 @@ namespace DoAnLapTrinhWeb.Controllers
             _context = context; 
         }
         
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int numberOfDays = 7)
         {
             //7days
-            DateTime StartDate = DateTime.Today.AddDays(-6);
+            DateTime StartDate = DateTime.Today.AddDays(-numberOfDays + 1);
             DateTime Endate = DateTime.Today;
+            @ViewBag.numberOfDays = numberOfDays;
 
             List<Transaction> SelectedTransaction = await _context.Transactions.Include(x=>x.Category)
                 .Where(y=>y.Date >= StartDate && y.Date <=Endate).ToListAsync();
@@ -73,7 +74,7 @@ namespace DoAnLapTrinhWeb.Controllers
                 }).ToList();
 
             //combine Income & Expense
-            string[] last7days = Enumerable.Range(0, 7).Select(x=>StartDate.AddDays(x).ToString("MM-dd"))
+            string[] last7days = Enumerable.Range(0,numberOfDays).Select(x=>StartDate.AddDays(x).ToString("MM-dd"))
                 .ToArray();
 
             ViewBag.SplineChartData = from day in last7days

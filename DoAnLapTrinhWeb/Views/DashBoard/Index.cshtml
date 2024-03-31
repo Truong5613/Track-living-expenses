@@ -85,7 +85,11 @@
     <div class="col-md-8">
         <div class="widget chart">
             <div class="p-4">
-                <h5 class="fw-bold">Đồ thị so sánh thu nhập với tiêu dùng (Trong 7 ngày)</h5>
+                <div class="form-group">
+                    <ejs-textbox id="numberOfDays" placeholder="Nhập số lượng ngày muốn hiện" width="250px" ></ejs-textbox>
+                    <ejs-button id="updateButton" cssClass="e-success" content="📆"></ejs-button>
+                </div>
+                <h5 class="fw-bold">Đồ thị so sánh thu nhập với tiêu dùng (Trong @ViewBag.numberOfDays ngày)</h5>
             </div>
             <ejs-chart id="spline-chart" background="#1a222b"
                        palettes="@(new string[]{"#ff1a1a","#0040ff"})">
@@ -159,5 +163,12 @@
             expenseChart.style.display = 'none';
             incomeChart.style.display = 'block';
         });
+    });
+</script>
+<script>
+    document.getElementById('updateButton').addEventListener('click', function () {
+        var numberOfDays = document.getElementById('numberOfDays').value;
+        // Perform validation if needed
+        window.location.href = '/Dashboard/Index?numberOfDays=' + numberOfDays;
     });
 </script>
