@@ -43,19 +43,19 @@
     <div class="col-md-4">
         <div class="widget chart">
             <div class="p-4">
+                <h5 class="fw-bold">Bảng tiêu dùng và thu nhập theo thể loại</h5>
                 <div class='e-btn-group custom-rbt-group'>
                     <input type="radio" id="radioleft" name="align" value="Expense" checked />
-                    <label class="e-btn" for="radioleft">Expense</label>
+                    <label class="e-btn" for="radioleft">Tiêu Dùng</label>
                     <input type="radio" id="radiomiddle" name="align" value="Income" />
-                    <label class="e-btn" for="radiomiddle">Income</label>
+                    <label class="e-btn" for="radiomiddle">Thu Nhập</label>
                 </div>
-                <h5 class="fw-bold">Bảng tiêu dùng và thu nhập theo thể loại</h5>
             </div>
-            <ejs-accumulationchart id="expenseDoughnutChart" background="#1a222b">
+            <ejs-accumulationchart id="expenseDoughnutChart" background="#1a222b"  >
                 <e-accumulation-series-collection>
                     <e-accumulation-series datasource="@ViewBag.ExpenseDoughnutChartData"
                                              xName="CategoryTitleWithIcon" yName="amount"
-                    innerradius="50%">
+                    innerradius="50%" >
                          <e-accumulationseries-datalabel name="FormattedAmount" visible></e-accumulationseries-datalabel>
                     </e-accumulation-series>   
                 </e-accumulation-series-collection>
@@ -86,6 +86,7 @@
         <div class="widget chart">
             <div class="p-4">
                 <h5 class="fw-bold">Đồ thị so sánh thu nhập với tiêu dùng (Trong 7 ngày)</h5>
+                <br />
             </div>
             <ejs-chart id="spline-chart" background="#1a222b"
                        palettes="@(new string[]{"#ff1a1a","#0040ff"})">

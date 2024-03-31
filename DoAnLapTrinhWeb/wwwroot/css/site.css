@@ -19,19 +19,20 @@ html {
 }
 
 body {
+    zoom : 90%;
     margin-bottom: 60px;
     background-color: #12161d;
     color: #fff;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .e-bigger {
     font-size: x-large;
-}
 
+}
+    
 .main-content {
     overflow-y: auto;
-    height: 92vh;
 }
 
 

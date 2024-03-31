@@ -30,8 +30,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Theo dõi thu nhập,chi tiêu</title>
-    @*Emojipicker?*@
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.js" rel="stylesheet" />
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -45,8 +43,8 @@
 <body class="e-bigger">
 	<script src="~/js/emoji.js"></script>
 	<script src="~/js/emoji.min.js"></script>
-    <ejs-sidebar id="sidebar" width="290px" enableDock dockSize="100px"
-                 target=".dock-target" enableGestures="false">
+    <ejs-sidebar id="sidebar" width="270px" enableDock="true" dockSize="100px"
+                 target=".dock-target" enableGestures="false" type="Auto">
         <e-content-template>
 
             <div class="logo-wrapper">
@@ -109,8 +107,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
     @Html.EJS().ScriptManager()
     <ejs-scripts></ejs-scripts>
@@ -124,5 +121,6 @@
             dockBar.toggle();
         };
     });
+
 
 </script>
