@@ -167,8 +167,11 @@
 </script>
 <script>
     document.getElementById('updateButton').addEventListener('click', function () {
-        var numberOfDays = document.getElementById('numberOfDays').value;
-        // Perform validation if needed
-        window.location.href = '/Dashboard/Index?numberOfDays=' + numberOfDays;
+        var numberOfDays = parseInt(document.getElementById('numberOfDays').value);
+        if (numberOfDays >= 0 && numberOfDays <= 60) {
+            window.location.href = '/Dashboard/Index?numberOfDays=' + numberOfDays;
+        } else {
+            alert('Xin bạn hãy chọn từ 0 đến 60 ngày !');
+        }
     });
 </script>

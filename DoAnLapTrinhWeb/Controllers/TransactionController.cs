@@ -52,6 +52,7 @@ namespace DoAnLapTrinhWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            PopulateCategories();
             return View(transaction);
         }
 
@@ -78,7 +79,7 @@ namespace DoAnLapTrinhWeb.Controllers
         {
             var categoryCollection = _context.Categories.ToList();
             Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" } ;
-               categoryCollection.Insert(0, defaultCategory);
+            categoryCollection.Insert(0, defaultCategory);
             ViewBag.Categories = categoryCollection;
         }
     }

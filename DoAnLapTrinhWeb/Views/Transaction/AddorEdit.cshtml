@@ -24,6 +24,7 @@
                         floatLabelType="Always" allowFiltering="true" ignoreAccent="true" filterType="Contains">
                         <e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"></e-dropdownlist-fields>
                     </ejs-dropdownlist>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <ejs-numerictextbox id="amount" ejs-for="Amount" floatLabelType="Always" placeholder="Số lượng" min=0 format="c0"></ejs-numerictextbox>
@@ -49,3 +50,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
