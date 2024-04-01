@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using DoAnLapTrinhWeb.Areas.Identity.Data
+@{
     List<Object> menuItems = new List<Object>();
     menuItems.Add(new
     {
@@ -23,7 +25,17 @@
         iconCss = "fa-solid fa-arrow-right-arrow-left",
         url = "/Transaction"
     });
+    menuItems.Add(new
+    {
+        text = "LogOut",
+        iconCss = "fa-solid fa-right-from-bracket",
+        url = "Identity/Account/Logout"
+    });
 }
+
+@inject SignInManager<AppliactionUser> SignInManager
+@inject UserManager<AppliactionUser> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,32 +55,40 @@
 <body class="e-bigger">
 	<script src="~/js/emoji.js"></script>
 	<script src="~/js/emoji.min.js"></script>
-    <ejs-sidebar id="sidebar" width="270px" enableDock="true" dockSize="100px"
-                 target=".dock-target" enableGestures="false" type="Auto">
-        <e-content-template>
+    @if (ViewData["isAccount"] == null)
+    {
+        @if (ViewData["isRegister"] == null)
+        {
+            <ejs-sidebar id="sidebar" width="290px" enableDock dockSize="100px"
+                         target=".dock-target" enableGestures="false">
+                <e-content-template>
 
-            <div class="logo-wrapper">
-                <div class="app-logo">
-                    <img src="~/images/logo.png" style="width:35px" />
-                </div>
-                <div class="w-100"></div>
-                <i id="sidebar-toggler" class="fa-solid"></i>
-            </div>
+                    <div class="logo-wrapper">
+                        <div class="app-logo">
+                            <img src="~/images/logo.png" style="width:35px" />
+                        </div>
+                        <div class="w-100"></div>
+                        <i id="sidebar-toggler" class="fa-solid"></i>
+                    </div>
 
-            <div class="profile-wrapper">
-                <img class="profile-pic" src="~/images/profile.png" />
-                <div class="titles d-flex flex-column ps-3">
-                    <h5 class="mb-0">Theo dõi chi tiêu</h5>
-                    <span class="text-muted">Mommy Kafka</span>
-                </div>
-            </div>
+                    <div class="profile-wrapper">
+                        <img class="profile-pic" src="~/images/profile.png" />
+                        <div class="titles d-flex flex-column ps-3">
+                            <h5 class="mb-0">Theo dõi chi tiêu</h5>
+                            <span class="text-muted">@UserManager.GetUserName(User)!</span>
+                        </div>
+                    </div>
 
-            <ejs-menu id="menu"
-                      items="menuItems"
-                      orientation="Vertical"
-                      hamburgerMode></ejs-menu>
-        </e-content-template>
-    </ejs-sidebar>
+                    <ejs-menu id="menu"
+                              items="menuItems"
+                              orientation="Vertical"
+                              hamburgerMode></ejs-menu>
+                </e-content-template>
+
+            </ejs-sidebar>
+        }
+
+    }
     <div class="main-content">
         <div class="container mt-5">
             <div class="row justify-content-center">
@@ -92,7 +112,13 @@
                                                 }
                                             </div>
                                         </div>
-                                        <ejs-breadcrumb id="breedcrumb" separatorTemplate="@Html.Raw("<span class='fa-solid fa-angle-right'></span>")"></ejs-breadcrumb>
+                                        @if (ViewData["isAccount"] == null)
+                                        {
+                                            @if (ViewData["isRegister"] == null)
+                                            {
+                                                <ejs-breadcrumb id="breedcrumb" separatorTemplate="@Html.Raw("<span class='fa-solid fa-angle-right'></span>")"></ejs-breadcrumb>
+                                            }
+                                        }
                                     </div>
                                 </div>
                             </div>

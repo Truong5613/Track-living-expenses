@@ -18,6 +18,9 @@ namespace DoAnLapTrinhWeb.Models
         [Column(TypeName = "nvarchar(10)")]
         public string Type { get; set; } = "Expense";
 
+        [Column(TypeName = "nvarchar(450)")]
+        public string? UserID { get; set; }
+
         [NotMapped]
         public string? TitleWithIcon
         {

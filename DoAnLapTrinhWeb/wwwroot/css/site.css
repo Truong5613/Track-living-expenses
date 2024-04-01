@@ -365,3 +365,35 @@ img.profile-pic {
         transform: scale(1.1) translateZ(0px);
     }
 
+
+/*tab navigation*/
+.login-logout-card .card-header {
+    padding: 0px 0px 12px 0px;
+    background-color: #12161d;
+}
+
+.login-logout-card ul.nav-tabs {
+    margin: 0px 0px -12px 0px;
+    background-color: #12161d;
+}
+
+.login-logout-card li.nav-item {
+    width: 50%;
+}
+
+.login-logout-card a.nav-link {
+    font-size: 1rem;
+    color: #495057;
+    text-align: center;
+    padding: 1rem;
+    background-color: #12161d;
+}
+
+.login-logout-card .card-body {
+    padding: 10px 20px;
+    background-color: #12161d;
+}
+
+.form-control {
+    background-color: #3f3030 
+}

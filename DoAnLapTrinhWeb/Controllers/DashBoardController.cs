@@ -1,34 +1,41 @@
 ﻿using System.Globalization;
+using DoAnLapTrinhWeb.Areas.Identity.Data;
 using DoAnLapTrinhWeb.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
+    [Authorize]
     public class DashBoardController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public DashBoardController(ApplicationDbContext context)
+        private readonly UserManager<AppliactionUser> _userManager;
+        public DashBoardController(ApplicationDbContext context, UserManager<AppliactionUser> userManager)
         {
-            _context = context; 
+            this._userManager = userManager;
+            _context = context;
         }
-        
+
         public async Task<ActionResult> Index(int numberOfDays = 7)
         {
+            ViewData["UserID"] = _userManager.GetUserId(this.User);
             //7days
             DateTime StartDate = DateTime.Today.AddDays(-numberOfDays + 1);
             DateTime Endate = DateTime.Today;
             @ViewBag.numberOfDays = numberOfDays;
 
             List<Transaction> SelectedTransaction = await _context.Transactions.Include(x=>x.Category)
-                .Where(y=>y.Date >= StartDate && y.Date <=Endate).ToListAsync();
+              .Where(y=>y.Date >= StartDate && y.Date <=Endate && y.UserID == _userManager.GetUserId(User)).ToListAsync();
 
             // Total Income
-            int TotalIncome = SelectedTransaction.Where(x => x.Category.Type == "Income").Sum(y => y.Amount);
+            int TotalIncome = SelectedTransaction.Where(x => x.Category.Type == "Income" && x.UserID == _userManager.GetUserId(User)).Sum(y => y.Amount);
             ViewBag.TotalIncome = TotalIncome.ToString("C0");
 
             // Total Expense
-            int TotalExpense = SelectedTransaction.Where(x => x.Category.Type == "Expense").Sum(y => y.Amount);
+            int TotalExpense = SelectedTransaction.Where(x => x.Category.Type == "Expense" && x.UserID == _userManager.GetUserId(User)).Sum(y => y.Amount);
             ViewBag.TotalExpense = TotalExpense.ToString("C0");
 
             // Balance
@@ -38,7 +45,7 @@ namespace DoAnLapTrinhWeb.Controllers
             ViewBag.Balance = String.Format(culture,"{0:C0}",Balance);
 
             //Doughtnut Chart - Expense By Category
-            ViewBag.ExpenseDoughnutChartData = SelectedTransaction.Where(x => x.Category.Type == "Expense")
+            ViewBag.ExpenseDoughnutChartData = SelectedTransaction.Where(x => x.Category.Type == "Expense" && x.UserID == _userManager.GetUserId(User))
                  .GroupBy(y => y.Category.CategoryId)
                  .Select(z => new
                  {
@@ -58,7 +65,7 @@ namespace DoAnLapTrinhWeb.Controllers
 
             //spline chart - Income vs Expense
             //income
-            List<SplineChartData> IncomeSummary = SelectedTransaction.Where(x => x.Category.Type == "Income").GroupBy(y => y.Date)
+            List<SplineChartData> IncomeSummary = SelectedTransaction.Where(x => x.Category.Type == "Income" && x.UserID == _userManager.GetUserId(User)).GroupBy(y => y.Date)
                 .Select(z => new SplineChartData()
                 {
                     day = z.First().Date.ToString("MM-dd"),
@@ -66,7 +73,7 @@ namespace DoAnLapTrinhWeb.Controllers
                 }).ToList();
 
             //expense
-            List<SplineChartData> ExpenseSummary = SelectedTransaction.Where(x => x.Category.Type == "Expense").GroupBy(y => y.Date)
+            List<SplineChartData> ExpenseSummary = SelectedTransaction.Where(x => x.Category.Type == "Expense" && x.UserID == _userManager.GetUserId(User)).GroupBy(y => y.Date)
                 .Select(z => new SplineChartData()
                 {
                     day = z.First().Date.ToString("MM-dd"),
@@ -89,7 +96,7 @@ namespace DoAnLapTrinhWeb.Controllers
                                           expense = expense == null ? 0 : expense.expense,
                                       };
             //Recent Transations 
-            ViewBag.RecentTransactions = await _context.Transactions.Include(i => i.Category).OrderByDescending(x => x.Date).Take(5).ToListAsync();
+            ViewBag.RecentTransactions = await _context.Transactions.Include(i => i.Category).OrderByDescending(x => x.Date).Take(5).Where( x => x.UserID == _userManager.GetUserId(User)).ToListAsync();
 
             return View();
         }

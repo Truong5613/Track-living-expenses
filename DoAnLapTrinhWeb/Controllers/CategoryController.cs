@@ -6,22 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnLapTrinhWeb.Models;
+using DoAnLapTrinhWeb.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public CategoryController(ApplicationDbContext context)
+        private readonly UserManager<AppliactionUser> _userManager;
+        public CategoryController(ApplicationDbContext context, UserManager<AppliactionUser> userManager)
         {
+            this._userManager = userManager;
             _context = context;
         }
 
         // GET: Category
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            ViewData["UserID"] = _userManager.GetUserId(this.User);
+            return View(await _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User)).ToListAsync());
         }
 
 
@@ -43,14 +47,17 @@ namespace DoAnLapTrinhWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(category.CategoryId == 0)
+                if (category.CategoryId == 0)
                 {
+                    category.UserID = _userManager.GetUserId(User);
                     _context.Add(category);
                 }
                 else
                 {
+                    category.UserID = _userManager.GetUserId(User);
                     _context.Update(category);
                 }
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

@@ -18,6 +18,8 @@ namespace DoAnLapTrinhWeb.Models
         
         public Category? Category { get; set; }
 
+        public string? UserID { get; set; }
+
         [NotMapped]
         public string? CategoryNameWithIcon {
             get

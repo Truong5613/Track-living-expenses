@@ -42,6 +42,9 @@ namespace DoAnLapTrinhWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
@@ -65,6 +68,9 @@ namespace DoAnLapTrinhWeb.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserID")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TransactionId");

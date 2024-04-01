@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoAnLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {}
+    "D:\\Web\\DoAn_LapTrinhWeb_CuoiKy\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoAnLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {
+    "D:\\Web\\DoAn_LapTrinhWeb_CuoiKy\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoAnLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
+        "projectUniqueName": "D:\\Web\\DoAn_LapTrinhWeb_CuoiKy\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
         "projectName": "DoAnLapTrinhWeb",
-        "projectPath": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoAnLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
-        "packagesPath": "C:\\Users\\mrtru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoAnLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\obj\\",
+        "projectPath": "D:\\Web\\DoAn_LapTrinhWeb_CuoiKy\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Web\\DoAn_LapTrinhWeb_CuoiKy\\DoAnLapTrinhWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mrtru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,6 +50,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.0-preview.2.24128.4, )"

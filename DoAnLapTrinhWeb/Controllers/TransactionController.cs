@@ -6,22 +6,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnLapTrinhWeb.Models;
+using DoAnLapTrinhWeb.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
     public class TransactionController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public TransactionController(ApplicationDbContext context)
+        private readonly UserManager<AppliactionUser> _userManager;
+        public TransactionController(ApplicationDbContext context, UserManager<AppliactionUser> userManager)
         {
+            this._userManager = userManager;
             _context = context;
         }
 
         // GET: Transaction
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Transactions.Include(t => t.Category);
+            var applicationDbContext = _context.Transactions.Where(x => x.UserID == _userManager.GetUserId(User)).Include(t => t.Category);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -43,15 +46,22 @@ namespace DoAnLapTrinhWeb.Controllers
             {
                 if (transaction.TransactionId == 0)
                 {
+                    transaction.UserID = _userManager.GetUserId(User);
                     _context.Add(transaction);
                 }
                 else
                 {
+                    transaction.UserID = _userManager.GetUserId(User);
                     _context.Update(transaction);
                 }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            foreach (var error in ModelState.Values)
+            {
+                Console.WriteLine(error.Errors.FirstOrDefault()?.ErrorMessage);
+            }
+            PopulateCategories();
             return View(transaction);
         }
 
@@ -76,7 +86,7 @@ namespace DoAnLapTrinhWeb.Controllers
         [NonAction]
         public void PopulateCategories()
         {
-            var categoryCollection = _context.Categories.ToList();
+            var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User)).ToList();
             Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" } ;
                categoryCollection.Insert(0, defaultCategory);
             ViewBag.Categories = categoryCollection;
