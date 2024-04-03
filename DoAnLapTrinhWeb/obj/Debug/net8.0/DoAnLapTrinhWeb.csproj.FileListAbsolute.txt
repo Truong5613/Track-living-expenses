@@ -2171,3 +2171,10 @@ D:\Web\DoAn_LapTrinhWeb_CuoiKy\DoAnLapTrinhWeb\obj\Debug\net8.0\refint\DoAnLapTr
 D:\Web\DoAn_LapTrinhWeb_CuoiKy\DoAnLapTrinhWeb\obj\Debug\net8.0\DoAnLapTrinhWeb.pdb
 D:\Web\DoAn_LapTrinhWeb_CuoiKy\DoAnLapTrinhWeb\obj\Debug\net8.0\DoAnLapTrinhWeb.genruntimeconfig.cache
 D:\Web\DoAn_LapTrinhWeb_CuoiKy\DoAnLapTrinhWeb\obj\Debug\net8.0\ref\DoAnLapTrinhWeb.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll

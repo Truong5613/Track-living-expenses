@@ -61,7 +61,7 @@
                 </e-accumulation-series-collection>
                 <e-accumulationchart-center x="50%" y="50%"></e-accumulationchart-center>
                 <e-accumulationchart-tooltipsettings enable="true" format="<b>${point.x}</b><br>Tiền:${point.y}</b>" header=""></e-accumulationchart-tooltipsettings>
-                <e-accumulationchart-legendsettings position="Top" visible="true" toggleVisibility="false">
+                <e-accumulationchart-legendsettings position="Top" visible="true">
                     <e-legendsettings-textstyle color="#fff" size ="1rem"></e-legendsettings-textstyle>
                 </e-accumulationchart-legendsettings>
             </ejs-accumulationchart>
@@ -76,7 +76,7 @@
                 </e-accumulation-series-collection>
                 <e-accumulationchart-center x="50%" y="50%"></e-accumulationchart-center>
                 <e-accumulationchart-tooltipsettings enable="true" format="<b>${point.x}</b><br>Tiền:${point.y}</b>" header=""></e-accumulationchart-tooltipsettings>
-                <e-accumulationchart-legendsettings position="Top" visible="true" toggleVisibility="false">
+                <e-accumulationchart-legendsettings position="Top" visible="true">
                     <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
                 </e-accumulationchart-legendsettings>
             </ejs-accumulationchart>
@@ -167,8 +167,11 @@
 </script>
 <script>
     document.getElementById('updateButton').addEventListener('click', function () {
-        var numberOfDays = document.getElementById('numberOfDays').value;
-        // Perform validation if needed
-        window.location.href = '/Dashboard/Index?numberOfDays=' + numberOfDays;
+        var numberOfDays = parseInt(document.getElementById('numberOfDays').value);
+        if (numberOfDays >= 0 && numberOfDays <= 60) {
+            window.location.href = '/Dashboard/Index?numberOfDays=' + numberOfDays;
+        } else {
+            alert('Xin hãy thêm từ 0 đến 60 ngày.');
+        }
     });
 </script>

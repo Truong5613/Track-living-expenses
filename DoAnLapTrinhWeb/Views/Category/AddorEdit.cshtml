@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <ejs-textbox id="Tên" placeholder="Tên" ejs-for="Name" floatLabelType="Always"></ejs-textbox>
-                    
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <div class="emoji-textbox">
@@ -28,6 +28,7 @@
                         <div class="col-md-12">
                             <ejs-textbox id="Icon" placeholder="Icon (Chọn 1 icon)" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
                                 <button class="btn1" style="top:25px;right:5px">😀</button>
+                                <span asp-validation-for="Icon" class="text-danger"></span>
                         </div>
 
                     </div>

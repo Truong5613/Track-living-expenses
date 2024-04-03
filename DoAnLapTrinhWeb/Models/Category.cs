@@ -12,7 +12,8 @@ namespace DoAnLapTrinhWeb.Models
         [Required(ErrorMessage ="Bắt buộc phải có tên")]
         public string Name { get; set; }
 
-        [Column(TypeName = "nvarchar(5)")] 
+        [Column(TypeName = "nvarchar(5)")]
+        [Required(ErrorMessage = "Bắt buộc phải có Icon")]
         public string Icon { get; set; } = "";
 
         [Column(TypeName = "nvarchar(10)")]
