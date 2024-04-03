@@ -26,7 +26,9 @@ body {
     color: #fff;
     overflow-y: scroll;
 }
-
+.e-content-animation {
+    transition: none !important;
+}
 .e-bigger {
     font-size: x-large;
 
