@@ -21,7 +21,7 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: url("/images/placeholder.jpg") no-repeat;
+     
         background-size: cover;
         background-position: center;
         overflow: hidden;
@@ -142,7 +142,7 @@
 </style>
 
 <form id="account" method="post">
-    <h1 style="color:black">Register</h1>
+    <h1 style="color:#0FFF50">Register</h1>
     <div class="input-box">
         <ejs-textbox ejs-for = "Input.FirstName"  type="text" placeholder="FirstName" required floatLabelType="Always"></ejs-textbox>
         <i class='bx bxs-user'></i>
@@ -163,10 +163,7 @@
         <ejs-textbox ejs-for="Input.ConfirmPassword" type="password" placeholder="ConfirmPassword" required floatLabelType="Always"></ejs-textbox>     
         <i class='bx bxs-lock-alt'></i>
     </div>
-    <div class="remember-forgot">
-        <label><input type="checkbox">Remember Me</label>
-        <a href="#">Forgot Password</a>
-    </div>
+    
     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
     @*<button type="submit" class="btn">Login</button>*@
     <div class="register-link">
@@ -176,9 +173,11 @@
 <script>
     function loadRandomBackground() {
         var images = [
-            "1202329.jpg",
-            "bg.jpg",
+            "1202329.webp",
+            "img.webp",
             "bonus_looping_gif.gif",
+            "wallpaperflare.com_wallpaper.webp",
+            "images1.webp",
         ];
         var randomIndex = Math.floor(Math.random() * images.length);
         var randomImage = images[randomIndex];

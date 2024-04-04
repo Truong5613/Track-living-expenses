@@ -144,7 +144,7 @@
 </style>
 
             <form id="account" method="post">
-            <h1 style="color: black">Login</h1>
+    <h1 style="color: #0FFF50">Login</h1>
             <div id="target" style="height: 1px;"></div>
             <div class="input-box">              
                 <ejs-textbox ejs-for="Input.Email" type="text" placeholder="Email" aria-required="true" floatLabelType="Always"></ejs-textbox>               
@@ -155,7 +155,7 @@
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="remember-forgot">
-            <label><input type="checkbox" style="color: black">>Remember Me</label>
+            <label><input type="checkbox" asp-for="Input.RememberMe" style="color: black"> Remember Me</label>
                 <a href="#">Forgot Password</a>
             </div>
             <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
@@ -166,9 +166,11 @@
 <script>
     function loadRandomBackground() {
         var images = [
-            "1202329.jpg",
-            "bg.jpg",
+            "1202329.webp",
+            "img.webp",
             "bonus_looping_gif.gif",
+            "wallpaperflare.com_wallpaper.webp",
+            "images1.webp",
         ];
         function setBackgroundImage() {
             var randomIndex = Math.floor(Math.random() * images.length);

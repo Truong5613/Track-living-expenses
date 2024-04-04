@@ -1,0 +1,33 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log out";
+}
+
+<header>
+    <h1>@ViewData["Title"]</h1>
+    
+    @{
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+    
+               
+                <button type="submit" class="nav-link btn btn-link text-dark btn btn-danger"> <b>Bạn có chắc muốn logout ! Nhấn vào đây</b></button>
+
+                <div class="tenor-gif-embed" data-postid="3877737402978315943" data-share-method="host" data-aspect-ratio="0.825" data-width="30%">
+                    <a href="https://tenor.com/view/quaso-ganyu-shoot-gif-3877737402978315943">Quaso Ganyu GIF</a> 
+                    from 
+                    <a href="https://tenor.com/search/quaso-gifs">Quaso GIFs </a>
+                </div> 
+                    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+                
+            </form>
+        }
+        else
+        {
+            <p>You have successfully logged out of the application.</p>
+        }
+    }
+</header>
