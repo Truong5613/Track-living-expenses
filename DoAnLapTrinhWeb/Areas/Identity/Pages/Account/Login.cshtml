@@ -21,7 +21,6 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: url("/images/placeholder.jpg") no-repeat;
         background-size: cover;
         background-position: center;
         overflow:hidden;
@@ -146,6 +145,7 @@
 
             <form id="account" method="post">
             <h1 style="color: black">Login</h1>
+            <div id="target" style="height: 1px;"></div>
             <div class="input-box">              
                 <ejs-textbox ejs-for="Input.Email" type="text" placeholder="Email" aria-required="true" floatLabelType="Always"></ejs-textbox>               
                 <i class='bx bxs-user'></i>
@@ -170,15 +170,29 @@
             "bg.jpg",
             "bonus_looping_gif.gif",
         ];
-        var randomIndex = Math.floor(Math.random() * images.length);
-        var randomImage = images[randomIndex];
-        document.body.style.backgroundImage = "url('/BackgroundImage/" + randomImage + "')";
-    }
+        function setBackgroundImage() {
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomImage = images[randomIndex];
+            document.body.style.backgroundImage = "url('/BackgroundImage/" + randomImage + "')";
+        }
+        function lazyLoadCallback(entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    setBackgroundImage();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
 
+        var observer = new IntersectionObserver(lazyLoadCallback, { root: null, threshold: 0.1 });
+
+        var target = document.querySelector('#target');
+        observer.observe(target);
+    }
     window.onload = loadRandomBackground;
 </script>
 
-
+    
 
 
 

@@ -19,8 +19,6 @@ html {
 }
 
 body {
-    transform: scale(0.9);
-    transform-origin: 0 0;
     margin-bottom: 60px;
     background-color: #12161d;
     color: #fff;
