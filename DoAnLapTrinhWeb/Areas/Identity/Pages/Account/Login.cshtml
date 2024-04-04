@@ -1,6 +1,6 @@
-﻿@page
+﻿
+@page
 @model LoginModel
-
 @{
     ViewData["Title"] = "Log in";
     ViewData["isAccount"] = true;
@@ -8,22 +8,213 @@
 
 }
 
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: url("https://get.wallhere.com/photo/1920x1080-px-antlers-artwork-deer-digital-art-forest-lake-mountains-sky-1411733.jpg") no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .wrapper {
+       
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, .2);
+        backdrop-filter: blur(9px);
+        color: #fff;
+        border-radius: 12px;
+        padding: 30px 40px;
+    }
+
+    .wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .wrapper .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box input {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 40px;
+        font-size: 16px;
+        color: #fff;
+        padding: 20px 45px 20px 20px;
+    }
+
+    .input-box input::placeholder {
+        color: #fff;
+    }
+
+    .input-box i {
+        position: absolute;
+        right: 20px;
+        top: 30%;
+        transform: translate(-50%);
+        font-size: 20px;
+    }
+
+    .wrapper .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14.5px;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        accent-color: #fff;
+        margin-right: 3px;
+    }
+
+    .remember-forgot a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+    .wrapper .btn {
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .wrapper .register-link {
+        font-size: 14.5px;
+        text-align: center;
+        margin: 20px 0 15px;
+    }
+
+    .register-link p a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .main-content{
+        overflow: hidden;
+    }
+
+
+    .register-link p a:hover {
+        text-decoration: underline;
+    }
+
+   
+  
+
+    .e-richtexteditor .e-rte-placeholder {
+        font-family: monospace;
+        color: red;
+    }
+
+    .input-box input::placeholder {
+        color: red !important; /* Sử dụng !important để đảm bảo quy tắc này có ưu tiên */
+    }
+
+</style>
+
+            <form id="account" method="post">
+            <h1 style="color: black">Login</h1>
+            <div class="input-box">              
+                <ejs-textbox ejs-for="Input.Email" type="text" placeholder="Email" aria-required="true" floatLabelType="Always"></ejs-textbox>               
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <ejs-textbox  ejs-for="Input.Password" type="password" placeholder="Password" aria-required="true" floatLabelType="Always"></ejs-textbox>                
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remember-forgot">
+            <label><input type="checkbox" style="color: black">>Remember Me</label>
+                <a href="#">Forgot Password</a>
+            </div>
+            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+            <div class="register-link">
+            <p>Dont have an account? <a href="/Identity/Account/Register">Register</a></p>
+            </div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
 <div class="row justify-content-center">
-    <div class="col-10">
+    <div class="col-md-10">
         <section>
             <form id="account" method="post">
                 <h2>Chào mừng trở lại!!</h2>
                 <hr />
+                
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                <div class="form-group">  
+                    <div>
+                        <label asp-for="Input.Email" class="form-label">Email</label>
+                    </div
+                    <div class="control-section">
+                        <div class="control_wrapper textbox-control-section">
+                           <ejs-textbox id="Input.Email" placeholder="name@example.com" ejs-for="Input.Email" floatLabelType="Always" aria-required="true"></ejs-textbox>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                <div>
+                        <label asp-for="Input.Password" class="form-label">Password</label>
+                </div
+                <div class="form-group">
+                   <div class="control-section">
+                        <div class="control_wrapper textbox-control-section">
+                           <ejs-textbox id="Input.Password" placeholder="password" ejs-for="Input.Password" floatLabelType="Always" aria-required="true"></ejs-textbox>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                    @*<input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
                     <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                   
                 </div>
                 <div class="checkbox mb-3">
                     <label asp-for="Input.RememberMe" class="form-label">
@@ -31,8 +222,9 @@
                         @Html.DisplayNameFor(m => m.Input.RememberMe)
                     </label>
                 </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                <div class="justify-content-center">
+                    @*<button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                     <ejs-button id="login-submit" type="submit" cssClass="e-success" content="Đăng nhập"></ejs-button>
                 </div>
                 <div>
                     <p>
@@ -43,13 +235,20 @@
                     </p>
                     @* <p>
                     <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p> *@
+                    </p> 
                 </div>
+               
             </form>
         </section>
     </div>
 
 </div>
+*@
+
+
+        
+    
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
