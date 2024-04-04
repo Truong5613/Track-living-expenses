@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NTLp5Rer1qtqjHBODjyLxCJ3Fm4mAAbS7eBSYQipdRs=",
+  "Hash": "u13cNgrvaVJ7+deaMMzT8YeiRTo8ZADkrfF6cgXijuI=",
   "Source": "DoAnLapTrinhWeb",
   "BasePath": "_content/DoAnLapTrinhWeb",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\BackgroundImage\\bg.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\BackgroundImage\\bonus_looping_gif.gif",
+      "SourceId": "DoAnLapTrinhWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\",
+      "BasePath": "_content/DoAnLapTrinhWeb",
+      "RelativePath": "BackgroundImage/bonus_looping_gif.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\BackgroundImage\\bonus_looping_gif.gif"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\BackgroundImage\\images.gif",
