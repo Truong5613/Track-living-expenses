@@ -5,9 +5,7 @@
     ViewData["Title"] = "Log in";
     ViewData["isAccount"] = true;
     Layout = "~/Areas/Identity/Pages/_ExpenseLayout.cshtml";
-
 }
-
 <style>
     * {
         margin: 0;
@@ -17,23 +15,26 @@
     }
 
     body {
+        transform: scale(1);
+        transform-origin: 0 0;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: url("https://get.wallhere.com/photo/1920x1080-px-antlers-artwork-deer-digital-art-forest-lake-mountains-sky-1411733.jpg") no-repeat;
+        background: url("/images/placeholder.jpg") no-repeat;
         background-size: cover;
         background-position: center;
     }
 
     .wrapper {
-       
+        box-sizing:border-box;
         background: transparent;
         border: 2px solid rgba(255, 255, 255, .2);
         backdrop-filter: blur(9px);
         color: #fff;
         border-radius: 12px;
         padding: 30px 40px;
+        width: 400px;
     }
 
     .wrapper h1 {
@@ -161,7 +162,19 @@
             <p>Dont have an account? <a href="/Identity/Account/Register">Register</a></p>
             </div>
         </form>
+<script>
+    function loadRandomBackground() {
+        var images = [
+            "1202329.jpg",
+            "bg.jpg",
+        ];
+        var randomIndex = Math.floor(Math.random() * images.length);
+        var randomImage = images[randomIndex];
+        document.body.style.backgroundImage = "url('/BackgroundImage/" + randomImage + "')";
+    }
 
+    window.onload = loadRandomBackground;
+</script>
 
 
 

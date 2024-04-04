@@ -57,8 +57,7 @@
     <link rel="stylesheet" href="~/DoAnLapTrinhWeb.styles.css" asp-append-version="true" />
     <script  src="https://cdn.syncfusion.com/ej2/25.1.35/dist/ej2.min.js"></script>
 </head>
-<body class="e-bigger" style="
-      overflow: hidden;>
+<body class="e-bigger">
 	<script src="~/js/emoji.js"></script>
 	<script src="~/js/emoji.min.js"></script>
     @if (ViewData["isAccount"] == null)
@@ -98,7 +97,7 @@
     <div class="main-content">
         <div class="container mt-5">
             <div class="row justify-content-center">
-                <div class="@(ViewData["isDashboard"] == null ? "col-md-10":"col-md-12")">
+                <div class="@(ViewData["isDashboard"] == null && ViewData["isAccount"] == null && ViewData["isRegister"] == null ? "col-md-10" : "col-md-12")">
                     <main role="main" class="pb-3">
                         @if (ViewData["isDashboard"] == null)
                         {
