@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HQutVI/m5MEIGQWeYhfrkapjMRN/Pitg8HTzVGGFCTrahl5y+59cTOf+xgpwMQIb/B7Mx1dwkaCWIEoc1f7hCg==",
+  "dgSpecHash": "qIQx/CKwW480LLvZJ79o6jlz8C9G1EVYQVL5e/WTsLYPmdE1eOUUuP5OgE6/+xJKo/HslkWS/7cBv0Z3YfeMzg==",
   "success": true,
   "projectFilePath": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
   "expectedPackageFiles": [
@@ -56,6 +56,7 @@
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.3\\microsoft.aspnetcore.authentication.google.8.0.3.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.3\\microsoft.aspnetcore.cryptography.internal.8.0.3.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.3\\microsoft.aspnetcore.cryptography.keyderivation.8.0.3.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\8.0.3\\microsoft.aspnetcore.identity.entityframeworkcore.8.0.3.nupkg.sha512",
