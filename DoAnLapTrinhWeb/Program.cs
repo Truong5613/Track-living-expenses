@@ -4,6 +4,9 @@ using DoAnLapTrinhWeb.Data;
 using Microsoft.AspNetCore.Identity;
 using DoAnLapTrinhWeb.Areas.Identity.Data;
 using System.Configuration;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.OAuth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +27,51 @@ builder.Services.AddAuthentication()
        IConfigurationSection googleAuthNSection = builder.Configuration.GetSection("Authentication:Google");
        options.ClientId = googleAuthNSection["ClientId"];
        options.ClientSecret = googleAuthNSection["ClientSecret"];
+       options.Events.OnRedirectToAuthorizationEndpoint = (context) =>
+       {
+           context.Response.Redirect(context.RedirectUri + "&prompt=select_account");
+           return Task.CompletedTask;
+       };
    });
+
+
+builder.Services.AddAuthentication().AddFacebook(options =>
+{
+    options.AppId = builder.Configuration["Authentication:Facebook:AppId"];
+    options.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
+ 
+
+    options.Events.OnRedirectToAuthorizationEndpoint = (context) =>
+    {
+        context.Response.Redirect(context.RedirectUri + "&auth_type=reauthenticate");
+        return Task.CompletedTask;
+    };
+});
+
+
+builder.Services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
+{
+    microsoftOptions.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
+    microsoftOptions.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+    microsoftOptions.Events = new OAuthEvents
+    {
+        OnRedirectToAuthorizationEndpoint = context =>
+        {
+            context.Response.Redirect(context.RedirectUri + "&prompt=select_account");
+            return Task.CompletedTask;
+        }
+    };
+});
+
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).
+AddCookie(options =>
+{
+    options.Cookie.Name = "Track_Living_Expense";
+    options.LoginPath = "/Identity/Account/Login";
+});
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealConnection")));
 
@@ -50,6 +97,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
