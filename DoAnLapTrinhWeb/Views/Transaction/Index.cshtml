@@ -9,12 +9,12 @@
 
 <div class="row">
     <div class="col-md-7">
-        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" gridLines="None" allowPaging="true" toolbar="@(new List<string>() {"Search" })" >
+        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true" toolbar="@(new List<string>() {"Search" })">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
                 <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
-                <e-grid-column headerText="Số Lượng" field="FormatAmount"></e-grid-column>
+                <e-grid-column headerText="Số Tiền" field="FormatAmount"></e-grid-column>
                <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>

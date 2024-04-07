@@ -12,6 +12,7 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
+        color: #0FFF50;
     }
 
     body {
@@ -137,30 +138,37 @@
         color: black;
     }
 
+    .input-box input::placeholder {
+        color: #0FFF50 !important; /* Sử dụng !important để đảm bảo quy tắc này có ưu tiên */
+    }
+
+    input:focus + label {
+        color: #0FFF50;
+    }
    
 
 </style>
-
+<div id="target" style="height: 1px;"></div>
 <form id="account" method="post">
     <h1 style="color:#0FFF50">Register</h1>
     <div class="input-box">
-        <ejs-textbox ejs-for = "Input.FirstName"  type="text" placeholder="FirstName" required floatLabelType="Always"></ejs-textbox>
+        <ejs-textbox ejs-for = "Input.FirstName"  type="text" placeholder="FirstName" required ></ejs-textbox>
         <i class='bx bxs-user'></i>
     </div>
     <div class="input-box">
-        <ejs-textbox ejs-for="Input.LastName" type="text" placeholder="LastName" required floatLabelType="Always"></ejs-textbox>       
+        <ejs-textbox ejs-for="Input.LastName" type="text" placeholder="LastName" required></ejs-textbox>
         <i class='bx bxs-user'></i>
     </div>
     <div class="input-box">
-        <ejs-textbox ejs-for="Input.Email" type="Email" placeholder="Email" required floatLabelType="Always"></ejs-textbox>     
+        <ejs-textbox ejs-for="Input.Email" type="Email" placeholder="Email" required></ejs-textbox>
         <i class='bx bxs-user'></i>
     </div>
     <div class="input-box">
-        <ejs-textbox ejs-for="Input.Password" type="password" placeholder="Password" required floatLabelType="Always"></ejs-textbox>
+        <ejs-textbox ejs-for="Input.Password" type="password" placeholder="Password" required></ejs-textbox>
         <i class='bx bxs-lock-alt'></i>
     </div>
     <div class="input-box">
-        <ejs-textbox ejs-for="Input.ConfirmPassword" type="password" placeholder="ConfirmPassword" required floatLabelType="Always"></ejs-textbox>     
+        <ejs-textbox ejs-for="Input.ConfirmPassword" type="password" placeholder="ConfirmPassword" required></ejs-textbox>     
         <i class='bx bxs-lock-alt'></i>
     </div>
     
@@ -179,11 +187,25 @@
             "wallpaperflare.com_wallpaper.webp",
             "images1.webp",
         ];
-        var randomIndex = Math.floor(Math.random() * images.length);
-        var randomImage = images[randomIndex];
-        document.body.style.backgroundImage = "url('/BackgroundImage/" + randomImage + "')";
-    }
+        function setBackgroundImage() {
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomImage = images[randomIndex];
+            document.body.style.backgroundImage = "url('/BackgroundImage/" + randomImage + "')";
+        }
+        function lazyLoadCallback(entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    setBackgroundImage();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
 
+        var observer = new IntersectionObserver(lazyLoadCallback, { root: null, threshold: 0.1 });
+
+        var target = document.querySelector('#target');
+        observer.observe(target);
+    }
     window.onload = loadRandomBackground;
 </script>
 

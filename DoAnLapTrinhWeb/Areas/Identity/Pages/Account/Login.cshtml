@@ -12,8 +12,8 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
+        color: #0FFF50;
     }
-
     body {
         transform: scale(1);
         transform-origin: 0 0;
@@ -124,6 +124,11 @@
         overflow: hidden;
     }
 
+    /* To specify font size and color */
+    .e-float-input.e-control-wrapper:not(.e-error) input:valid ~ label.e-float-text, .e-float-input.e-control-wrapper:not(.e-error) input ~ label.e-label-top.e-float-text {
+        color: pink;
+        font-size: 15px;
+    }
 
     .register-link p a:hover {
         text-decoration: underline;
@@ -138,25 +143,27 @@
     }
 
     .input-box input::placeholder {
-        color: red !important; /* Sử dụng !important để đảm bảo quy tắc này có ưu tiên */
+        color: #0FFF50 !important; /* Sử dụng !important để đảm bảo quy tắc này có ưu tiên */
     }
 
+    input:focus + label {
+        color: #0FFF50;
+    }
 </style>
-
+<div id="target" style="height: 1px;"></div>
             <form id="account" method="post">
     <h1 style="color: #0FFF50">Login</h1>
-            <div id="target" style="height: 1px;"></div>
-            <div class="input-box">              
-                <ejs-textbox ejs-for="Input.Email" type="text" placeholder="Email" aria-required="true" floatLabelType="Always"></ejs-textbox>               
-                <i class='bx bxs-user'></i>
+                <div class="input-box">
+        <ejs-textbox ejs-for="Input.Email" type="text" placeholder="Email" aria-required="true" ShowClearButton=false></ejs-textbox>
+        <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <ejs-textbox  ejs-for="Input.Password" type="password" placeholder="Password" aria-required="true" floatLabelType="Always"></ejs-textbox>                
-                <i class='bx bxs-lock-alt'></i>
+        <ejs-textbox ejs-for="Input.Password" type="password" placeholder="Password" aria-required="true"  ShowClearButton=false></ejs-textbox>
+        <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="remember-forgot">
             <label><input type="checkbox" asp-for="Input.RememberMe" style="color: black"> Remember Me</label>
-                <a href="#">Forgot Password</a>
+        <a href="#" style="color: #0FFF50">Forgot Password</a>
             </div>
             <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
             <div class="register-link">

@@ -15,17 +15,29 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" name="TransactionId" value="@Model.TransactionId" />
                 <div class="mb-3">
+                    <div class='e-btn-group custom-rbt-group'>
+                        <input type="radio" id="radioIncome" name="Type" value="Income" onclick="toggleDropdown('income')" checked />
+                        <label class="e-btn" for="radioIncome">Thu Nhập</label>
+                        <input type="radio" id="radioExpense" name="Type" value="Expense" onclick="toggleDropdown('expense')" />
+                        <label class="e-btn" for="radioExpense">Tiêu Dùng</label>
+                    </div>
                     <ejs-datepicker id="date" ejs-for="Date" placeholder="Ngày" floatLabelType="Always"
                                     format="MM-dd-yyyy"></ejs-datepicker>
                     <span asp-validation-for="Date" class="text-danger"></span>
                 </div>
-                <div class="mb-3">
-                    <ejs-dropdownlist id="ddlCategoryId" placeholder="Danh mục" dataSource="@ViewBag.Categories" ejs-for="CategoryId"
-                        floatLabelType="Always" allowFiltering="true" ignoreAccent="true" filterType="Contains">
+                <div id="incomeCategoriesDropdown" class="mb-3">
+                    <ejs-dropdownlist id="ddlIncomeCategoryId" placeholder="Categories Thu Nhập" dataSource="@ViewBag.IncomeCategories" ejs-for="CategoryId"
+                                      floatLabelType="Auto" allowFiltering="true" ignoreAccent="true" filterType="Contains">
                         <e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"></e-dropdownlist-fields>
                     </ejs-dropdownlist>
                     <span asp-validation-for="CategoryId" class="text-danger"></span>
-
+                </div>
+                <div id="expenseCategoriesDropdown" class="mb-3" style="display: none;">
+                    <ejs-dropdownlist id="ddlExpenseCategoryId" placeholder="Categories Tiêu Dùng" dataSource="@ViewBag.ExpenseCategories" ejs-for="CategoryId"
+                                      floatLabelType="Auto" allowFiltering="true" ignoreAccent="true" filterType="Contains">
+                        <e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"></e-dropdownlist-fields>
+                    </ejs-dropdownlist>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <ejs-numerictextbox id="amount" ejs-for="Amount" floatLabelType="Always" placeholder="Số lượng" min=0 format="c0"></ejs-numerictextbox>
@@ -46,8 +58,33 @@
             <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
         </div>
 </div>
-    
+</div>
 
-@section Scripts {
+    <script>
+        function toggleDropdown(type) {
+            var incomeDropdown = document.getElementById('incomeCategoriesDropdown');
+            var expenseDropdown = document.getElementById('expenseCategoriesDropdown');
+
+            // Reset the value of the opposite dropdown to the value at index 0
+            var oppositeDropdown = type === 'income' ? expenseDropdown : incomeDropdown;
+            var oppositeDropdownId = type === 'income' ? 'ddlExpenseCategoryId' : 'ddlIncomeCategoryId';
+
+            // Set the dropdown value to the value at index 0
+            document.getElementById(oppositeDropdownId).ej2_instances[0].value = null;
+
+            incomeDropdown.style.display = 'block';
+            expenseDropdown.style.display = 'none';
+
+            if (type === 'income') {
+                incomeDropdown.style.display = 'block';
+                expenseDropdown.style.display = 'none';
+            } else if (type === 'expense') {
+                incomeDropdown.style.display = 'none';
+                expenseDropdown.style.display = 'block';
+            }
+        }
+    </script>
+
+    @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
