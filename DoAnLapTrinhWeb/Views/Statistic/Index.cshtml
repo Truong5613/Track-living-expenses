@@ -8,7 +8,8 @@
 <h3>Thu Nhập</h3>
 <div class="row">
     <div class="col-md-7">
-        <ejs-grid id="income-transactions" dataSource="@Model.IncomeTransactions" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true">
+        <div class="widget h-100 align-items-center " style="background-color:#212b36">
+            <ejs-grid class=" h-100 " id="income-transactions" dataSource="@Model.IncomeTransactions" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
@@ -17,6 +18,7 @@
                 <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
+    </div>
     </div>
     <div class="col-md-5">
         <div class="widget h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded" style="background-color:#212b36">
@@ -53,7 +55,8 @@
 <h3>Tiêu Dùng</h3>
 <div class="row mt-4">
     <div class="col-md-7">
-        <ejs-grid id="expense-transactions" dataSource="@Model.ExpenseTransactions" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true">
+        <div class="widget h-100 align-items-center " style="background-color:#212b36">
+            <ejs-grid class=" h-100 " id="expense-transactions" dataSource="@Model.ExpenseTransactions" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
@@ -62,6 +65,7 @@
                 <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
+    </div>
     </div>
     <div class="col-md-5">
         <div class="widget h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded" style="background-color:#212b36">
