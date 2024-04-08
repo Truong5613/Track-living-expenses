@@ -149,6 +149,13 @@
     input:focus + label {
         color: #0FFF50;
     }
+
+    .external
+    {
+        border-radius: 30px;
+    }
+
+
 </style>
 <div id="target" style="height: 1px;"></div>
             <form id="account" method="post">
@@ -173,7 +180,9 @@
 <div class="col-md-12 justify-content-xl-center">
     <section class="justify-content-center">      
         <hr />
-        <h5>Use another service to log in.</h5>
+        <h5 style="text-align: center;">
+            Đăng nhập khác !
+        </h5>
         
         @{
             if ((Model.ExternalLogins?.Count ?? 0) == 0)
@@ -192,10 +201,42 @@
                 <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
                     <div>
                         <p>
-                            @foreach (var provider in Model.ExternalLogins!)
-                            {
-                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                            }
+                            <div class="flex flex-col gap-100" style=" display: flex; flex-direction: column; justify-content: space-evenly; gap: 10px; ">
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {               
+                               
+                                        @if ( provider.Name == "Google")
+                                        {
+                                        
+                                                <button type="submit" name="provider" value="@provider.Name" class=" external px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500  hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+                                                    <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" width="10%" loading="lazy" alt="google logo">
+                                                    <span style="color: black">Login with Google</span>
+                                                </button>
+                                      
+                                        }
+                                        @*<button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">c</button>*@
+                                        
+                                        @if (provider.Name == "Facebook")
+                                        {
+
+                                        <button type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" class=" external px-4 py-2 border border-radius: 40px flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500  hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+                                                    <img class="w-6 h-6" src="https://www.svgrepo.com/show/303114/facebook-3-logo.svg" width="10%" loading="lazy" alt="google logo">
+                                                    <span style="color: black">Login with Facebook</span>
+                                                </button>
+                                        
+                                        }
+                                        
+                                        @if (provider.Name == "Microsoft")
+                                        {
+
+                                        <button type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" class=" external px-4 py-2 border border-radius: 40px flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500  hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+                                                    <img class="w-6 h-6" src="https://www.svgrepo.com/show/452062/microsoft.svg" width="10%" loading="lazy" alt="google logo">
+                                                    <span style="color: black">Login with Microsoft</span>
+                                                </button>
+                                   
+                                        }
+                                }
+                            </div>
                         </p>
                     </div>
                 </form>
