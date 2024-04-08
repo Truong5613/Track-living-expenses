@@ -122,6 +122,13 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
+                if(!result.Succeeded)
+                {
+                    
+                    ModelState.AddModelError(string.Empty, "Tài khoản, Mật khẩu của bạn không đúng hoặc tài khoản của bạn không tồn tại.");
+                    return Page();
+                }
+
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });

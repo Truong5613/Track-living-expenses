@@ -1,10 +1,11 @@
-﻿
-@page
+﻿@page
 @model LoginModel
 @{
     ViewData["Title"] = "Log in";
     ViewData["isAccount"] = true;
     Layout = "~/Areas/Identity/Pages/_ExpenseLayout.cshtml";
+    var hasError = !ViewData.ModelState.IsValid;
+    var errorMessage = hasError ? ViewData.ModelState[string.Empty].Errors[0].ErrorMessage : string.Empty;
 }
 <style>
     * {
@@ -14,6 +15,7 @@
         font-family: "Poppins", sans-serif;
         color: #0FFF50;
     }
+
     body {
         transform: scale(1);
         transform-origin: 0 0;
@@ -23,11 +25,11 @@
         min-height: 100vh;
         background-size: cover;
         background-position: center;
-        overflow:hidden;
+        overflow: hidden;
     }
 
     .wrapper {
-        box-sizing:border-box;
+        box-sizing: border-box;
         background: transparent;
         border: 2px solid rgba(255, 255, 255, .2);
         backdrop-filter: blur(9px);
@@ -37,17 +39,17 @@
         width: 400px;
     }
 
-    .wrapper h1 {
-        font-size: 36px;
-        text-align: center;
-    }
+        .wrapper h1 {
+            font-size: 36px;
+            text-align: center;
+        }
 
-    .wrapper .input-box {
-        position: relative;
-        width: 100%;
-        height: 50px;
-        margin: 30px 0;
-    }
+        .wrapper .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+        }
 
     .input-box input {
         width: 100%;
@@ -62,9 +64,9 @@
         padding: 20px 45px 20px 20px;
     }
 
-    .input-box input::placeholder {
-        color: #fff;
-    }
+        .input-box input::placeholder {
+            color: #fff;
+        }
 
     .input-box i {
         position: absolute;
@@ -120,7 +122,8 @@
         text-decoration: none;
         font-weight: 600;
     }
-    .main-content{
+
+    .main-content {
         overflow: hidden;
     }
 
@@ -134,8 +137,8 @@
         text-decoration: underline;
     }
 
-   
-  
+
+
 
     .e-richtexteditor .e-rte-placeholder {
         font-family: monospace;
@@ -150,40 +153,58 @@
         color: #0FFF50;
     }
 
-    .external
-    {
+    .external {
         border-radius: 30px;
     }
 
 
+   
+
+
+
+
 </style>
+
+
+
+
 <div id="target" style="height: 1px;"></div>
-            <form id="account" method="post">
-    <h1 style="color: #0FFF50">Login</h1>
-                <div class="input-box">
-        <ejs-textbox ejs-for="Input.Email" type="text" placeholder="Email" aria-required="true" ShowClearButton=false></ejs-textbox>
-        <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box">
-        <ejs-textbox ejs-for="Input.Password" type="password" placeholder="Password" aria-required="true"  ShowClearButton=false></ejs-textbox>
-        <i class='bx bxs-lock-alt'></i>
-            </div>
-            <div class="remember-forgot">
+    <form id="account" method="post">
+        <h1 style="color: #0FFF50">Login</h1>
+        <div class="input-box">
+            <ejs-textbox ejs-for="Input.Email" type="text" placeholder="Email" aria-required="true" ShowClearButton=false></ejs-textbox>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <ejs-textbox ejs-for="Input.Password" type="password" placeholder="Password" aria-required="true" ShowClearButton=false></ejs-textbox>
+            <i class='bx bxs-lock-alt'></i>          
+        </div>
+        <div class="remember-forgot">
             <label><input type="checkbox" asp-for="Input.RememberMe" style="color: black"> Remember Me</label>
-        <a href="#" style="color: #0FFF50">Forgot Password</a>
+            <a href="#" style="color: #0FFF50">Forgot Password</a>
+        </div>
+        
+        @if (hasError)
+        {
+            <div class="alert alert-danger">
+                @errorMessage
             </div>
-            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-            <div class="register-link">
+        }
+        
+        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+        <div class="register-link">
             <p>Dont have an account? <a href="/Identity/Account/Register">Register</a></p>
-            </div>
-        </form>
+        </div>
+    </form>
+
+
 <div class="col-md-12 justify-content-xl-center">
-    <section class="justify-content-center">      
+    <section class="justify-content-center">
         <hr />
         <h5 style="text-align: center;">
             Đăng nhập khác !
         </h5>
-        
+
         @{
             if ((Model.ExternalLogins?.Count ?? 0) == 0)
             {
@@ -203,38 +224,38 @@
                         <p>
                             <div class="flex flex-col gap-100" style=" display: flex; flex-direction: column; justify-content: space-evenly; gap: 10px; ">
                                 @foreach (var provider in Model.ExternalLogins!)
-                                {               
-                               
-                                        @if ( provider.Name == "Google")
-                                        {
-                                        
-                                                <button type="submit" name="provider" value="@provider.Name" class=" external px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500  hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
-                                                    <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" width="10%" loading="lazy" alt="google logo">
-                                                    <span style="color: black">Login with Google</span>
-                                                </button>
-                                      
-                                        }
-                                        @*<button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">c</button>*@
-                                        
-                                        @if (provider.Name == "Facebook")
-                                        {
+                                {
+
+                                    @if (provider.Name == "Google")
+                                    {
+
+                                        <button type="submit" name="provider" value="@provider.Name" class=" external px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500  hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+                                            <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" width="10%" loading="lazy" alt="google logo">
+                                            <span style="color: black">Login with Google</span>
+                                        </button>
+
+                                    }
+                                    @*<button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">c</button>*@
+
+                                    @if (provider.Name == "Facebook")
+                                    {
 
                                         <button type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" class=" external px-4 py-2 border border-radius: 40px flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500  hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
-                                                    <img class="w-6 h-6" src="https://www.svgrepo.com/show/303114/facebook-3-logo.svg" width="10%" loading="lazy" alt="google logo">
-                                                    <span style="color: black">Login with Facebook</span>
-                                                </button>
-                                        
-                                        }
-                                        
-                                        @if (provider.Name == "Microsoft")
-                                        {
+                                            <img class="w-6 h-6" src="https://www.svgrepo.com/show/303114/facebook-3-logo.svg" width="10%" loading="lazy" alt="google logo">
+                                            <span style="color: black">Login with Facebook</span>
+                                        </button>
+
+                                    }
+
+                                    @if (provider.Name == "Microsoft")
+                                    {
 
                                         <button type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" class=" external px-4 py-2 border border-radius: 40px flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500  hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
-                                                    <img class="w-6 h-6" src="https://www.svgrepo.com/show/452062/microsoft.svg" width="10%" loading="lazy" alt="google logo">
-                                                    <span style="color: black">Login with Microsoft</span>
-                                                </button>
-                                   
-                                        }
+                                            <img class="w-6 h-6" src="https://www.svgrepo.com/show/452062/microsoft.svg" width="10%" loading="lazy" alt="google logo">
+                                            <span style="color: black">Login with Microsoft</span>
+                                        </button>
+
+                                    }
                                 }
                             </div>
                         </p>
@@ -285,9 +306,11 @@
         observer.observe(target);
     }
     window.onload = loadRandomBackground;
+
+
 </script>
 
-    
+
 
 
 
@@ -313,9 +336,9 @@
             <form id="account" method="post">
                 <h2>Chào mừng trở lại!!</h2>
                 <hr />
-                
+
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-group">  
+                <div class="form-group">
                     <div>
                         <label asp-for="Input.Email" class="form-label">Email</label>
                     </div
@@ -335,10 +358,10 @@
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
                     </div>
-                    
+
                     @*<input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
                     <label asp-for="Input.Password" class="form-label">Password</label>
-                   
+
                 </div>
                 <div class="checkbox mb-3">
                     <label asp-for="Input.RememberMe" class="form-label">
@@ -359,9 +382,9 @@
                     </p>
                     @* <p>
                     <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p> 
+                    </p>
                 </div>
-               
+
             </form>
         </section>
     </div>
@@ -370,8 +393,8 @@
 *@
 
 
-        
-    
+
+
 
 
 @section Scripts {

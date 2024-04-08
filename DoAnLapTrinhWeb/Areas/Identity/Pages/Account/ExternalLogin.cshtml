@@ -1,21 +1,21 @@
 ﻿@page
 @model ExternalLoginModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Đăng ký";
+    ViewData["isAccount"] = true;
 }
 
 <h1>@ViewData["Title"]</h1>
-<h2 id="external-login-title">Associate your @Model.ProviderDisplayName account.</h2>
+<h2 id="external-login-title">  @Model.ProviderDisplayName account.</h2>
 <hr />
 
 <p id="external-login-description" class="text-info">
-    You've successfully authenticated with <strong>@Model.ProviderDisplayName</strong>.
-    Please enter an email address for this site below and click the Register button to finish
-    logging in.
+    Bạn đăng thành công đăng nhập bằng tài khoản <strong>@Model.ProviderDisplayName</strong>.
+    Hãy điền thông tin cần thiệt đề hoàn tất đăng ký tài khoản.
 </p>
 
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-4 gap-md-5">
         <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="input-box">
@@ -30,7 +30,7 @@
                 <ejs-textbox ejs-for="Input.Email" type="Email" placeholder="Email" required floatLabelType="Always" readonly></ejs-textbox>
                 <i class='bx bxs-user'></i>
             </div>
-            <button type="submit" class="w-100 btn btn-lg btn-success">Register</button>
+            <button type="submit" class="w-100 btn btn-lg btn-success">Đăng ký</button>
         </form>
     </div>
 </div>
