@@ -32,6 +32,8 @@ namespace DoAnLapTrinhWeb.Controllers
         public IActionResult AddorEdit(int id=0)
         {
             PopulateCategories();
+            PopulateIncome();
+            PopulateExpense();
             if (id == 0)
                 return View(new Transaction());
             else
@@ -62,6 +64,9 @@ namespace DoAnLapTrinhWeb.Controllers
                 Console.WriteLine(error.Errors.FirstOrDefault()?.ErrorMessage);
             }
             PopulateCategories();
+            PopulateExpense();
+            PopulateIncome();
+
             return View(transaction);
         }
 
@@ -90,6 +95,20 @@ namespace DoAnLapTrinhWeb.Controllers
             Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" } ;
                categoryCollection.Insert(0, defaultCategory);
             ViewBag.Categories = categoryCollection;
+        }
+        public void PopulateIncome()
+        {
+            var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User) && x.Type=="Income").ToList();
+            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" };
+            categoryCollection.Insert(0, defaultCategory);
+            ViewBag.IncomeCategories = categoryCollection;
+        }
+        public void PopulateExpense()
+        {
+            var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User) && x.Type == "Expense").ToList();
+            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" };
+            categoryCollection.Insert(0, defaultCategory);
+            ViewBag.ExpenseCategories = categoryCollection;
         }
     }
 }
