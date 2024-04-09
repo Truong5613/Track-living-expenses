@@ -20,5 +20,9 @@ namespace DoAnLapTrinhWeb.Models
 
         [Required]
         public DateTime EndDate { get; set; }
+
+        public int TransactionId { get; set; }
+        public Transaction? transaction { get; set; }
+        
     }
 }

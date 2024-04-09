@@ -22,10 +22,7 @@ namespace DoAnLapTrinhWeb.Models
         
         public Category? Category { get; set; }
 
-        public int? BudgetId { get; set; }
-
-        public Budget? Budget { get; set; }
-
+        
         public string? UserID { get; set; }
 
         [NotMapped]

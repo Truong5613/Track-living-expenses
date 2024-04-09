@@ -13,5 +13,6 @@ namespace DoAnLapTrinhWeb.Models
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Budget> Budgets { get; set; }
+
     }
 }
