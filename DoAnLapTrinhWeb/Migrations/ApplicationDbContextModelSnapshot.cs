@@ -33,14 +33,14 @@ namespace DoAnLapTrinhWeb.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("TransactionId")
-                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -48,7 +48,7 @@ namespace DoAnLapTrinhWeb.Migrations
 
                     b.HasKey("BudgetId");
 
-                    b.HasIndex("TransactionId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Budgets");
                 });
@@ -113,13 +113,13 @@ namespace DoAnLapTrinhWeb.Migrations
 
             modelBuilder.Entity("DoAnLapTrinhWeb.Models.Budget", b =>
                 {
-                    b.HasOne("DoAnLapTrinhWeb.Models.Transaction", "transaction")
+                    b.HasOne("DoAnLapTrinhWeb.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("TransactionId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("transaction");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("DoAnLapTrinhWeb.Models.Transaction", b =>

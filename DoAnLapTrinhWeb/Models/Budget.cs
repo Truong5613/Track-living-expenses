@@ -21,8 +21,16 @@ namespace DoAnLapTrinhWeb.Models
         [Required]
         public DateTime EndDate { get; set; }
 
-        public int TransactionId { get; set; }
-        public Transaction? transaction { get; set; }
-        
+        public int CategoryId { get; set; }
+        public Category? Category { get; set; }
+
+        [NotMapped]
+        public string? CategoryNameWithIcon
+        {
+            get
+            {
+                return Category == null ? "" : Category.Icon + " " + Category.Name;
+            }
+        }
     }
 }

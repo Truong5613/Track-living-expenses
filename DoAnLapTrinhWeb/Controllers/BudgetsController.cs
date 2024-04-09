@@ -6,122 +6,66 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnLapTrinhWeb.Models;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
+using DoAnLapTrinhWeb.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
     public class BudgetsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public BudgetsController(ApplicationDbContext context)
+        private readonly UserManager<AppliactionUser> _userManager;
+        public BudgetsController(ApplicationDbContext context, UserManager<AppliactionUser> userManager)
         {
             _context = context;
+            this._userManager = userManager;
         }
 
-        // GET: Budgets
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Budgets.Include(b => b.transaction);
+            var applicationDbContext = _context.Budgets.Where(x => x.UserId == _userManager.GetUserId(User)).Include(b => b.Category);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Budgets/Details/5
-        public async Task<IActionResult> Details(int? id)
+
+        public IActionResult AddorEdit(int id=0)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var budget = await _context.Budgets
-                .Include(b => b.transaction)
-                .FirstOrDefaultAsync(m => m.BudgetId == id);
-            if (budget == null)
-            {
-                return NotFound();
-            }
-
-            return View(budget);
+            PopulateCategories();
+            if (id == 0)
+                return View(new Budget());
+            else
+                return View(_context.Budgets.Find(id));
         }
 
-        // GET: Budgets/Create
-        public IActionResult Create()
-        {
-            ViewData["TransactionId"] = new SelectList(_context.Transactions, "TransactionId", "TransactionId");
-            return View();
-        }
-
-        // POST: Budgets/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BudgetId,UserId,Amount,StartDate,EndDate,TransactionId")] Budget budget)
+        public async Task<IActionResult> AddorEdit([Bind("BudgetId,Amount,StartDate,EndDate,CategoryId")] Budget budget)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(budget);
+                if (budget.BudgetId == 0)
+                {
+                    budget.UserId = _userManager.GetUserId(User);
+                    _context.Budgets.Add(budget);
+                }
+                else
+                {
+                    budget.UserId = _userManager.GetUserId(User);
+                    _context.Budgets.Update(budget);
+                }
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TransactionId"] = new SelectList(_context.Transactions, "TransactionId", "TransactionId", budget.TransactionId);
+            foreach (var error in ModelState.Values)
+            {
+                Console.WriteLine(error.Errors.FirstOrDefault()?.ErrorMessage);
+            }
+            PopulateCategories();
             return View(budget);
+           
         }
-
-        // GET: Budgets/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var budget = await _context.Budgets.FindAsync(id);
-            if (budget == null)
-            {
-                return NotFound();
-            }
-            ViewData["TransactionId"] = new SelectList(_context.Transactions, "TransactionId", "TransactionId", budget.TransactionId);
-            return View(budget);
-        }
-
-        // POST: Budgets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BudgetId,UserId,Amount,StartDate,EndDate,TransactionId")] Budget budget)
-        {
-            if (id != budget.BudgetId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(budget);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BudgetExists(budget.BudgetId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["TransactionId"] = new SelectList(_context.Transactions, "TransactionId", "TransactionId", budget.TransactionId);
-            return View(budget);
-        }
-
-        // GET: Budgets/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,7 +74,7 @@ namespace DoAnLapTrinhWeb.Controllers
             }
 
             var budget = await _context.Budgets
-                .Include(b => b.transaction)
+                .Include(b => b.Category)
                 .FirstOrDefaultAsync(m => m.BudgetId == id);
             if (budget == null)
             {
@@ -158,6 +102,14 @@ namespace DoAnLapTrinhWeb.Controllers
         private bool BudgetExists(int id)
         {
             return _context.Budgets.Any(e => e.BudgetId == id);
+        }
+        [NonAction]
+        public void PopulateCategories()
+        {
+            var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User)).ToList();
+            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một danh mục" };
+            categoryCollection.Insert(0, defaultCategory);
+            ViewBag.Categories = categoryCollection;
         }
     }
 }

@@ -1,60 +1,26 @@
 ﻿@model IEnumerable<DoAnLapTrinhWeb.Models.Budget>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["PageTitle"] = "Budget";
+    ViewData["PageActionText"] = "+ Budget Mới";
+    ViewData["PageActionURL"] = "/Budgets/AddorEdit";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.transaction)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.transaction.CategoryNameWithIcon)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BudgetId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BudgetId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BudgetId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-7">
+        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" toolbar="@(new List<string>() {"Search" })">
+            <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
+            <e-grid-columns>
+                <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
+                <e-grid-column headerText="Ngày bắt đầu" field="StartDate" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
+                <e-grid-column headerText="Ngày kết thúc" field="EndDate" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
+                <e-grid-column headerText="Số Tiền" field="Amount"></e-grid-column>
+                <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
+            <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
+        </div>
+    </div>
+</div>

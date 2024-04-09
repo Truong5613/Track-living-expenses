@@ -1,0 +1,51 @@
+﻿@model DoAnLapTrinhWeb.Models.Budget
+@{
+    ViewData["PageTitle"] = Model.BudgetId == 0 ? "Tạo mới một Budget" : "Chỉnh sửa Budget";
+}
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form asp-action="AddorEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="BudgetId" value="@Model.BudgetId" />
+
+                <div class="form-group">
+                    <ejs-dropdownlist id="NameIcon" placeholder="Chọn 1 danh mục" dataSource="@ViewBag.Categories" ejs-for="CategoryId"
+                                      floatLabelType="Auto" allowFiltering="true" ignoreAccent="true" filterType="Contains">
+                        <e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"></e-dropdownlist-fields>
+                    </ejs-dropdownlist>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                <div class="form-group">
+                    <ejs-datepicker id="StartDate" ejs-for="StartDate" placeholder="Ngày bắt đầu" floatLabelType="Always"
+                                    format="MM-dd-yyyy"></ejs-datepicker>
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <ejs-datepicker id="EndDate" ejs-for="EndDate" placeholder="Ngày kết thúc" floatLabelType="Always"
+                                    format="MM-dd-yyyy"></ejs-datepicker>
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                </div>
+                <div class="mb-3">
+                    <ejs-numerictextbox id="Amount" ejs-for="Amount" floatLabelType="Always" placeholder="Số lượng" min=0 format="c0"></ejs-numerictextbox>
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                
+
+                <br />
+                <div class="form-group">
+                    <ejs-button id="submit" type="submit" cssClass="e-success" content="Nhập"></ejs-button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
+            <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
+        </div>
+    </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

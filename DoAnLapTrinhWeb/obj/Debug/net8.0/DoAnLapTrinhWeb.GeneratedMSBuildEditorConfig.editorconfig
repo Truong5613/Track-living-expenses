@@ -74,20 +74,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Budgets/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0c1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Budgets/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0c1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Budgets/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0c1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Budgets/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0c1xFZGl0LmNzaHRtbA==
+[C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Budgets/AddorEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0c1xBZGRvckVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mrtru/Desktop/DOANLApTrinhWEb/DoANLapTrinhWeb/Track-living-expenses/DoAnLapTrinhWeb/Views/Budgets/Index.cshtml]
