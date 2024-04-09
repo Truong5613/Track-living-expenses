@@ -22,6 +22,32 @@ namespace DoAnLapTrinhWeb.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DoAnLapTrinhWeb.Models.Budget", b =>
+                {
+                    b.Property<int>("BudgetId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BudgetId"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BudgetId");
+
+                    b.ToTable("Budgets");
+                });
+
             modelBuilder.Entity("DoAnLapTrinhWeb.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -61,6 +87,9 @@ namespace DoAnLapTrinhWeb.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
+                    b.Property<int?>("BudgetId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -75,6 +104,8 @@ namespace DoAnLapTrinhWeb.Migrations
 
                     b.HasKey("TransactionId");
 
+                    b.HasIndex("BudgetId");
+
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Transactions");
@@ -82,11 +113,17 @@ namespace DoAnLapTrinhWeb.Migrations
 
             modelBuilder.Entity("DoAnLapTrinhWeb.Models.Transaction", b =>
                 {
+                    b.HasOne("DoAnLapTrinhWeb.Models.Budget", "Budget")
+                        .WithMany()
+                        .HasForeignKey("BudgetId");
+
                     b.HasOne("DoAnLapTrinhWeb.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Budget");
 
                     b.Navigation("Category");
                 });

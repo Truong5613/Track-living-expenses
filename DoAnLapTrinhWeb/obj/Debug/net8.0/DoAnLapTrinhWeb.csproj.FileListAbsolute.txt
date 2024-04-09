@@ -2544,3 +2544,5 @@ C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoA
 C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
