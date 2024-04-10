@@ -8,13 +8,14 @@
 <partial name="_StatusMessage" for="StatusMessage" />
 @if (Model.CurrentLogins?.Count > 0)
 {
-    <h3>Registered Logins</h3>
+    <h3>PHƯƠNG THỨC ĐĂNG NHẬP ĐÃ CÓ </h3>
+    <br />
     <table class="table">
         <tbody>
             @foreach (var login in Model.CurrentLogins)
             {
                 <tr>
-                    <td id="@($"login-provider-{login.LoginProvider}")">@login.ProviderDisplayName</td>
+                    <td style ="color: white"id="@($"login-provider-{login.LoginProvider}")">@login.ProviderDisplayName</td>
                     <td>
                         @if (Model.ShowRemoveButton)
                         {
@@ -36,10 +37,11 @@
         </tbody>
     </table>
 }
+<br />
 @if (Model.OtherLogins?.Count > 0)
 {
-    <h4>Add another service to log in.</h4>
-    <hr />
+    <h4>PHƯƠNG THỨC ĐĂNG NHẬP KHÁC</h4>
+    
     <form id="link-login-form" asp-page-handler="LinkLogin" method="post" class="form-horizontal">
         <div id="socialLoginList">
             <p>
