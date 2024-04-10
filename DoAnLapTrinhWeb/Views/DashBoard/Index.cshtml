@@ -187,13 +187,12 @@
             var total = 0;
             var Con = 0;
             var phantram = 0;
-            <div class="col-md-6" style="flex: 1 0 auto;">
-                <div class="budget" style="--accent: 0 65% 50%">
+            <div class="col-md-6" style="flex: 1 0 auto">
+                <div class="budget" style="--accent: 0 65% 50%;border-color:green">
                     <div class="progress-text" style="font-size: larger; font-weight: bold;">
                         <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
                         <p>
-                            @budget.Amount
-                            Budgeted
+                            Mục Tiêu : @budget.Amount $
                         </p>
                     </div>
                     @{
@@ -211,7 +210,13 @@
                         Con = budget.Amount - total;
                     }
                     <div class="progress">
-                        <div class="progress-bar bg-danger" style="width:@phantram%"></div>
+                        @if(phantram<=100){
+                            <div class="progress-bar bg-success" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
+                        else
+                        {
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
                     </div>
                     <br />
                     <div class="progress-text">
@@ -222,12 +227,20 @@
 
                         </small>
                         <small>
-                            End:
+                            Ngày kết thúc:
                             @budget.EndDate
                         </small>
                         <small>
-                            Cần thêm:
-                            @Con$
+                            @if (Con >= 0)
+                            {
+                                <p>Cần thêm :@Con$</p>
+                            }
+                            else
+                            {
+                                <p>Đã dùng quá :@{
+                                        Con=-Con;
+                                    }@Con$</p>
+                            }
                         </small>
 
                     </div>
@@ -245,8 +258,7 @@
                     <div class="progress-text" style="font-size: larger; font-weight: bold;">
                         <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
                         <p>
-                            @budget.Amount
-                            Budgeted
+                            Mục Tiêu : @budget.Amount $
                         </p>
                     </div>
                     @{
@@ -264,7 +276,14 @@
                         Con = budget.Amount - total;
                     }
                     <div class="progress">
-                        <div class="progress-bar bg-dark" style="width:@phantram%"></div>
+                        @if (phantram <= 100)
+                        {
+                            <div class="progress-bar bg-success" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
+                        else
+                        {
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
                     </div>
                     <br />
                     <div class="progress-text">
@@ -275,12 +294,21 @@
 
                         </small>
                         <small>
-                            End:
-                            Đã Quá Hạn
+                            Đã kết thúc vào ngày: @budget.EndDate
                         </small>
                         <small>
-                            Cần thêm:
-                            @Con$
+                            @if (Con >= 0)
+                            {
+                                <p>Cần thêm :@Con$</p>
+                            }
+                            else
+                            {
+                                <p>
+                                    Đã dùng quá :@{
+                                        Con = -Con;
+                                    }@Con$
+                                </p>
+                            }
                         </small>
 
                     </div>
