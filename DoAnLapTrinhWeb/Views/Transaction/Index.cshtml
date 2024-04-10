@@ -8,6 +8,9 @@
 }
 
 <div class="row">
+    <div>
+        <ejs-button id="exportButton" cssClass="btn btn-primary e-success" content="Xuất ra Excel 📄"></ejs-button>
+    </div>
     <div class="col-md-7">
         <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true" toolbar="@(new List<string>() {"Search" })">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
@@ -25,12 +28,18 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("exportButton").addEventListener("click", function () {
+        window.location.href = "/Transaction/ExportToExcel";
+    });
+</script>
 <script id="ActionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
         <a class="btn btn-sm no-a-decoration" href="/Transaction/AddorEdit/${TransactionId}">
             <i class="fa-solid fa-wand-magic"></i>
         </a>
         <form action="/Transaction/Delete/${TransactionId}" method="post">
+
     @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
                 <i class="fa-solid fa-eraser fa-lg text-danger"></i>
