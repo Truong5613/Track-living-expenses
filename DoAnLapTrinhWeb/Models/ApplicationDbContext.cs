@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace DoAnLapTrinhWeb.Models
 {
@@ -13,6 +14,8 @@ namespace DoAnLapTrinhWeb.Models
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Budget> Budgets { get; set; }
+
+        public DbSet<RecurringTransaction> RecurringTransactions { get; set; }
 
     }
 }

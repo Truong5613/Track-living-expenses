@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DoAnLapTrinhWeb.Models.RecurringTransaction>
+
+@{
+    ViewData["PageTitle"] = "Subscription";
+    ViewData["PageActionText"] = "+ Subscription Mới";
+    ViewData["PageActionURL"] = "/RecurringTransactions/AddorEdit";
+}
+<div class="row">
+    <div class="col-md-9">
+        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" toolbar="@(new List<string>() {"Search" })">
+            <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
+            <e-grid-columns>
+                <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
+                <e-grid-column headerText="Ngày bắt đầu" field="StartDate" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
+                <e-grid-column headerText="Ngày kết thúc" field="EndDate" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
+                <e-grid-column headerText="Số Tiền" field="FormatAmount"></e-grid-column>
+                <e-grid-column headerText="Lặp Lại" field="RecurrenceInterval"></e-grid-column>
+                <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+    <div class="col-md-3">
+        <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
+            <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
+        </div>
+    </div>
+</div>
+
+<script id="ActionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/RecurringTransactions/AddorEdit/${RecurringTransactionId}">
+            <i class="fa-solid fa-wand-magic"></i>
+        </a>
+        <form action="/RecurringTransactions/Delete/${RecurringTransactionId}" method="post">
+    @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
+                <i class="fa-solid fa-eraser fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
+</script>
+

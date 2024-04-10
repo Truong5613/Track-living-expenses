@@ -22,6 +22,7 @@ namespace DoAnLapTrinhWeb.Controllers
         public async Task<ActionResult> Index(int numberOfDays = 7)
         {
             ViewData["UserID"] = _userManager.GetUserId(this.User);
+            await GenerateRecurringTransactions();
             //7days
             DateTime StartDate = DateTime.Today.AddDays(-numberOfDays + 1);
             DateTime Endate = DateTime.Today;
@@ -106,5 +107,74 @@ namespace DoAnLapTrinhWeb.Controllers
             public int income;
             public int expense;
         }
+        public async Task GenerateRecurringTransactions()
+{
+    var recurringTransactions = await _context.RecurringTransactions.ToListAsync();
+
+    foreach (var recurringTransaction in recurringTransactions)
+    {
+        if (IsTimeToGenerateTransaction(recurringTransaction))
+        {
+                    // Generate a new transaction based on the recurring transaction details
+                    var newTransaction = new Transaction
+                    {
+                        Amount = recurringTransaction.Amount,
+                        Note = recurringTransaction.Note,
+                        CategoryId = recurringTransaction.CategoryId,
+                        UserID = recurringTransaction.UserID,
+                        Date = DateTime.Now.Date // Set the date of the transaction to the current date at 00:00:00.0000000
+                    };
+
+                    _context.Add(newTransaction);
+            await _context.SaveChangesAsync();
+
+            // Update the next occurrence based on the recurrence interval
+            UpdateNextOccurrence(recurringTransaction);
+        }
+    }
+}
+
+private void UpdateNextOccurrence(RecurringTransaction recurringTransaction)
+{
+    switch (recurringTransaction.RecurrenceInterval.ToLower())
+    {
+        case "hằng ngày":
+            recurringTransaction.StartDate = recurringTransaction.StartDate.AddDays(1);
+            break;
+        case "hằng tuần":
+            recurringTransaction.StartDate = recurringTransaction.StartDate.AddDays(7);
+            break;
+        case "hàng tháng":
+            recurringTransaction.StartDate = recurringTransaction.StartDate.AddMonths(1);
+            break;
+        case "hằng năm":
+            recurringTransaction.StartDate = recurringTransaction.StartDate.AddYears(1);
+            break;
+    }
+
+    // Update the database with the new start date and end date
+    _context.Update(recurringTransaction);
+    _context.SaveChanges();
+}
+
+private bool IsTimeToGenerateTransaction(RecurringTransaction recurringTransaction)
+{
+    DateTime currentDate = DateTime.Now;
+
+    switch (recurringTransaction.RecurrenceInterval.ToLower())
+    {
+        case "hằng ngày":
+            return currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
+        case "hằng tuần":
+            return currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
+        case "hằng tháng":
+            return currentDate.Day == recurringTransaction.StartDate.Day && currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
+        case "hằng năm":
+            return currentDate.Day == recurringTransaction.StartDate.Day && currentDate.Month == recurringTransaction.StartDate.Month && currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
+        default:
+            return false;
+    }
+}
+
     }
 }

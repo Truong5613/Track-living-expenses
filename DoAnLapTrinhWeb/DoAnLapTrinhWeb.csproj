@@ -40,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\DoAnLapTrinhWebDb\" />
     <Folder Include="ViewModels\" />
     <Folder Include="wwwroot\exports\" />
   </ItemGroup>

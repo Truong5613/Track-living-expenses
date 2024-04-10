@@ -112,11 +112,6 @@ namespace DoAnLapTrinhWeb.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-        private bool BudgetExists(int id)
-        {
-            return _context.Budgets.Any(e => e.BudgetId == id);
-        }
         [NonAction]
 
         public void PopulateIncome()
