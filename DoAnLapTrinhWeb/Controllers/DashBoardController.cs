@@ -99,6 +99,13 @@ namespace DoAnLapTrinhWeb.Controllers
             //Recent Transations 
             ViewBag.RecentTransactions = await _context.Transactions.Include(i => i.Category).OrderByDescending(x => x.Date).Take(5).Where( x => x.UserID == _userManager.GetUserId(User)).ToListAsync();
 
+            ViewBag.TransactionsBudger = await _context.Transactions.Include(i => i.Category).OrderByDescending(x => x.Date).Where(x => x.UserID == _userManager.GetUserId(User)).ToListAsync();
+
+            ViewBag.BudGetList = await _context.Budgets.Include(i => i.Category).OrderByDescending(x => x.StartDate).Where(x => x.UserId == _userManager.GetUserId(User)).ToListAsync();
+
+           
+
+
             return View();
         }
         public class SplineChartData()
