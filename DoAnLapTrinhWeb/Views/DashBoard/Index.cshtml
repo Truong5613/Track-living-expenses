@@ -240,8 +240,8 @@
             var total = 0;
             var Con = 0;
             var phantram = 0;
-            <div class="col-md-6">
-                <div class="budget" style="--accent: 0 65% 50%">
+            <div class="col-md-6" style="flex: 1 0 auto;">
+                <div class="budget" style="--accent: 0 65% 50%; border-color: gray">
                     <div class="progress-text" style="font-size: larger; font-weight: bold;">
                         <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
                         <p>
@@ -264,7 +264,7 @@
                         Con = budget.Amount - total;
                     }
                     <div class="progress">
-                        <div class="progress-bar bg-light" style="width:@phantram%"></div>
+                        <div class="progress-bar bg-dark" style="width:@phantram%"></div>
                     </div>
                     <br />
                     <div class="progress-text">
