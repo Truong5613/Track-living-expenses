@@ -2554,3 +2554,11 @@ C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debu
 C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Admin\Desktop\New folder\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\EPPlus.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll

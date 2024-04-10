@@ -1,9 +1,37 @@
-﻿@*
+﻿
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     ViewData["isDashBoard"] = true;
 }
+
+<style>
+    .progress-text {
+        display: flex;
+        justify-content:space-between;
+        gap: 20px;
+
+    }
+    .budget{
+      padding: 20px;
+      width: 100%;
+      border: 4px solid;
+      border-radius:  20px;
+      border-color: red;
+      color: #f7f7f7;
+      flex: 1 0 auto;
+    }
+
+   progress{
+       width: 100%;
+   }
+
+   
+
+</style>
+
+
 <div class="row mb-4">
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary income">
@@ -138,13 +166,131 @@
     </div>
 </div>
     <div class="col-md-6">
-        <div class="widget h-100">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <span><i class="fa-solid fa-shrimp fa-2xl"></i>Shrimp</span>
+        <div class="widget h-100  ">
+            <div class="d-flex justify-content-center  align-items-center h-100">
+                <span><i class="fa-solid fa-shrimp fa-2xl"></i>Shrimp</span>             
             </div>
         </div>
     </div>
 </div>
+<br />
+<div class="row mb-4" style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    gap: 20px;
+">
+    @foreach (var budget in ViewBag.BudGetList)
+    {
+       if ( budget.EndDate > DateTime.Now)
+        {
+            var total = 0;
+            var Con = 0;
+            var phantram = 0;
+            <div class="col-md-6" style="flex: 1 0 auto;">
+                <div class="budget" style="--accent: 0 65% 50%">
+                    <div class="progress-text" style="font-size: larger; font-weight: bold;">
+                        <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
+                        <p>
+                            @budget.Amount
+                            Budgeted
+                        </p>
+                    </div>
+                    @{
+                        total = 0;
+                        @foreach (var totaltran in ViewBag.TransactionsBudger)
+                        {
+                            if (totaltran.CategoryId == budget.CategoryId)
+                            {
+                                total = total + totaltran.Amount;
+                            }
+                        }
+
+                        phantram = (total * 100) / budget.Amount;
+
+                        Con = budget.Amount - total;
+                    }
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width:@phantram%"></div>
+                    </div>
+                    <br />
+                    <div class="progress-text">
+
+                        <small>
+                            Đã có:
+                            @total$
+
+                        </small>
+                        <small>
+                            End:
+                            @budget.EndDate
+                        </small>
+                        <small>
+                            Cần thêm:
+                            @Con$
+                        </small>
+
+                    </div>
+                </div>
+            </div>
+           
+        }
+        else
+        {
+            var total = 0;
+            var Con = 0;
+            var phantram = 0;
+            <div class="col-md-6">
+                <div class="budget" style="--accent: 0 65% 50%">
+                    <div class="progress-text" style="font-size: larger; font-weight: bold;">
+                        <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
+                        <p>
+                            @budget.Amount
+                            Budgeted
+                        </p>
+                    </div>
+                    @{
+                        total = 0;
+                        @foreach (var totaltran in ViewBag.TransactionsBudger)
+                        {
+                            if (totaltran.CategoryId == budget.CategoryId)
+                            {
+                                total = total + totaltran.Amount;
+                            }
+                        }
+
+                        phantram = (total * 100) / budget.Amount;
+
+                        Con = budget.Amount - total;
+                    }
+                    <div class="progress">
+                        <div class="progress-bar bg-light" style="width:@phantram%"></div>
+                    </div>
+                    <br />
+                    <div class="progress-text">
+
+                        <small>
+                            Đã có:
+                            @total$
+
+                        </small>
+                        <small>
+                            End:
+                            Đã Quá Hạn
+                        </small>
+                        <small>
+                            Cần thêm:
+                            @Con$
+                        </small>
+
+                    </div>
+                </div>
+            </div>
+        }
+        <br/>
+    }
+</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var radioLeft = document.getElementById('radioleft');
