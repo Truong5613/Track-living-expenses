@@ -29,13 +29,26 @@ namespace DoAnLapTrinhWeb.Controllers
         }
 
 
-        public IActionResult AddorEdit(int id=0)
+        public IActionResult AddorEdit(int id = 0)
         {
-            PopulateCategories();
+            PopulateIncome();
+            PopulateExpense();
+            Budget budget;
+
             if (id == 0)
-                return View(new Budget());
+            {
+                budget = new Budget
+                {
+                    StartDate = DateTime.Today,
+                    EndDate = DateTime.Today.AddDays(7)
+                };
+            }
             else
-                return View(_context.Budgets.Find(id));
+            {
+                budget = _context.Budgets.Find(id);
+            }
+
+            return View(budget);
         }
 
         [HttpPost]
@@ -62,7 +75,8 @@ namespace DoAnLapTrinhWeb.Controllers
             {
                 Console.WriteLine(error.Errors.FirstOrDefault()?.ErrorMessage);
             }
-            PopulateCategories();
+            PopulateIncome();
+            PopulateExpense();
             return View(budget);
            
         }
@@ -104,12 +118,21 @@ namespace DoAnLapTrinhWeb.Controllers
             return _context.Budgets.Any(e => e.BudgetId == id);
         }
         [NonAction]
-        public void PopulateCategories()
+
+        public void PopulateIncome()
         {
-            var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User)).ToList();
+            var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User) && x.Type == "Income").ToList();
             Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một danh mục" };
             categoryCollection.Insert(0, defaultCategory);
-            ViewBag.Categories = categoryCollection;
+            ViewBag.IncomeCategories = categoryCollection;
+        }
+        [NonAction]
+        public void PopulateExpense()
+        {
+            var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User) && x.Type == "Expense").ToList();
+            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một danh mục" };
+            categoryCollection.Insert(0, defaultCategory);
+            ViewBag.ExpenseCategories = categoryCollection;
         }
     }
 }

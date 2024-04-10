@@ -9,7 +9,6 @@ namespace DoAnLapTrinhWeb.Models
         [Key]
         public int BudgetId { get; set; }
 
-        [Required]
         public string? UserId { get; set; }
 
         [Required]

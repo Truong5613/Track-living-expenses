@@ -6,7 +6,7 @@
     ViewData["PageActionURL"] = "/Budgets/AddorEdit";
 }
 <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-8">
         <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" toolbar="@(new List<string>() {"Search" })">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
@@ -18,9 +18,23 @@
             </e-grid-columns>
         </ejs-grid>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-4">
         <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
             <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
         </div>
     </div>
 </div>
+
+<script id="ActionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Budgets/AddorEdit/${BudgetId}">
+            <i class="fa-solid fa-wand-magic"></i>
+        </a>
+        <form action="/Budgets/Delete/${BudgetId}" method="post">
+    @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
+                <i class="fa-solid fa-eraser fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
+</script>

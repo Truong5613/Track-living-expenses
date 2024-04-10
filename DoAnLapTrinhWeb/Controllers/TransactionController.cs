@@ -92,21 +92,21 @@ namespace DoAnLapTrinhWeb.Controllers
         public void PopulateCategories()
         {
             var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User)).ToList();
-            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" } ;
+            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một danh mục" } ;
                categoryCollection.Insert(0, defaultCategory);
             ViewBag.Categories = categoryCollection;
         }
         public void PopulateIncome()
         {
             var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User) && x.Type=="Income").ToList();
-            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" };
+            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một danh mục" };
             categoryCollection.Insert(0, defaultCategory);
             ViewBag.IncomeCategories = categoryCollection;
         }
         public void PopulateExpense()
         {
             var categoryCollection = _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User) && x.Type == "Expense").ToList();
-            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một Category" };
+            Category defaultCategory = new Category() { CategoryId = 0, Name = "Chọn một danh mục" };
             categoryCollection.Insert(0, defaultCategory);
             ViewBag.ExpenseCategories = categoryCollection;
         }
