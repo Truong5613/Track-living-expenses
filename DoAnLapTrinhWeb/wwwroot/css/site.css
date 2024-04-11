@@ -32,7 +32,8 @@ body {
 }
     
 .main-content {
-    overflow-y: auto;
+    margin-left: 290px;
+    height:92vh;
 }
 
 
@@ -202,7 +203,9 @@ nav.navbar {
             background-color: #48545f14;
             transform: scale(1.05) translateZ(0px);
         }
-
+nav.navbar {
+    margin-left: 290px;
+}
 /*Profile Pic*/
 img.profile-pic {
     width: 45px;
@@ -250,7 +253,7 @@ img.profile-pic {
 /*SideBar*/
 #sidebar {
     background-color: #12161d;
-    border-right: 1px dashed rgba(75,82,85,0.24);
+    border-right: 1px dashed rgba(75, 82, 85, 0.24);
     padding: 10px 20px;
     overflow: hidden;
 }

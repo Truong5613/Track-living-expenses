@@ -26,12 +26,10 @@
    progress{
        width: 100%;
    }
-
-   
-
-</style>
+   </style>
 
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="row mb-4">
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary income">
@@ -318,27 +316,41 @@
         <br/>
     }
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var radioLeft = document.getElementById('radioleft');
         var radioMiddle = document.getElementById('radiomiddle');
         var expenseChart = document.getElementById('expenseDoughnutChart');
         var incomeChart = document.getElementById('incomeDoughnutChart');
+        var splineChart = document.getElementById('spline-chart').ej2_instances[0];
+        expenseChart.ej2_instances[0].refresh();
+        incomeChart.ej2_instances[0].refresh();
         expenseChart.style.display = 'block';
         incomeChart.style.display = 'none';
+        splineChart.refresh();
 
         radioLeft.addEventListener('change', function () {
             expenseChart.style.display = 'block';
+            expenseChart.ej2_instances[0].refresh();
             incomeChart.style.display = 'none';
         });
 
         radioMiddle.addEventListener('change', function () {
             expenseChart.style.display = 'none';
             incomeChart.style.display = 'block';
+            incomeChart.ej2_instances[0].refresh();
+        });
+        window.addEventListener('resize', function () {
+            expenseChart.ej2_instances[0].refresh();
+            incomeChart.ej2_instances[0].refresh();
+            expenseChart.style.display = 'block';
+            incomeChart.style.display = 'none';
+            splineChart.refresh();
         });
     });
 </script>
+
+
 <script>
     document.getElementById('updateButton').addEventListener('click', function () {
         var numberOfDays = parseInt(document.getElementById('numberOfDays').value);
@@ -349,3 +361,4 @@
         }
     });
 </script>
+
