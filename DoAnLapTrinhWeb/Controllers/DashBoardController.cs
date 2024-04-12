@@ -103,10 +103,11 @@ namespace DoAnLapTrinhWeb.Controllers
 
             ViewBag.BudGetList = await _context.Budgets.Include(i => i.Category).OrderByDescending(x => x.StartDate).Where(x => x.UserId == _userManager.GetUserId(User)).ToListAsync();
 
-           
+            Transaction transaction = new Transaction();
 
 
-            return View();
+
+            return View(transaction);
         }
         public class SplineChartData()
         {

@@ -164,6 +164,54 @@ namespace DoAnLapTrinhWeb.Controllers
             return View(transaction);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddorEditBud([Bind("TransactionId,Amount,Note,Date,CategoryId")] Transaction transaction)
+        {
+            if (ModelState.IsValid)
+            {
+                if (transaction.TransactionId == 0)
+                {
+                    transaction.UserID = _userManager.GetUserId(User);
+                    _context.Add(transaction);
+                }
+                else
+                {
+                    transaction.UserID = _userManager.GetUserId(User);
+                    _context.Update(transaction);
+                }
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index","DashBoard");
+            }
+            foreach (var error in ModelState.Values)
+            {
+                Console.WriteLine(error.Errors.FirstOrDefault()?.ErrorMessage);
+            }
+            PopulateCategories();
+            PopulateExpense();
+            PopulateIncome();
+
+            return View(transaction);
+        }
+
+
+
+        public IActionResult AddorEditBudget(int id = 0, int CategoryId = 0 )
+        {
+            PopulateCategories();
+            PopulateIncome();
+            PopulateExpense();
+            ViewBag.Cate = _context.Categories.Find(CategoryId);
+            if (id == 0)
+                return View(new Transaction());
+            else
+                return View(_context.Transactions.Find(id));
+        }
+
+
+
+
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

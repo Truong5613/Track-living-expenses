@@ -104,6 +104,7 @@ namespace DoAnLapTrinhWeb.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var budget = await _context.Budgets.FindAsync(id);
+
             if (budget != null)
             {
                 _context.Budgets.Remove(budget);
@@ -112,6 +113,7 @@ namespace DoAnLapTrinhWeb.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
         [NonAction]
 
         public void PopulateIncome()

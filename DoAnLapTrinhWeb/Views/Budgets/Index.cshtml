@@ -31,7 +31,7 @@
             <i class="fa-solid fa-wand-magic"></i>
         </a>
         <form action="/Budgets/Delete/${BudgetId}" method="post">
-    @Html.AntiForgeryToken()
+            @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
                 <i class="fa-solid fa-eraser fa-lg text-danger"></i>
             </button>

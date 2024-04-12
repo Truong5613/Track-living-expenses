@@ -1,4 +1,4 @@
-﻿
+﻿@model Transaction
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -26,6 +26,45 @@
    progress{
        width: 100%;
    }
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+         /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+         /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #222B33;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        height: auto;
+       
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
    </style>
 
 
@@ -176,15 +215,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around; 
-    gap: 20px;
 ">
+    @{
+        var i = 0; 
+    }
     @foreach (var budget in ViewBag.BudGetList)
     {
        if ( budget.EndDate > DateTime.Now)
         {
+            List<Transaction> transactionsId = new List<Transaction>();
             var total = 0;
             var Con = 0;
             var phantram = 0;
+            string EndDate = budget.EndDate.ToString("dd/MM/yyyy");
             <div class="col-md-6" style="flex: 1 0 auto">
                 <div class="budget" style="--accent: 0 65% 50%;border-color:green">
                     <div class="progress-text" style="font-size: larger; font-weight: bold;">
@@ -226,7 +269,7 @@
                         </small>
                         <small>
                             Ngày kết thúc:
-                            @budget.EndDate
+                            @EndDate
                         </small>
                         <small>
                             @if (Con >= 0)
@@ -242,9 +285,85 @@
                         </small>
 
                     </div>
+                    @*<form asp-action="AddorEditBudget" asp-controller="Transaction" method ="get">
+                        <input type="text" name="CategoryId" value="@budget.CategoryId" hidden />
+                        <button type="submit" class="btn btn-success">Thêm Giao Dịch</button>
+                    </form>*@
+
+
+                    <button class="myBtn btn btn-success" data-modal-target="#modal-@i">Xem chi tiết</button>
+
+
+                    <div id="modal-@i" class="modal">
+                        <div class="modal-content" style="
+                                 display: flex;
+                                 flex-direction: column;
+                                 gap: 20px;
+                                    padding: 50px">
+                            <span class="close">&times;</span>
+                            <h3 style="text-align:center">@budget.Category.TitleWithIcon</h3>
+                            <form asp-action="AddorEditBud" asp-controller="Transaction" method="post" style="display: flex; flex-direction: column; align-items: stretch;">
+                                <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 20px;">
+                                    <input type="hidden" id="categoryId-@i" name="categoryId" value="@budget.CategoryId">
+                                    <div>
+                                        <ejs-numerictextbox id="amount-@i" ejs-for="Amount" floatLabelType="Always" placeholder="Số Tiền" min=0 format="c0"></ejs-numerictextbox>
+                                        <span asp-validation-for="Amount" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <ejs-datepicker id="date-@i" ejs-for="Date" placeholder="Ngày" floatLabelType="Always"
+                                                        format="MM-dd-yyyy"></ejs-datepicker>
+                                        <span asp-validation-for="Date" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <ejs-textbox id="Note-@i" placeholder="Ghi chú" ejs-for="Note" floatLabelType="Always" multiline="true"></ejs-textbox>
+                                        <span asp-validation-for="Note" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <ejs-button id="submit-@i" type="submit" cssClass="e-success" content="Gửi" style="width: 100%;"></ejs-button>
+                                </div>
+                            </form>
+
+                            
+                            
+                            
+
+                            <hr />
+                            @foreach (var item in ViewBag.TransactionsBudger)
+                            {
+                                if ( item.CategoryId == budget.CategoryId)
+                                {
+                                    transactionsId.Add(item);
+                                }
+                            }
+                       
+                            <div class="widget chart">
+                                <div class="p-4">
+                                    <h5 class="fw-bold">Bảng chi tiêu hoặc thu nhập gần đây</h5>
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <ejs-grid id="@i" datasource="transactionsId" gridline=" none">
+                                        <e-grid-columns>
+                                            <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
+                                            <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date"></e-grid-column>
+                                            <e-grid-column headerText="Số Tiền" field="FormatAmount"></e-grid-column>
+                                        </e-grid-columns>
+                                    </ejs-grid>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center" >
+                                <form action="/Budgets/Delete/@budget.BudgetId" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm(&quot;Bạn có muốn xóa @budget.CategoryNameWithIcon ?&quot;)">
+                                        Xoá Budget
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>                   
                 </div>
             </div>
-           
+        i++;   
         }
         else
         {
@@ -362,3 +481,37 @@
     });
 </script>
 
+<script>
+    var modals = document.querySelectorAll(".modal");
+    var btns = document.querySelectorAll(".myBtn");
+    var spans = document.querySelectorAll(".close");
+
+    btns.forEach((btn, index) => {
+        btn.onclick = function () {
+            modals[index].style.display = "block";
+        }
+    });
+
+    spans.forEach((span, index) => {
+        span.onclick = function () {
+            modals[index].style.display = "none";
+        }
+    });
+
+    window.onclick = function (event) {
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+
+</script>
+
+<script>
+    document.querySelectorAll(".myBtn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            window.scrollTo(0, 0);
+        });
+    });
+</script>
