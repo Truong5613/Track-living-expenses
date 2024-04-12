@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Hosting;
 using OfficeOpenXml;
 using System.IO;
 using Microsoft.Extensions.Hosting.Internal;
+using System.Globalization;
+using System.ComponentModel;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
@@ -116,11 +119,35 @@ namespace DoAnLapTrinhWeb.Controllers
 
 
         // GET: Transaction
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int month = 0, int year =0)
         {
+            
             var applicationDbContext = _context.Transactions.Where(x => x.UserID == _userManager.GetUserId(User)).Include(t => t.Category);
+            if (month != 0 || year != 0)
+            {
+                ViewBag.month = month; ViewBag.year = year;
+                var query = _context.Transactions.Where(x => x.UserID == _userManager.GetUserId(User));
+                if (month == 0)
+                {
+                    query = query.Where(x => x.Date.Year == year);
+                    var transactions = query.Include(t => t.Category).ToList();
+                    return View(transactions);
+                }
+                else
+                {
+                    query = query.Where(x => x.Date.Year == year && x.Date.Month == month)
+                        ; var transactions = query.Include(t => t.Category).ToList();
+                    return View(transactions);
+
+                }
+            }
+
             return View(await applicationDbContext.ToListAsync());
         }
+
+
+
+
 
         // GET: Transaction/Create
         public IActionResult AddorEdit(int id=0)
@@ -229,6 +256,8 @@ namespace DoAnLapTrinhWeb.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        
+
 
         [NonAction]
         public void PopulateCategories()

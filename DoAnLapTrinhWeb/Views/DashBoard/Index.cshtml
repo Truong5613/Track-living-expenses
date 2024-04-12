@@ -370,6 +370,7 @@
             var total = 0;
             var Con = 0;
             var phantram = 0;
+            string EndDate = budget.EndDate.ToString("dd/MM/yyyy");
             <div class="col-md-6" style="flex: 1 0 auto;">
                 <div class="budget" style="--accent: 0 65% 50%; border-color: gray">
                     <div class="progress-text" style="font-size: larger; font-weight: bold;">
@@ -411,7 +412,7 @@
 
                         </small>
                         <small>
-                            Đã kết thúc vào ngày: @budget.EndDate
+                            Đã kết thúc vào ngày: @EndDate
                         </small>
                         <small>
                             @if (Con >= 0)

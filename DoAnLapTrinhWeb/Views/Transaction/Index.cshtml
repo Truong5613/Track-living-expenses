@@ -8,9 +8,47 @@
 }
 
 <div class="row">
-    <div>
-        <ejs-button id="exportButton" cssClass="btn btn-primary e-success" content="Xuất ra Excel 📄"></ejs-button>
+    <div class="row mb-2">
+        <div class="col-md-2" style="margin-top:22px">
+            <ejs-button id="exportButton" cssClass="btn btn-primary e-success" content="Xuất ra Excel 📄"></ejs-button>
+        </div>
+        <form class="col-md-4">
+            <div class="row mb-2">
+                @if (ViewBag.month == null)
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="##" id="month" min="0" max="12" value="0" floatLabelType="Always" placeholder="Tháng"></ejs-numerictextbox>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="##" id="month" min="0" max="12" value="@ViewBag.month" floatLabelType="Always" placeholder="Tháng"></ejs-numerictextbox>
+                    </div>
+                }
+                @if(ViewBag.year == null)
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="####" id="year" min="00" value="2024" floatLabelType="Always" placeholder="Năm"></ejs-numerictextbox>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="####" id="year" min="00" value="@ViewBag.year" floatLabelType="Always" placeholder="Năm"></ejs-numerictextbox>
+                    </div>
+                }
+                <div class="col-md-2" style="margin-top:22px">
+                    <button class="btn btn-success">📅</button>
+                </div>
+            </div> 
+        </form>
+        <div class="col-md-2" style="margin-top:22px; margin-left:15px">
+            <a class="btn btn-success" style="color:inherit" href="/Transaction/Index">🔃</a>
+  
+        </div>
     </div>
+
     <div class="col-md-7">
         <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true" toolbar="@(new List<string>() {"Search" })">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
