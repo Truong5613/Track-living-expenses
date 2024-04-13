@@ -61,11 +61,13 @@ namespace DoAnLapTrinhWeb.Controllers
                 {
                     budget.UserId = _userManager.GetUserId(User);
                     _context.Budgets.Add(budget);
+                    TempData["message"] = "Thêm budget thành công !";
                 }
                 else
                 {
                     budget.UserId = _userManager.GetUserId(User);
                     _context.Budgets.Update(budget);
+                    TempData["message"] = "Chỉnh budget thành công !";
                 }
 
                 await _context.SaveChangesAsync();
@@ -111,6 +113,7 @@ namespace DoAnLapTrinhWeb.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["message"] = "Xóa budget thành công !";
             return RedirectToAction(nameof(Index));
         }
 

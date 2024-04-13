@@ -6,8 +6,8 @@
     ViewData["PageActionURL"] = "/Budgets/AddorEdit";
 }
 <div class="row">
-    <div class="col-md-8">
-        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" toolbar="@(new List<string>() {"Search" })">
+    <div class="col-md-8" style='overflow:auto'>
+        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" width=700 toolbar="@(new List<string>() {"Search" })">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
@@ -18,7 +18,7 @@
             </e-grid-columns>
         </ejs-grid>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 d-none d-md-block">
         <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
             <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
         </div>

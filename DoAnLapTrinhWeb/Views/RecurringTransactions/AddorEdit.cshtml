@@ -1,5 +1,4 @@
 ﻿@model DoAnLapTrinhWeb.Models.RecurringTransaction
-
 @{
     ViewData["PageTitle"] = Model.RecurringTransactionId == 0 ? "Tạo mới một Subscription" : "Chỉnh sửa Subscription";
 }
@@ -8,7 +7,7 @@
         <div class="widget p-5">
             <form asp-action="AddorEdit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" name="BudgetId" value="@Model.RecurringTransactionId" />
+                <input type="hidden" name="RecurringTransactionId" value="@Model.RecurringTransactionId" />
 
                 <div class="mb-3">
                     <div class='e-btn-group custom-rbt-group'>

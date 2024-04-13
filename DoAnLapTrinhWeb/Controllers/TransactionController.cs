@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Hosting;
 using OfficeOpenXml;
 using System.IO;
 using Microsoft.Extensions.Hosting.Internal;
+using System.Globalization;
+using System.ComponentModel;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
@@ -26,9 +29,11 @@ namespace DoAnLapTrinhWeb.Controllers
             _context = context;
             _hostingEnvironment = hostingEnvironment;
         }
-        public IActionResult ExportToExcel()
+        public IActionResult ExportToExcel(int month, int year)
         {
+            // Filter transactions based on the selected month and year
             var transactions = _context.Transactions
+                .Where(t => t.Date.Month == month && t.Date.Year == year && t.UserID == _userManager.GetUserId(User))
                 .Include(t => t.Category)
                 .ToList();
 
@@ -82,20 +87,20 @@ namespace DoAnLapTrinhWeb.Controllers
                     row++;
                 }
 
-                // Calculate total balance using Excel formula
+                // Tính Tổng thu nhập
                 worksheet.Cells[row, 1].Value = "Tổng Thu";
                 worksheet.Cells[row, 2].Value = "";
                 worksheet.Cells[row, 3].Value = totalIncome;
-                worksheet.Cells[row, 3].Style.Font.Color.SetColor(System.Drawing.Color.Green); // Set font color to green
-
+                worksheet.Cells[row, 3].Style.Font.Color.SetColor(System.Drawing.Color.Green); // Đặt font color màu xanh 
+                //Tính Tổng Chi 
                 worksheet.Cells[row + 1, 1].Value = "Tổng Chi";
                 worksheet.Cells[row + 1, 2].Value = "";
                 worksheet.Cells[row + 1, 3].Value = totalExpense;
-                worksheet.Cells[row + 1, 3].Style.Font.Color.SetColor(System.Drawing.Color.Red); // Set font color to red
+                worksheet.Cells[row + 1, 3].Style.Font.Color.SetColor(System.Drawing.Color.Red); // Đặt font color màu đỏ
 
                 worksheet.Cells[row + 2, 1].Value = "Tổng Cân Đối";
                 worksheet.Cells[row + 2, 2].Value = "";
-                worksheet.Cells[row + 2, 3].Formula = $"C{row} - C{row + 1}"; // Excel formula to subtract total expense from total income
+                worksheet.Cells[row + 2, 3].Formula = $"C{row} - C{row + 1}"; // Tính tổng
 
                 // Auto-fit columns
                 worksheet.Cells.AutoFitColumns();
@@ -109,18 +114,42 @@ namespace DoAnLapTrinhWeb.Controllers
                 fileContents = package.GetAsByteArray();
             }
 
-            var fileName = $"Transactions_{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
+            var fileName = $"Transactions_{month}-{year}.xlsx";
 
             return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         }
 
 
         // GET: Transaction
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int month = 0, int year =0)
         {
+            
             var applicationDbContext = _context.Transactions.Where(x => x.UserID == _userManager.GetUserId(User)).Include(t => t.Category);
+            if (month != 0 || year != 0)
+            {
+                ViewBag.month = month; ViewBag.year = year;
+                var query = _context.Transactions.Where(x => x.UserID == _userManager.GetUserId(User));
+                if (month == 0)
+                {
+                    query = query.Where(x => x.Date.Year == year);
+                    var transactions = query.Include(t => t.Category).ToList();
+                    return View(transactions);
+                }
+                else
+                {
+                    query = query.Where(x => x.Date.Year == year && x.Date.Month == month)
+                        ; var transactions = query.Include(t => t.Category).ToList();
+                    return View(transactions);
+
+                }
+            }
+
             return View(await applicationDbContext.ToListAsync());
         }
+
+
+
+
 
         // GET: Transaction/Create
         public IActionResult AddorEdit(int id=0)
@@ -144,11 +173,13 @@ namespace DoAnLapTrinhWeb.Controllers
                 {
                     transaction.UserID = _userManager.GetUserId(User);
                     _context.Add(transaction);
+                    TempData["message"] = "Thêm giao dịch thành công";
                 }
                 else
                 {
                     transaction.UserID = _userManager.GetUserId(User);
                     _context.Update(transaction);
+                    TempData["message"] = "Chỉnh giao dịch thành công";
                 }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -174,11 +205,13 @@ namespace DoAnLapTrinhWeb.Controllers
                 {
                     transaction.UserID = _userManager.GetUserId(User);
                     _context.Add(transaction);
+                    TempData["message"] = "Thêm giao dịch thành công";
                 }
                 else
                 {
                     transaction.UserID = _userManager.GetUserId(User);
                     _context.Update(transaction);
+                    TempData["message"] = "Chỉnh giao dịch thành công";
                 }
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index","DashBoard");
@@ -227,8 +260,11 @@ namespace DoAnLapTrinhWeb.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["message"] = "Xóa giao dịch thành công";
             return RedirectToAction(nameof(Index));
         }
+        
+
 
         [NonAction]
         public void PopulateCategories()

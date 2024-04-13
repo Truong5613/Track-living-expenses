@@ -1,0 +1,19 @@
+﻿@if (TempData["successMessages"] != null)
+{
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var delay = 0; // Initial delay
+        @foreach (var message in TempData["successMessages"] as List<string>)
+        {
+            <text>
+                    setTimeout(function () {
+                        toastr.success('@message');
+                    }, delay);
+                delay += 1000; // Increase delay for next message
+            </text>
+        }
+                });
+    </script>
+}
