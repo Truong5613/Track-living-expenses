@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DoAnLapTrinhWeb.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 namespace DoAnLapTrinhWeb.Controllers
 {
     public class StatisticController : Controller
@@ -15,7 +16,7 @@ namespace DoAnLapTrinhWeb.Controllers
             this._userManager = userManager;
             _context = context;
         }
-
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = _userManager.GetUserId(User);

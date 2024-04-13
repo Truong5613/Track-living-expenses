@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting.Internal;
 using System.Globalization;
 using System.ComponentModel;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
@@ -121,6 +122,7 @@ namespace DoAnLapTrinhWeb.Controllers
 
 
         // GET: Transaction
+        [Authorize]
         public async Task<IActionResult> Index(int month = 0, int year =0)
         {
             
@@ -152,6 +154,7 @@ namespace DoAnLapTrinhWeb.Controllers
 
 
         // GET: Transaction/Create
+        [Authorize]
         public IActionResult AddorEdit(int id=0)
         {
             PopulateCategories();

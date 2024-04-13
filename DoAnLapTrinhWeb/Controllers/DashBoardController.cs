@@ -18,7 +18,7 @@ namespace DoAnLapTrinhWeb.Controllers
             this._userManager = userManager;
             _context = context;
         }
-
+        [Authorize]
         public async Task<ActionResult> Index(int numberOfDays = 7)
         {
             ViewData["UserID"] = _userManager.GetUserId(this.User);

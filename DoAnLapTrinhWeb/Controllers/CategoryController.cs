@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DoAnLapTrinhWeb.Models;
 using DoAnLapTrinhWeb.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
@@ -22,6 +23,7 @@ namespace DoAnLapTrinhWeb.Controllers
         }
 
         // GET: Category
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             ViewData["UserID"] = _userManager.GetUserId(this.User);
@@ -30,6 +32,7 @@ namespace DoAnLapTrinhWeb.Controllers
 
 
         // GET: Category/Create
+        [Authorize]
         public IActionResult AddorEdit(int id =0)
         {
             if(id==0)

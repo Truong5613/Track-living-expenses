@@ -9,6 +9,7 @@ using DoAnLapTrinhWeb.Models;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 using DoAnLapTrinhWeb.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
@@ -21,14 +22,14 @@ namespace DoAnLapTrinhWeb.Controllers
             _context = context;
             this._userManager = userManager;
         }
-
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Budgets.Where(x => x.UserId == _userManager.GetUserId(User)).Include(b => b.Category);
             return View(await applicationDbContext.ToListAsync());
         }
 
-
+        [Authorize]
         public IActionResult AddorEdit(int id = 0)
         {
             PopulateIncome();

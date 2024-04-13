@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DoAnLapTrinhWeb.Models;
 using Microsoft.AspNetCore.Identity;
 using DoAnLapTrinhWeb.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
@@ -23,11 +24,13 @@ namespace DoAnLapTrinhWeb.Controllers
         }
 
         // GET: RecurringTransactions
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.RecurringTransactions.Where(x => x.UserID == _userManager.GetUserId(User)).Include(b => b.Category);
             return View(await applicationDbContext.ToListAsync());
         }
+        [Authorize]
         public IActionResult AddorEdit(int id = 0)
         {
             PopulateIncome();
