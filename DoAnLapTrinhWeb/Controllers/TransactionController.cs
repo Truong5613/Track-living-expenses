@@ -191,7 +191,7 @@ namespace DoAnLapTrinhWeb.Controllers
             PopulateExpense();
             PopulateIncome();
 
-            return View(transaction);
+            return RedirectToAction("Index", "DashBoard", transaction);
         }
 
 

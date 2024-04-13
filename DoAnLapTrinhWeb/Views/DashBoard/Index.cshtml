@@ -214,7 +214,8 @@
 <div class="row mb-4" style="
     display: flex;
     flex-direction: row;
-    justify-content: space-around; 
+    justify-content: space-between; 
+    row-gap: 20px;
 ">
     @{
         var i = 0; 
@@ -228,7 +229,8 @@
             var Con = 0;
             var phantram = 0;
             string EndDate = budget.EndDate.ToString("dd/MM/yyyy");
-            <div class="col-md-6" style="flex: 1 0 auto">
+            string StartDate = budget.StartDate.ToString("dd/MM/yyyy");
+            <div class="col-md-6" style="flex: 0 0 auto">
                 <div class="budget" style="--accent: 0 65% 50%;border-color:green">
                     <div class="progress-text" style="font-size: larger; font-weight: bold;">
                         <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
@@ -242,7 +244,10 @@
                         {
                             if (totaltran.CategoryId == budget.CategoryId)
                             {
-                                total = total + totaltran.Amount;
+                                if (totaltran.Date >= budget.StartDate && totaltran.Date <= budget.EndDate)
+                                {
+                                    total = total + totaltran.Amount;
+                                }
                             }
                         }
 
@@ -302,12 +307,15 @@
                                     padding: 50px">
                             <span class="close">&times;</span>
                             <h3 style="text-align:center">@budget.Category.TitleWithIcon</h3>
+                            <div style="display: flex; flex-direction: row; align-items: stretch; row-gap: 30px;     justify-content:space-evenly;">
+                                <h5>Ngày Bắt Đầu🏁: @StartDate</h5> <h5> Ngày Kết Thúc🚩: @EndDate</h5>
+                            </div>
                             <form asp-action="AddorEditBud" asp-controller="Transaction" method="post" style="display: flex; flex-direction: column; align-items: stretch;">
                                 <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 20px;">
                                     <input type="hidden" id="categoryId-@i" name="categoryId" value="@budget.CategoryId">
                                     <div>
                                         <ejs-numerictextbox id="amount-@i" ejs-for="Amount" floatLabelType="Always" placeholder="Số Tiền" min=0 format="c0"></ejs-numerictextbox>
-                                        <span asp-validation-for="Amount" class="text-danger"></span>
+                                        <span asp-validation-for="amount-@i" class="text-danger"></span>
                                     </div>
                                     <div>
                                         <ejs-datepicker id="date-@i" ejs-for="Date" placeholder="Ngày" floatLabelType="Always"
@@ -370,6 +378,7 @@
             var total = 0;
             var Con = 0;
             var phantram = 0;
+            string EndDate = budget.EndDate.ToString("dd/MM/yyyy");
             <div class="col-md-6" style="flex: 1 0 auto;">
                 <div class="budget" style="--accent: 0 65% 50%; border-color: gray">
                     <div class="progress-text" style="font-size: larger; font-weight: bold;">
@@ -384,7 +393,10 @@
                         {
                             if (totaltran.CategoryId == budget.CategoryId)
                             {
-                                total = total + totaltran.Amount;
+                                if (totaltran.Date >= budget.StartDate && totaltran.Date <= budget.EndDate)
+                                {
+                                    total = total + totaltran.Amount;
+                                }
                             }
                         }
 
@@ -411,7 +423,7 @@
 
                         </small>
                         <small>
-                            Đã kết thúc vào ngày: @budget.EndDate
+                            Đã kết thúc vào ngày: @EndDate
                         </small>
                         <small>
                             @if (Con >= 0)
@@ -429,8 +441,18 @@
                         </small>
 
                     </div>
+                    <div class="row justify-content-center">
+                        <form action="/Budgets/Delete/@budget.BudgetId" method="post">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger" onclick="return confirm(&quot;Bạn có muốn xóa @budget.CategoryNameWithIcon ?&quot;)">
+                                Xoá Budget
+                            </button>
+                        </form>
+                    </div>
                 </div>
+                
             </div>
+            
         }
         <br/>
     }
