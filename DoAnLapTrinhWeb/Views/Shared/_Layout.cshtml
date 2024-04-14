@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using DoAnLapTrinhWeb.Areas.Identity.Data
 @{
+    
     List<Object> menuItems = new List<Object>();
     menuItems.Add(new
     {
@@ -50,6 +51,12 @@
     });
     menuItems.Add(new
     {
+        text = "Hồ Sơ Người dùng",
+        url = "/User",
+        iconCss = "fa-solid fa-user",
+    });
+    menuItems.Add(new
+    {
         text = "LogOut",
         iconCss = "fa-solid fa-right-from-bracket",
         url = "/Identity/Account/Logout"
@@ -89,10 +96,13 @@
     <partial name="_Messages" />
 	<script src="~/js/emoji.js"></script>
 	<script src="~/js/emoji.min.js"></script>
+
     @if (ViewData["isAccount"] == null)
     {
         @if (ViewData["isRegister"] == null)
         {
+            var user = await UserManager.GetUserAsync(User);
+            var profileImageUrl = user.ProfileImage;
             <ejs-sidebar id="sidebar" width="290px" enableDock dockSize="100px"
                          target=".dock-target" enableGestures="false">
                 <e-content-template>
@@ -106,9 +116,16 @@
                     </div>
 
                     <div class="profile-wrapper">
-                        <img class="profile-pic" src="~/images/profile.png" />
+                        @if (profileImageUrl == null)
+                        {
+                            <img class="profile-pic" src="~/images/profile.png" />
+                        }
+                        else
+                        {
+                            <img class="profile-pic" src="@profileImageUrl" />
+                        }
                         <div class="titles d-flex flex-column ps-3">
-                            <h5 class="mb-0"><b>Theo dõi chi tiêu </b></h5>
+                            <h7 class="mb-0"><b>@user.FirstName @user.LastName</b></h7>
                             <span><a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)!</a></span>
                         </div>
                     </div>

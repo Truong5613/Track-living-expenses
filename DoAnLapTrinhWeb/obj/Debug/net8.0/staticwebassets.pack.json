@@ -57,6 +57,22 @@
       "PackagePath": "staticwebassets\\BackgroundImage\\wallpaperflare.com_wallpaper.webp"
     },
     {
+      "Id": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\ProfileImage\\1.jpg",
+      "PackagePath": "staticwebassets\\ProfileImage\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\ProfileImage\\2.jpg",
+      "PackagePath": "staticwebassets\\ProfileImage\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\ProfileImage\\NoImage.jpg",
+      "PackagePath": "staticwebassets\\ProfileImage\\NoImage.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\ProfileImage\\logo.png",
+      "PackagePath": "staticwebassets\\ProfileImage\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

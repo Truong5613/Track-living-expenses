@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using OfficeOpenXml;
+using DoAnLapTrinhWeb.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
 });
+
+builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 
 builder.Services.AddAuthentication()
    .AddGoogle(options =>

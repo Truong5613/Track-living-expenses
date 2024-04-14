@@ -9,6 +9,7 @@
     <br/>
     <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">MẬT KHẨU</a></li>
     <br/>
+
     @if (hasExternalLogins)
     {
         <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins"> PHƯƠNG THỨC ĐĂNG NHẬP</a></li>
