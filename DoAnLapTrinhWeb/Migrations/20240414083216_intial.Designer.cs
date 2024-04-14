@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnLapTrinhWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240410141038_ReuccuringTransaction")]
-    partial class ReuccuringTransaction
+    [Migration("20240414083216_intial")]
+    partial class intial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,7 +97,7 @@ namespace DoAnLapTrinhWeb.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Note")

@@ -18,6 +18,7 @@ public class AppliactionUser : IdentityUser
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
-
+    [PersonalData]
+    public string? ProfileImage { get; set; }
 }
 
