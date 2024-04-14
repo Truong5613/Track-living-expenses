@@ -1,77 +1,157 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\",
+  "WorkspaceRootPath": "D:\\Web\\Test\\Track-living-expenses\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\registerconfirmation.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\registerconfirmation.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\budgets\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\budgets\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\category\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\category\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\setpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\setpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\budgets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\budgets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\changepassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\changepassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\controllers\\recurringtransactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\recurringtransactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\managenavpages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\managenavpages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\_managenav.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\_managenav.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\registerconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\registerconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\service\\mailcontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\service\\mailcontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\confirmemail.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\confirmemail.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\service\\sendmailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\service\\sendmailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\service\\isendmailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\service\\isendmailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\service\\mailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\service\\mailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\personaldata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\areas\\identity\\pages\\account\\manage\\personaldata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\budgets\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\budgets\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\category\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\category\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\budgets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\budgets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\controllers\\recurringtransactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\recurringtransactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\statisticcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\transaction\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\transaction\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\transaction\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\shared\\_messages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\shared\\_messages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\shared\\_messages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\controllers\\budgetscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\controllers\\budgetscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\controllers\\budgetscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|c:\\users\\admin\\desktop\\new folder\\track-living-expenses\\doanlaptrinhweb\\views\\recurringtransactions\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|d:\\web\\test\\track-living-expenses\\doanlaptrinhweb\\views\\recurringtransactions\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A7071728-E3E0-4C05-9AAF-2B79A2B9499C}|DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj|solutionrelative:doanlaptrinhweb\\views\\recurringtransactions\\addoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -82,7 +162,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,88 +174,310 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-04-14T08:03:16.741Z",
+              "DocumentIndex": 4,
+              "Title": "SetPassword.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T16:43:50.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
-              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
-              "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAC0AAAA0AAAA",
+              "DocumentIndex": 6,
+              "Title": "ChangePassword.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-13T14:42:44.61Z",
+              "WhenOpened": "2024-04-14T16:35:10.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AQIAAJoAAAAAAAAAAAAAAKsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T14:20:47.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AQIAAKsAAAAAAAAAAAAAALkAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T13:02:59.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RegisterConfirmation.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T13:10:55.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterConfirmation.cshtml.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAADwv0sAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T13:10:55.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "TransactionController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
-              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
-              "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
-              "ViewState": "AQIAALAAAAAAAAAAAAAUwLoAAAAsAAAA",
+              "Title": "_ManageNav.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T13:11:14.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAkwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T13:54:13.748Z",
+              "WhenOpened": "2024-04-14T15:38:33.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ChangePassword.cshtml.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T16:35:10.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ScaffoldingReadMe.txt",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\ScaffoldingReadMe.txt",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\ScaffoldingReadMe.txt",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\ScaffoldingReadMe.txt",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\ScaffoldingReadMe.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-04-14T13:10:55.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "ManageNavPages.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ManageNavPages.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ManageNavPages.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ManageNavPages.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\ManageNavPages.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T13:11:09.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PersonalData.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T13:11:04.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ConfirmEmail.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T16:06:36.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ViewState": "AQIAAKIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T14:26:42.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MailSettings.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\MailSettings.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Service\\MailSettings.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\MailSettings.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Service\\MailSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T15:21:43.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Program.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Program.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Program.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Program.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEoAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T15:22:00.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ConfirmEmail.cshtml.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T16:06:36.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MailContent.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\MailContent.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Service\\MailContent.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\MailContent.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Service\\MailContent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T15:26:40.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ISendMailService.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\ISendMailService.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Service\\ISendMailService.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\ISendMailService.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Service\\ISendMailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T15:26:59.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SendMailService.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\SendMailService.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Service\\SendMailService.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Service\\SendMailService.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Service\\SendMailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T15:27:17.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\appsettings.json",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\appsettings.json",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\appsettings.json",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\appsettings.json",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\appsettings.json",
               "RelativeToolTip": "DoAnLapTrinhWeb\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAC3AAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAACYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-04-14T03:33:05.769Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 28,
               "Title": "StatisticController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\StatisticController.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\StatisticController.cs",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Controllers\\StatisticController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\StatisticController.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\StatisticController.cs",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\StatisticController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAEEAAABAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAIBJwEEAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-13T16:50:11.978Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 34,
               "Title": "BudgetsController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\BudgetsController.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\BudgetsController.cs",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Controllers\\BudgetsController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\BudgetsController.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\BudgetsController.cs",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\BudgetsController.cs",
               "ViewState": "AQIAAF0AAAAAAAAAAAAowB8AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T13:59:25.305Z"
+              "WhenOpened": "2024-04-13T13:59:25.305Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 32,
               "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\CategoryController.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\CategoryController.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\CategoryController.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAkwCIAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -184,11 +486,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 31,
               "Title": "DashBoardController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\DashBoardController.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\DashBoardController.cs",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Controllers\\DashBoardController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\DashBoardController.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\DashBoardController.cs",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\DashBoardController.cs",
               "ViewState": "AQIAAHEAAAAAAAAAAAAgwBQAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -197,23 +499,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 35,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\Index.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Category\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\Index.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\Index.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Category\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-13T13:46:10.22Z"
+              "WhenOpened": "2024-04-13T13:46:10.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 27,
               "Title": "RecurringTransactionsController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\RecurringTransactionsController.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\RecurringTransactionsController.cs",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Controllers\\RecurringTransactionsController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\RecurringTransactionsController.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\RecurringTransactionsController.cs",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\RecurringTransactionsController.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAAwCAAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -222,11 +525,63 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
+              "ViewState": "AQIAAFMBAAAAAAAAAAAAAGYBAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T14:59:17.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\TransactionController.cs",
+              "ViewState": "AQIAALAAAAAAAAAAAAAUwLoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T13:54:13.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-14T08:03:16.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
+              "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Transaction\\Index.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAIBJwC0AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T14:42:44.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "AddorEdit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\AddorEdit.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\AddorEdit.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Category\\AddorEdit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\AddorEdit.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Category\\AddorEdit.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Category\\AddorEdit.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -235,37 +590,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
-              "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
-              "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\DashBoard\\Index.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAQAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-14T14:59:17.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 23,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAAAF8AAABgAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAIBJwF8AAABgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-13T13:43:38.474Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 24,
               "Title": "AddorEdit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\AddorEdit.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\AddorEdit.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Budgets\\AddorEdit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\AddorEdit.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\AddorEdit.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Budgets\\AddorEdit.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -274,11 +616,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 33,
               "Title": "_Messages.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Messages.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Messages.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Shared\\_Messages.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Messages.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Messages.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Shared\\_Messages.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -287,37 +629,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 36,
               "Title": "_Notification.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Notification.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Notification.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Shared\\_Notification.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Notification.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Shared\\_Notification.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Shared\\_Notification.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-13T14:39:20.281Z"
+              "WhenOpened": "2024-04-13T14:39:20.281Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 37,
               "Title": "AddorEdit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\RecurringTransactions\\AddorEdit.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\RecurringTransactions\\AddorEdit.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\RecurringTransactions\\AddorEdit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\RecurringTransactions\\AddorEdit.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\RecurringTransactions\\AddorEdit.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\RecurringTransactions\\AddorEdit.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-13T14:15:02.159Z"
+              "WhenOpened": "2024-04-13T14:15:02.159Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 26,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\Index.cshtml",
+              "DocumentMoniker": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnLapTrinhWeb\\Views\\Budgets\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\Index.cshtml",
+              "ToolTip": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\Views\\Budgets\\Index.cshtml",
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Budgets\\Index.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAgAAAAvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwAgAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-12T16:20:09.038Z",
               "EditorCaption": ""

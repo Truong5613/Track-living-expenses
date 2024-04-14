@@ -349,7 +349,11 @@
                             {
                                 if ( item.CategoryId == budget.CategoryId)
                                 {
-                                    transactionsId.Add(item);
+                                    if (item.Date >= budget.StartDate && item.Date <= budget.EndDate)
+                                    {
+                                         transactionsId.Add(item);
+                                    }
+                                   
                                 }
                             }
                        

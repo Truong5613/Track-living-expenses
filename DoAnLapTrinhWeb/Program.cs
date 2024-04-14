@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using OfficeOpenXml;
+using DoAnLapTrinhWeb.Service;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,7 +66,11 @@ builder.Services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
     };
 });
 
+builder.Services.AddOptions();                                         
+var mailsettings = builder.Configuration.GetSection("MailSettings");  
 
+builder.Services.Configure<MailSettings>(mailsettings);
+builder.Services.AddTransient<ISendMailService, SendMailService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).
 AddCookie(options =>
@@ -78,7 +84,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddDbContext<DoAnLapTrinhWebDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealConnection")));
 
-builder.Services.AddDefaultIdentity<AppliactionUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<DoAnLapTrinhWebDbContext>();
+builder.Services.AddDefaultIdentity<AppliactionUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DoAnLapTrinhWebDbContext>();
 
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBaFt6QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRbQl5hT35bdERjWXtedXA=");
 
@@ -105,6 +111,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=DashBoard}/{action=Index}/{id?}");
+
+
 
 app.MapRazorPages();
 

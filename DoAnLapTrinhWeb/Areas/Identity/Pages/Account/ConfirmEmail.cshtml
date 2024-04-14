@@ -1,0 +1,29 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Xác thực email";
+    ViewData["isAccount"] = true;
+}
+<style>
+    a:link {
+        color: #FF0000; 
+    }
+
+    a:visited {
+        color: #00FF00; 
+    }
+
+    a:hover {
+        color: #FF00FF; 
+    }
+
+    a:active {
+        color: #0000FF;
+    }
+</style>
+<h1>@ViewData["Title"]</h1>
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+
+<h2>Trở về trang đăng nhập</h2>
+<button class="btn btn-success"><a href="/Identity/Account/Login">Trở về</a></button>
