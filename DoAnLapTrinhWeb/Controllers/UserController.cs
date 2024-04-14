@@ -21,22 +21,24 @@ namespace DoAnLapTrinhWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> index(AppliactionUser user , IFormFile ProfileImage)
+        public async Task<IActionResult> index(AppliactionUser user, IFormFile ProfileImage)
         {
+            var existingUser = await _userManager.GetUserAsync(User);
+            ModelState.Remove("ProfileImage");
             if (ModelState.IsValid)
             {
-                var existingUser = await _userManager.GetUserAsync(User);
-                if(user == null) { return NotFound(); }
+                if (user == null) { return NotFound(); }
                 if (ProfileImage == null)
                 {
                     user.ProfileImage = existingUser.ProfileImage;
                 }
                 else
                 {
-                    existingUser.ProfileImage = await SaveImage(ProfileImage);
+                    user.ProfileImage = await SaveImage(ProfileImage);
                 }
                 existingUser.LastName = user.LastName;
                 existingUser.FirstName = user.FirstName;
+                existingUser.ProfileImage = user.ProfileImage;
                 var result = await _userManager.UpdateAsync(existingUser);
                 if (result.Succeeded)
                 {
@@ -51,7 +53,7 @@ namespace DoAnLapTrinhWeb.Controllers
                     }
                 }
             }
-            return View(user);
+            return View(existingUser);
         }
         private async Task<string> SaveImage(IFormFile image)
         {

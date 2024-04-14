@@ -14,7 +14,7 @@
                         <label>UserProfile</label>
                         <div class="image-input-container">
                             <!-- Input element -->
-                            <input type="file" asp-for="ProfileImage" class="image-input" accept="image/*">
+                            <input type="file" asp-for="ProfileImage" class="image-input" value="" accept="image/*">
                             <!-- Image preview (optional) -->
                             @if (Model.ProfileImage == null)
                             {
