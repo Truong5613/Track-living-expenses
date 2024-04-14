@@ -116,13 +116,14 @@ namespace DoAnLapTrinhWeb.Controllers
             public int expense;
         }
         public async Task GenerateRecurringTransactions()
-{
-    var recurringTransactions = await _context.RecurringTransactions.ToListAsync();
-
-    foreach (var recurringTransaction in recurringTransactions)
-    {
-        if (IsTimeToGenerateTransaction(recurringTransaction))
         {
+            var recurringTransactions = await _context.RecurringTransactions.ToListAsync();
+            var successMessages = new List<string>();
+
+            foreach (var recurringTransaction in recurringTransactions)
+            {
+                if (IsTimeToGenerateTransaction(recurringTransaction))
+                {
                     // Generate a new transaction based on the recurring transaction details
                     var newTransaction = new Transaction
                     {
@@ -130,19 +131,22 @@ namespace DoAnLapTrinhWeb.Controllers
                         Note = recurringTransaction.Note,
                         CategoryId = recurringTransaction.CategoryId,
                         UserID = recurringTransaction.UserID,
-                        Date = DateTime.Now.Date // Set the date of the transaction to the current date at 00:00:00.0000000
+                        Date = DateTime.Now.Date // đặt giờ là 00000000
                     };
-
                     _context.Add(newTransaction);
-            await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();
+                    UpdateNextOccurrence(recurringTransaction);
+                    var category = await _context.Categories.FindAsync(recurringTransaction.CategoryId);
+                    // Add success message to the list
+                    successMessages.Add($"Thêm {recurringTransaction.Amount:C0} vào {category.Name} thành công!");
+                }
+            }
 
-            // Update the next occurrence based on the recurrence interval
-            UpdateNextOccurrence(recurringTransaction);
+            // Add the list of messages to TempData
+            TempData["successMessages"] = successMessages;
         }
-    }
-}
 
-private void UpdateNextOccurrence(RecurringTransaction recurringTransaction)
+        private void UpdateNextOccurrence(RecurringTransaction recurringTransaction)
 {
     switch (recurringTransaction.RecurrenceInterval.ToLower())
     {

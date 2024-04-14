@@ -6,8 +6,8 @@
 
 }
 <div class="row">
-    <div class="col-md-7">
-        <ejs-grid id="categories" dataSource="@Model" allowSorting="true" allowPaging="true" gridLines="None">
+    <div class="col-md-7" style='overflow:auto'>
+        <ejs-grid id="categories" dataSource="@Model" allowSorting="true" allowPaging="true" gridLines="None" width=600>
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Danh Mục" field="TitleWithIcon"></e-grid-column>
@@ -16,7 +16,7 @@
             </e-grid-columns>
         </ejs-grid>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 d-none d-md-block">
         <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
             <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
         </div>

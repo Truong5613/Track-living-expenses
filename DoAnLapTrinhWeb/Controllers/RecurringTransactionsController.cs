@@ -58,11 +58,13 @@ namespace DoAnLapTrinhWeb.Controllers
                 {
                     recurringTransaction.UserID = _userManager.GetUserId(User);
                     _context.RecurringTransactions.Add(recurringTransaction);
+                    TempData["message"] = "Thêm Subscription thành công!";
                 }
                 else
                 {
                     recurringTransaction.UserID = _userManager.GetUserId(User);
                     _context.RecurringTransactions.Update(recurringTransaction);
+                    TempData["message"] = "Chỉnh Subscription thành công!";
                 }
 
                 await _context.SaveChangesAsync();
@@ -90,6 +92,7 @@ namespace DoAnLapTrinhWeb.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["message"] = "Xoá Subscription thành công!";
             return RedirectToAction(nameof(Index));
         }
         [NonAction]

@@ -13,6 +13,13 @@
         gap: 20px;
 
     }
+    .budgets
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        row-gap: 20px
+    }
     .budget{
       padding: 20px;
       width: 100%;
@@ -21,6 +28,7 @@
       border-color: red;
       color: #f7f7f7;
       flex: 1 0 auto;
+      height: 100%;
     }
 
    progress{
@@ -191,8 +199,8 @@
             <div class="p-4">
                 <h5 class="fw-bold">Bảng chi tiêu hoặc thu nhập gần đây</h5>
             </div>
-            <div class="px-4 pb-4">
-                <ejs-grid id="recent-transaction" datasource="@ViewBag.RecentTransactions" gridline="none">
+            <div class="px-4 pb-4" style='overflow:auto'>
+                <ejs-grid id="recent-transaction" datasource="@ViewBag.RecentTransactions" gridline="none" width="500">
                     <e-grid-columns>
                         <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
                         <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
@@ -211,7 +219,7 @@
     </div>
 </div>
 <br />
-<div class="row mb-4" style="
+<div class="row mb-4 budgets" style="
     display: flex;
     flex-direction: row;
     justify-content: space-around; 

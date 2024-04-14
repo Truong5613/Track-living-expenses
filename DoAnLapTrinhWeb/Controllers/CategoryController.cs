@@ -51,11 +51,13 @@ namespace DoAnLapTrinhWeb.Controllers
                 {
                     category.UserID = _userManager.GetUserId(User);
                     _context.Add(category);
+                    TempData["message"] = "Thêm danh mục thành công";
                 }
                 else
                 {
                     category.UserID = _userManager.GetUserId(User);
                     _context.Update(category);
+                    TempData["message"] = "Chỉnh danh mục thành công";
                 }
 
                 await _context.SaveChangesAsync();
@@ -83,6 +85,7 @@ namespace DoAnLapTrinhWeb.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["message"] = "Xóa danh mục thành công";
             return RedirectToAction(nameof(Index));
         }
 
