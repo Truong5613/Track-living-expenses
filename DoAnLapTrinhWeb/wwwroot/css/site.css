@@ -36,19 +36,16 @@
         margin-bottom: 20px;
     }
 
-    /* Adjust styles for radio buttons */
     .e-btn {
         margin-right: 5px;
     }
 
-    /* Center the shrimp icon */
     .widget.h-100 {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    /* Adjust recent transaction grid */
     #recent-transaction {
         width: 100%;
     }

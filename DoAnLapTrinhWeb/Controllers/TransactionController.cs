@@ -30,11 +30,20 @@ namespace DoAnLapTrinhWeb.Controllers
             _context = context;
             _hostingEnvironment = hostingEnvironment;
         }
+
         public IActionResult ExportToExcel(int month, int year)
         {
             // Filter transactions based on the selected month and year
             var transactions = _context.Transactions
-                .Where(t => t.Date.Month == month && t.Date.Year == year && t.UserID == _userManager.GetUserId(User))
+                .Where(t => t.Date.Year == year && t.UserID == _userManager.GetUserId(User));
+
+            // If month is not 0, filter transactions by month as well
+            if (month != 0)
+            {
+                transactions = transactions.Where(t => t.Date.Month == month);
+            }
+
+            var transactionList = transactions
                 .Include(t => t.Category)
                 .ToList();
 
@@ -44,78 +53,130 @@ namespace DoAnLapTrinhWeb.Controllers
             {
                 var worksheet = package.Workbook.Worksheets.Add("Transactions");
 
-                // Headers
-                worksheet.Cells[1, 1].Value = "Giao Dịch";
-                worksheet.Cells[1, 2].Value = "Ngày";
-                worksheet.Cells[1, 3].Value = "Số Tiền";
+                // Add the header with the appropriate month/year text
+                string headerText = month == 0 ? $"Giao dịch {year}" : $"Giao dịch {month}/{year}";
+                worksheet.Cells["A1"].Value = headerText;
+                worksheet.Cells["A1:C1"].Merge = true; // Merge cells for the header
+                worksheet.Cells["A1"].Style.Font.Bold = true;
+                worksheet.Cells["A1"].Style.Font.Size = 16;
+                worksheet.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
 
-                // Apply styling to header row
-                using (var range = worksheet.Cells[1, 1, 1, 3])
+                // Headers for income section
+                worksheet.Cells[3, 1].Value = "Thu nhập";
+                worksheet.Cells[4, 1].Value = "Giao Dịch";
+                worksheet.Cells[4, 2].Value = "Ngày";
+                worksheet.Cells[4, 3].Value = "Số Tiền";
+
+                // Apply styling to income section header row
+                using (var range = worksheet.Cells[3, 1, 3, 3])
                 {
+                    range.Merge = true;
                     range.Style.Font.Bold = true;
                     range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
                     range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                    range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
                 }
 
-                // Data
-                int row = 2;
+                // Data for income table
+                int rowIncome = 5;
                 decimal totalIncome = 0;
+
+                foreach (var transaction in transactionList.Where(t => t.Category.Type == "Income"))
+                {
+                    worksheet.Cells[rowIncome, 1].Value = transaction.CategoryNameWithIcon;
+                    worksheet.Cells[rowIncome, 2].Value = transaction.Date.ToString("MM-dd-yyyy");
+                    worksheet.Cells[rowIncome, 3].Value = transaction.Amount;
+                    worksheet.Cells[rowIncome, 3].Style.Font.Color.SetColor(System.Drawing.Color.Green); // Set font color to green for income
+                    totalIncome += transaction.Amount;
+                    rowIncome++;
+                }
+
+                // Headers for expense section
+                int rowExpenseHeader = rowIncome + 2;
+                worksheet.Cells[rowExpenseHeader, 1].Value = "Tiêu dùng";
+                worksheet.Cells[rowExpenseHeader + 1, 1].Value = "Giao Dịch";
+                worksheet.Cells[rowExpenseHeader + 1, 2].Value = "Ngày";
+                worksheet.Cells[rowExpenseHeader + 1, 3].Value = "Số Tiền";
+
+                // Apply styling to expense section header row
+                using (var range = worksheet.Cells[rowExpenseHeader, 1, rowExpenseHeader, 3])
+                {
+                    range.Merge = true;
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                    range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                }
+
+                // Data for expense table
+                int rowExpense = rowExpenseHeader + 2;
                 decimal totalExpense = 0;
 
-                foreach (var transaction in transactions)
+                foreach (var transaction in transactionList.Where(t => t.Category.Type == "Expense"))
                 {
-                    worksheet.Cells[row, 1].Value = transaction.CategoryNameWithIcon;
-                    worksheet.Cells[row, 2].Value = transaction.Date.ToString("MM-dd-yyyy");
-
-                    // Set the amount based on income or expense and apply formatting
-                    if (transaction.Category.Type == "Income")
-                    {
-                        worksheet.Cells[row, 3].Value = transaction.Amount;
-                        worksheet.Cells[row, 3].Style.Font.Color.SetColor(System.Drawing.Color.Green);
-                        totalIncome += transaction.Amount;
-                    }
-                    else if (transaction.Category.Type == "Expense")
-                    {
-                        worksheet.Cells[row, 3].Value = -transaction.Amount; // Make it negative for expenses
-                        worksheet.Cells[row, 3].Style.Font.Color.SetColor(System.Drawing.Color.Red);
-                        totalExpense += transaction.Amount;
-                    }
-                    else
-                    {
-                        worksheet.Cells[row, 3].Value = transaction.Amount; // Default behavior
-                    }
-
-                    row++;
+                    worksheet.Cells[rowExpense, 1].Value = transaction.CategoryNameWithIcon;
+                    worksheet.Cells[rowExpense, 2].Value = transaction.Date.ToString("MM-dd-yyyy");
+                    worksheet.Cells[rowExpense, 3].Value = -transaction.Amount; // Make it negative for expenses
+                    worksheet.Cells[rowExpense, 3].Style.Font.Color.SetColor(System.Drawing.Color.Red); // Set font color to red for expenses
+                    totalExpense += transaction.Amount;
+                    rowExpense++;
                 }
 
-                // Tính Tổng thu nhập
-                worksheet.Cells[row, 1].Value = "Tổng Thu";
-                worksheet.Cells[row, 2].Value = "";
-                worksheet.Cells[row, 3].Value = totalIncome;
-                worksheet.Cells[row, 3].Style.Font.Color.SetColor(System.Drawing.Color.Green); // Đặt font color màu xanh 
-                //Tính Tổng Chi 
-                worksheet.Cells[row + 1, 1].Value = "Tổng Chi";
-                worksheet.Cells[row + 1, 2].Value = "";
-                worksheet.Cells[row + 1, 3].Value = totalExpense;
-                worksheet.Cells[row + 1, 3].Style.Font.Color.SetColor(System.Drawing.Color.Red); // Đặt font color màu đỏ
+                // Total table
+                int rowTotalHeader = rowExpense + 2;
+                worksheet.Cells[rowTotalHeader, 1].Value = "Tổng tiền";
+                worksheet.Cells[rowTotalHeader, 2].Value = "";
+                worksheet.Cells[rowTotalHeader, 3].Value = "";
 
-                worksheet.Cells[row + 2, 1].Value = "Tổng Cân Đối";
-                worksheet.Cells[row + 2, 2].Value = "";
-                worksheet.Cells[row + 2, 3].Formula = $"C{row} - C{row + 1}"; // Tính tổng
+                // Apply styling to total header row
+                using (var range = worksheet.Cells[rowTotalHeader, 1, rowTotalHeader, 3])
+                {
+                    range.Merge = true;
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                    range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                }
+
+                // Data for total table
+                int rowTotal = rowTotalHeader + 1;
+                worksheet.Cells[rowTotal, 1].Value = "Tổng Thu";
+                worksheet.Cells[rowTotal, 2].Value = "";
+                worksheet.Cells[rowTotal, 3].Value = totalIncome;
+                worksheet.Cells[rowTotal, 3].Style.Font.Color.SetColor(System.Drawing.Color.Green); // Set font color to green for total income
+
+                worksheet.Cells[rowTotal + 1, 1].Value = "Tổng Chi";
+                worksheet.Cells[rowTotal + 1, 2].Value = "";
+                worksheet.Cells[rowTotal + 1, 3].Value = totalExpense;
+                worksheet.Cells[rowTotal + 1, 3].Style.Font.Color.SetColor(System.Drawing.Color.Red); // Set font color to red for total expense
+
+                worksheet.Cells[rowTotal + 2, 1].Value = "Tổng";
+                worksheet.Cells[rowTotal + 2, 2].Value = "";
+                worksheet.Cells[rowTotal + 2, 3].Formula = $"C{rowTotal} - C{rowTotal + 1}"; // Calculate balance
+                worksheet.Cells[rowTotal + 2, 3].Style.Font.Color.SetColor(totalIncome - totalExpense >= 0 ? System.Drawing.Color.Green : System.Drawing.Color.Red); // Set font color to green for positive and red for negative
 
                 // Auto-fit columns
                 worksheet.Cells.AutoFitColumns();
 
                 // Set borders for all cells
-                worksheet.Cells[1, 1, row + 2, 3].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-                worksheet.Cells[1, 1, row + 2, 3].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-                worksheet.Cells[1, 1, row + 2, 3].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-                worksheet.Cells[1, 1, row + 2, 3].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                worksheet.Cells[3, 1, rowTotal + 2, 3].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                worksheet.Cells[3, 1, rowTotal + 2, 3].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                worksheet.Cells[3, 1, rowTotal + 2, 3].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                worksheet.Cells[3, 1, rowTotal + 2, 3].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
 
                 fileContents = package.GetAsByteArray();
             }
 
-            var fileName = $"Transactions_{month}-{year}.xlsx";
+            // Generate file name
+            string fileName;
+            if (month == 0)
+            {
+                fileName = $"Transactions_{year}.xlsx";
+            }
+            else
+            {
+                fileName = $"Transactions_{month}-{year}.xlsx";
+            }
 
             return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         }
