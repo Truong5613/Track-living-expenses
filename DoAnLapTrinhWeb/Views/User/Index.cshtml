@@ -1,0 +1,110 @@
+﻿@model DoAnLapTrinhWeb.Areas.Identity.Data.AppliactionUser
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["isDashBoard"] = true;
+}
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form asp-action="index" method="post" enctype="multipart/form-data">
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label>UserProfile</label>
+                        <div class="image-input-container">
+                            <!-- Input element -->
+                            <input type="file" asp-for="ProfileImage" class="image-input" value="" accept="image/*">
+                            <!-- Image preview (optional) -->
+                            @if (Model.ProfileImage == null)
+                            {
+                                <img src="/ProfileImage/NoImage.jpg" alt="?" class="image-preview">
+                            }
+                            else
+                            {
+                                <img src="@Model.ProfileImage" alt="Image Preview" class="image-preview">
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <ejs-textbox id="LastName" value="@Model.LastName" ejs-for="LastName" placeholder="LastName" floatLabelType="Always"></ejs-textbox>
+                        </div>
+                        <div>
+                            <ejs-textbox ejs-for="FirstName" value="@Model.FirstName" placeholder="FirstName" floatLabelType="Always"></ejs-textbox>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-5">
+                                <ejs-button id="submit" type="submit" cssClass="e-success" content="Cập Nhật"></ejs-button>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "User")'">🔁</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
+            <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
+        </div>
+    </div>
+
+
+
+    <script>
+        // JavaScript to display selected image in the preview
+        const inputElement = document.querySelector('.image-input');
+        const previewElement = document.querySelector('.image-preview');
+
+        inputElement.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function () {
+                    previewElement.src = reader.result;
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                previewElement.src = "#";
+            }
+        });
+    </script>
+
+    <style>
+        /* Style for the container */
+        .image-input-container {
+            position: relative;
+            width: 200px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            overflow: hidden;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Style for the input */
+        .image-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Style for the image preview */
+        .image-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>

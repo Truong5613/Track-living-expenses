@@ -9,6 +9,7 @@ using DoAnLapTrinhWeb.Models;
 using DoAnLapTrinhWeb.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using DoAnLapTrinhWeb.Repositories;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
@@ -16,10 +17,12 @@ namespace DoAnLapTrinhWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<AppliactionUser> _userManager;
-        public CategoryController(ApplicationDbContext context, UserManager<AppliactionUser> userManager)
+        private readonly ICategoryRepository _categoryRepository;
+        public CategoryController(ApplicationDbContext context, UserManager<AppliactionUser> userManager, ICategoryRepository categoryRepository)
         {
             this._userManager = userManager;
             _context = context;
+            _categoryRepository=categoryRepository;
         }
 
         // GET: Category
