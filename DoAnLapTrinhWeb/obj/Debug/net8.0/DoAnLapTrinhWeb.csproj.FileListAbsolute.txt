@@ -2573,3 +2573,6 @@ C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoA
 D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\MailKit.dll
 D:\Web\Test\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\MimeKit.dll
+C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\MailKit.dll
+C:\Users\mrtru\Desktop\DOANLApTrinhWEb\DoANLapTrinhWeb\Track-living-expenses\DoAnLapTrinhWeb\bin\Debug\net8.0\MimeKit.dll

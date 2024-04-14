@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using OfficeOpenXml;
 using DoAnLapTrinhWeb.Service;
 using Microsoft.Extensions.Configuration;
+using DoAnLapTrinhWeb.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,6 +84,9 @@ AddCookie(options =>
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealConnection")));
 
 builder.Services.AddDbContext<DoAnLapTrinhWebDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealConnection")));
+
+
+builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 
 builder.Services.AddDefaultIdentity<AppliactionUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DoAnLapTrinhWebDbContext>();
 
