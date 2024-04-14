@@ -24,6 +24,15 @@ namespace DoAnLapTrinhWeb.Controllers
             ViewData["UserID"] = _userManager.GetUserId(this.User);
             await GenerateRecurringTransactions();
             //7days
+            var userCategoriesCount = await _context.Categories
+        .Where(c => c.UserID == _userManager.GetUserId(User))
+        .CountAsync();
+
+            if (userCategoriesCount < 10)
+            {
+                // Add additional categories dynamically
+                await AddAdditionalCategories(_userManager.GetUserId(User));
+            }
             DateTime StartDate = DateTime.Today.AddDays(-numberOfDays + 1);
             DateTime Endate = DateTime.Today;
             @ViewBag.numberOfDays = numberOfDays;
@@ -144,6 +153,27 @@ namespace DoAnLapTrinhWeb.Controllers
 
             // Add the list of messages to TempData
             TempData["successMessages"] = successMessages;
+        }
+        private async Task AddAdditionalCategories(string userId)
+        {
+            // Define the additional categories you want to add
+            var additionalCategories = new List<Category>
+    {
+        new Category { Name = "Ăn Uống", Icon = "🍴", Type = "Expense", UserID = userId },
+        new Category { Name = "Đi chợ", Icon = "🛒", Type = "Expense", UserID = userId },
+        new Category { Name = "Phương tiện công cộng", Icon = "🚃", Type = "Expense", UserID = userId },
+        new Category { Name = "Giải Trí", Icon = "🍿", Type = "Expense", UserID = userId },
+        new Category { Name = "Trả Phí", Icon = "🧾", Type = "Expense", UserID = userId },
+        new Category { Name = "Quà Tặng", Icon = "🎁", Type = "Expense", UserID = userId },
+        new Category { Name = "Làm Đẹp", Icon = "💄", Type = "Expense", UserID = userId },
+        new Category { Name = "Đi làm", Icon = "💸", Type = "Expense", UserID = userId },
+        new Category { Name = "Du Lịch", Icon = "✈️", Type = "Expense", UserID = userId },
+        new Category { Name = "Lương", Icon = "💰", Type = "Income", UserID = userId },
+    };
+
+            // Add the additional categories to the database
+            _context.Categories.AddRange(additionalCategories);
+            await _context.SaveChangesAsync();
         }
 
         private void UpdateNextOccurrence(RecurringTransaction recurringTransaction)
