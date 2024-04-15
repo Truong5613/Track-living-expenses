@@ -7,7 +7,7 @@
 }
 <div class="row">
     <div class="col-md-8" style='overflow:auto'>
-        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" width=700 toolbar="@(new List<string>() {"Search" })">
+        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true" width=700 toolbar="@(new List<string>() {"Search" })">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
@@ -31,10 +31,34 @@
             <i class="fa-solid fa-wand-magic"></i>
         </a>
         <form action="/Budgets/Delete/${BudgetId}" method="post">
-            @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
+    @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${CategoryNameWithIcon} ?&quot;)">
                 <i class="fa-solid fa-eraser fa-lg text-danger"></i>
             </button>
         </form>
     </div>
+</script>
+<script>
+    function validateDates() {
+        var startDateInputs = document.querySelectorAll('[name="StartDate"]');
+        var endDateInputs = document.querySelectorAll('[name="EndDate"]');
+
+        for (var i = 0; i < startDateInputs.length; i++) {
+            var startDate = new Date(startDateInputs[i].value);
+            var endDate = new Date(endDateInputs[i].value);
+
+            if (startDate > endDate) {
+                alert("Ngày bắt đầu phải sớm hơn ngày kết thúc.");
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+<script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+        if (!validateDates()) {
+            event.preventDefault();
+        }
+    });
 </script>

@@ -327,7 +327,24 @@ namespace DoAnLapTrinhWeb.Controllers
             TempData["message"] = "Xóa giao dịch thành công";
             return RedirectToAction(nameof(Index));
         }
-        
+        [HttpPost, ActionName("DeleteTransBudget")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmedDashBoard(int id)
+        {
+            if (_context.Transactions == null)
+            {
+                return Problem("Thực thể 'ApplicationDbContest.Transactions' đang trống");
+            }
+            var transaction = await _context.Transactions.FindAsync(id);
+            if (transaction != null)
+            {
+                _context.Transactions.Remove(transaction);
+            }
+
+            await _context.SaveChangesAsync();
+            TempData["message"] = "Xóa giao dịch thành công";
+            return RedirectToAction("Index", "DashBoard");
+        }
 
 
         [NonAction]

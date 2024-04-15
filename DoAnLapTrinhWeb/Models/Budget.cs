@@ -15,6 +15,7 @@ namespace DoAnLapTrinhWeb.Models
         public int Amount { get; set; }
 
         [Required]
+        
         public DateTime StartDate { get; set; }
 
         [Required]

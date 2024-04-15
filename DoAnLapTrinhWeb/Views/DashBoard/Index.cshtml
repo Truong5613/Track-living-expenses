@@ -362,11 +362,12 @@
                                     <h5 class="fw-bold">Bảng chi tiêu hoặc thu nhập gần đây</h5>
                                 </div>
                                 <div class="px-4 pb-4">
-                                    <ejs-grid id="@i" datasource="transactionsId" gridline=" none">
+                                    <ejs-grid id="@i" datasource="transactionsId" gridline=" none" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true">
                                         <e-grid-columns>
                                             <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
                                             <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date"></e-grid-column>
                                             <e-grid-column headerText="Số Tiền" field="FormatAmount"></e-grid-column>
+                                            <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
                                         </e-grid-columns>
                                     </ejs-grid>
                                 </div>
@@ -548,4 +549,18 @@
             window.scrollTo(0, 0);
         });
     });
+</script>
+<script id="ActionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Transaction/AddorEdit/${TransactionId}">
+            <i class="fa-solid fa-wand-magic"></i>
+        </a>
+        <form action="/Transaction/DeleteTransBudget/${TransactionId}" method="post">
+
+    @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${CategoryNameWithIcon} ?&quot;)">
+                <i class="fa-solid fa-eraser fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
 </script>

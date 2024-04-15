@@ -34,6 +34,8 @@ namespace DoAnLapTrinhWeb.Models
         [Required(ErrorMessage = "Xin hãy nhập ngày Kết Thúc.")]
         public DateTime EndDate { get; set; }
 
+        public DateTime? LastProcessedDate { get; set; }
+
         [NotMapped]
         public string? CategoryNameWithIcon
         {
