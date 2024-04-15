@@ -1,5 +1,6 @@
 ﻿using DoAnLapTrinhWeb.Areas.Identity.Data;
 using DoAnLapTrinhWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace DoAnLapTrinhWeb.Controllers
         {
             _userManager = userManager;
         }
+        [Authorize]
         public async Task<IActionResult> index()
         {
             var user = await _userManager.GetUserAsync(User);
