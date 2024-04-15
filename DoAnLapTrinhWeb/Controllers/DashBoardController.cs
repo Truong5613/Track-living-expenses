@@ -131,7 +131,9 @@ namespace DoAnLapTrinhWeb.Controllers
 
             foreach (var recurringTransaction in recurringTransactions)
             {
-                if (IsTimeToGenerateTransaction(recurringTransaction))
+                DateTime lastProcessedDate = recurringTransaction.LastProcessedDate ?? recurringTransaction.StartDate;
+
+                while (IsTimeToGenerateTransaction(recurringTransaction, lastProcessedDate))
                 {
                     // Generate a new transaction based on the recurring transaction details
                     var newTransaction = new Transaction
@@ -140,17 +142,34 @@ namespace DoAnLapTrinhWeb.Controllers
                         Note = recurringTransaction.Note,
                         CategoryId = recurringTransaction.CategoryId,
                         UserID = recurringTransaction.UserID,
-                        Date = DateTime.Now.Date // đặt giờ là 00000000
+                        Date = lastProcessedDate.Date
                     };
                     _context.Add(newTransaction);
                     await _context.SaveChangesAsync();
                     UpdateNextOccurrence(recurringTransaction);
                     var category = await _context.Categories.FindAsync(recurringTransaction.CategoryId);
-                    // Add success message to the list
                     successMessages.Add($"Thêm {recurringTransaction.Amount:C0} vào {category.Name} thành công!");
-                }
-            }
 
+                    switch (recurringTransaction.RecurrenceInterval.ToLower())
+                    {
+                        case "hằng ngày":
+                            lastProcessedDate = lastProcessedDate.AddDays(1);
+                            break;
+                        case "hằng tuần":
+                            lastProcessedDate = lastProcessedDate.AddDays(7);
+                            break;
+                        case "hằng tháng":
+                            lastProcessedDate = lastProcessedDate.AddMonths(1);
+                            break;
+                        case "hằng năm":
+                            lastProcessedDate = lastProcessedDate.AddYears(1);
+                            break;
+                        default:
+                            throw new NotImplementedException($"Recurrence interval '{recurringTransaction.RecurrenceInterval}' is not implemented.");
+                    }
+                }
+                recurringTransaction.LastProcessedDate = lastProcessedDate; // Update the last processed date
+            }
             // Add the list of messages to TempData
             TempData["successMessages"] = successMessages;
         }
@@ -199,24 +218,22 @@ namespace DoAnLapTrinhWeb.Controllers
     _context.SaveChanges();
 }
 
-private bool IsTimeToGenerateTransaction(RecurringTransaction recurringTransaction)
-{
-    DateTime currentDate = DateTime.Now;
-
-    switch (recurringTransaction.RecurrenceInterval.ToLower())
-    {
-        case "hằng ngày":
-            return currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
-        case "hằng tuần":
-            return currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
-        case "hằng tháng":
-            return currentDate.Day == recurringTransaction.StartDate.Day && currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
-        case "hằng năm":
-            return currentDate.Day == recurringTransaction.StartDate.Day && currentDate.Month == recurringTransaction.StartDate.Month && currentDate >= recurringTransaction.StartDate && currentDate <= recurringTransaction.EndDate;
-        default:
-            return false;
-    }
-}
+        private bool IsTimeToGenerateTransaction(RecurringTransaction recurringTransaction, DateTime currentDate)
+        {
+            switch (recurringTransaction.RecurrenceInterval.ToLower())
+            {
+                case "hằng ngày":
+                    return currentDate <= DateTime.Today;
+                case "hằng tuần":
+                    return currentDate <= DateTime.Today;
+                case "hằng tháng":
+                    return currentDate.Day == recurringTransaction.StartDate.Day && currentDate <= DateTime.Today;
+                case "hằng năm":
+                    return currentDate.Day == recurringTransaction.StartDate.Day && currentDate.Month == recurringTransaction.StartDate.Month && currentDate <= DateTime.Today;
+                default:
+                    return false;
+            }
+        }
 
     }
 }
