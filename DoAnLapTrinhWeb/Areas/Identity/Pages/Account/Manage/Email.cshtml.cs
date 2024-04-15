@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using DoAnLapTrinhWeb.Areas.Identity.Data;
+using DoAnLapTrinhWeb.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -21,15 +22,16 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<AppliactionUser> _userManager;
         private readonly SignInManager<AppliactionUser> _signInManager;
         private readonly IEmailSender _emailSender;
-
+        private readonly ISendMailService _sendMailService;
         public EmailModel(
             UserManager<AppliactionUser> userManager,
             SignInManager<AppliactionUser> signInManager,
-            IEmailSender emailSender)
+            IEmailSender emailSender, ISendMailService sendMailService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _sendMailService = sendMailService;
         }
 
         /// <summary>
@@ -128,6 +130,17 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account.Manage
                     Input.NewEmail,
                     "Confirm your email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                MailContent content = new MailContent
+                {
+                    To = user.Email,
+                    Subject = "Xác thực tài khoản",
+                    Body = $"<p>Xin chào,</p>\r\n    <p>Chúng tôi nhận được yêu cầu thay đổi email  cho tài khoản của bạn tại Track_Living_Expenses. Để hoàn tất quá trình này, bạn cần xác thực địa chỉ email của mình.</p>\r\n    <p>Vui lòng nhấp vào liên kết dưới đây để xác thực email của bạn và tiếp tục quá trình thay đổi mật khẩu:</p>\r\n    <p><a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click here to verify</a></p>\r\n    <p>Nếu bạn không yêu cầu thay đổi mật khẩu, vui lòng bỏ qua email này.</p>\r\n    <p>Trân trọng,</p>\r\n    <p>Đội ngũ hỗ trợ Track_Living_Expense</p>",
+
+                };
+
+
+                await _sendMailService.SendMail(content);
 
                 StatusMessage = "Confirmation link to change email sent. Please check your email.";
                 return RedirectToPage();
