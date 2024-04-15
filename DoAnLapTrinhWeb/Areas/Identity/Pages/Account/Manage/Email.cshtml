@@ -15,11 +15,10 @@
             {
                 <div class="form-floating mb-3 input-group">
                     @*<input asp-for="Email" class="form-control" placeholder="Please enter your email." disabled />*@
-                    <ejs-textbox ejs-for="Email" type="text" placeholder=" Nhập địa chỉ email" aria-required="true" ShowClearButton=false disabled></ejs-textbox>
+                    <ejs-textbox ejs-for="Email" type="text" placeholder="Email của bạn" aria-required="true" ShowClearButton=false floatLabelType="Always" disabled></ejs-textbox>
                         <div class="input-group-append">
                             <span class="h-100 input-group-text text-success font-weight-bold">✓</span>
                         </div>
-                    <label asp-for="Email" class="form-label"></label>
                 </div>
             }
             else
