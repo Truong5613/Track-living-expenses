@@ -32,6 +32,7 @@ namespace DoAnLapTrinhWeb.Models
         public DateTime StartDate { get; set; }
 
         [Required(ErrorMessage = "Xin hãy nhập ngày Kết Thúc.")]
+        [DateGreaterThan("StartDate", ErrorMessage = "Ngày bắt đầu phải luôn bé hơn ngày kết thúc")]
         public DateTime EndDate { get; set; }
 
         public DateTime? LastProcessedDate { get; set; }
@@ -53,5 +54,35 @@ namespace DoAnLapTrinhWeb.Models
                 return ((Category == null || Category.Type == "Expense") ? " - " : " + ") + Amount.ToString("C0");
             }
         }
+
+        public class DateGreaterThanAttribute : ValidationAttribute
+        {
+            private readonly string _comparisonProperty;
+
+            public DateGreaterThanAttribute(string comparisonProperty)
+            {
+                _comparisonProperty = comparisonProperty;
+            }
+
+            protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+            {
+                var propertyInfo = validationContext.ObjectType.GetProperty(_comparisonProperty);
+                if (propertyInfo == null)
+                {
+                    return new ValidationResult($"Property {_comparisonProperty} not found.");
+                }
+
+                var comparisonValue = (DateTime)propertyInfo.GetValue(validationContext.ObjectInstance);
+                var currentValue = (DateTime)value;
+
+                if (currentValue <= comparisonValue)
+                {
+                    return new ValidationResult(ErrorMessage);
+                }
+
+                return ValidationResult.Success;
+            }
+        }
+
     }
 }
