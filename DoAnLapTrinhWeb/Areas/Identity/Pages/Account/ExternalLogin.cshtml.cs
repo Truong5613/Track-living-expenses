@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using DoAnLapTrinhWeb.Service;
 
 namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
 {
@@ -30,13 +31,15 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<AppliactionUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
+        private readonly ISendMailService _sendMailService;
 
         public ExternalLoginModel(
             SignInManager<AppliactionUser> signInManager,
             UserManager<AppliactionUser> userManager,
             IUserStore<AppliactionUser> userStore,
             ILogger<ExternalLoginModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ISendMailService sendMailService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -44,6 +47,7 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
             _emailStore = GetEmailStore();
             _logger = logger;
             _emailSender = emailSender;
+            _sendMailService = sendMailService;
         }
 
         /// <summary>
@@ -193,6 +197,19 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
 
                         await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                             $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                        MailContent content = new MailContent
+                        {
+                            To = user.Email,
+                            Subject = "Xác thực tài khoản",
+                            Body = $"<p>Chào mừng bạn đến với Track_Living_Expense,</p>\r\n    <p>Cảm ơn bạn đã đăng ký tài khoản tại Track_Living_Expenses. Để hoàn tất quá trình đăng ký và bắt đầu sử dụng dịch vụ, bạn cần xác thực địa chỉ email của mình.</p>\r\n    <p>Vui lòng nhấp vào liên kết dưới đây để xác thực email của bạn: <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click here to verify</a></p>\r\n    <p><a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click here to verify</a></p>\r\n    <p>Nếu bạn không yêu cầu email này, vui lòng bỏ qua nó.</p>\r\n    <p>Trân trọng,</p>\r\n    <p>Đội ngũ hỗ trợ Track_Living_Expenses</p>",
+
+                        };
+
+                        await _sendMailService.SendMail(content);
+
+
+
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)

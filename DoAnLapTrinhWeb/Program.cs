@@ -11,6 +11,7 @@ using OfficeOpenXml;
 using DoAnLapTrinhWeb.Service;
 using Microsoft.Extensions.Configuration;
 using DoAnLapTrinhWeb.Repositories;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,7 @@ builder.Services.AddAuthentication()
            context.Response.Redirect(context.RedirectUri + "&prompt=select_account");
            return Task.CompletedTask;
        };
+    
    });
 
 
