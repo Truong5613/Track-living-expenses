@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+SM0VVQSx4xQWeHqHaR1nJ3fezMLprn1N6yrXBZrzcg=",
+  "Hash": "Gje9VND7L90Ylh5owateNcZCBJIb9meyKHNt1UWbZqc=",
   "Source": "DoAnLapTrinhWeb",
   "BasePath": "_content/DoAnLapTrinhWeb",
   "Mode": "Default",
@@ -2998,6 +2998,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProfileImage\\qrcode_107455157_50ef64e8f6bd0f1d1edaa5c41c9c711e.png"
+    },
+    {
+      "Identity": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\ProfileImage\\wallpaperflare.com_wallpaper.jpg",
+      "SourceId": "DoAnLapTrinhWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\",
+      "BasePath": "_content/DoAnLapTrinhWeb",
+      "RelativePath": "ProfileImage/wallpaperflare.com_wallpaper.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfileImage\\wallpaperflare.com_wallpaper.jpg"
     }
   ]
 }

@@ -93,6 +93,10 @@
       "PackagePath": "staticwebassets\\ProfileImage\\qrcode_107455157_50ef64e8f6bd0f1d1edaa5c41c9c711e.png"
     },
     {
+      "Id": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\ProfileImage\\wallpaperflare.com_wallpaper.jpg",
+      "PackagePath": "staticwebassets\\ProfileImage\\wallpaperflare.com_wallpaper.jpg"
+    },
+    {
       "Id": "D:\\Web\\Test\\Track-living-expenses\\DoAnLapTrinhWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

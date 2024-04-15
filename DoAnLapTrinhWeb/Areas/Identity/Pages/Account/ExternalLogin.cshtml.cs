@@ -174,7 +174,7 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
                 var user = CreateUser();
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
-
+                user.EmailConfirmed = true;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
@@ -197,7 +197,7 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
 
                         await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                             $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                        /*
                         MailContent content = new MailContent
                         {
                             To = user.Email,
@@ -216,7 +216,7 @@ namespace DoAnLapTrinhWeb.Areas.Identity.Pages.Account
                         {
                             return RedirectToPage("./RegisterConfirmation", new { Email = Input.Email });
                         }
-
+                        */
                         await _signInManager.SignInAsync(user, isPersistent: false, info.LoginProvider);
                         return LocalRedirect(returnUrl);
                     }
