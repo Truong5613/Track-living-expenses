@@ -33,7 +33,7 @@
         </a>
         <form action="/RecurringTransactions/Delete/${RecurringTransactionId}" method="post">
     @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${CategoryNameWithIcon} ?&quot;)">
                 <i class="fa-solid fa-eraser fa-lg text-danger"></i>
             </button>
         </form>

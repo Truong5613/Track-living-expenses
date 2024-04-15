@@ -133,7 +133,8 @@ namespace DoAnLapTrinhWeb.Controllers
             {
                 DateTime lastProcessedDate = recurringTransaction.LastProcessedDate ?? recurringTransaction.StartDate;
 
-                while (IsTimeToGenerateTransaction(recurringTransaction, lastProcessedDate))
+                // Loop while the start date is within the range of the end date
+                while (lastProcessedDate <= recurringTransaction.EndDate)
                 {
                     // Generate a new transaction based on the recurring transaction details
                     var newTransaction = new Transaction
@@ -168,8 +169,10 @@ namespace DoAnLapTrinhWeb.Controllers
                             throw new NotImplementedException($"Recurrence interval '{recurringTransaction.RecurrenceInterval}' is not implemented.");
                     }
                 }
+
                 recurringTransaction.LastProcessedDate = lastProcessedDate; // Update the last processed date
             }
+
             // Add the list of messages to TempData
             TempData["successMessages"] = successMessages;
         }
@@ -223,13 +226,13 @@ namespace DoAnLapTrinhWeb.Controllers
             switch (recurringTransaction.RecurrenceInterval.ToLower())
             {
                 case "hằng ngày":
-                    return currentDate <= DateTime.Today;
+                    return currentDate <= DateTime.Today && currentDate < recurringTransaction.EndDate;
                 case "hằng tuần":
-                    return currentDate <= DateTime.Today;
+                    return currentDate <= DateTime.Today && currentDate < recurringTransaction.EndDate;
                 case "hằng tháng":
-                    return currentDate.Day == recurringTransaction.StartDate.Day && currentDate <= DateTime.Today;
+                    return currentDate.Day == recurringTransaction.StartDate.Day && currentDate <= DateTime.Today && currentDate < recurringTransaction.EndDate;
                 case "hằng năm":
-                    return currentDate.Day == recurringTransaction.StartDate.Day && currentDate.Month == recurringTransaction.StartDate.Month && currentDate <= DateTime.Today;
+                    return currentDate.Day == recurringTransaction.StartDate.Day && currentDate.Month == recurringTransaction.StartDate.Month && currentDate <= DateTime.Today && currentDate < recurringTransaction.EndDate;
                 default:
                     return false;
             }
