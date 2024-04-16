@@ -66,8 +66,7 @@
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\RecurringTransactions\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAACSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-15T15:42:52.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T15:42:52.896Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Category\\Index.cshtml",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAACcAAACLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-15T15:42:01.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T15:42:01.964Z"
             },
             {
               "$type": "Document",
@@ -92,8 +90,7 @@
               "RelativeToolTip": "DoAnLapTrinhWeb\\Views\\Category\\AddorEdit.cshtml",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-15T15:41:57.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T15:41:57.17Z"
             },
             {
               "$type": "Document",
@@ -105,8 +102,7 @@
               "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\CategoryController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T15:41:52.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T15:41:52.584Z"
             },
             {
               "$type": "Document",
@@ -155,8 +151,7 @@
               "RelativeToolTip": "DoAnLapTrinhWeb\\Controllers\\DashBoardController.cs",
               "ViewState": "AQIAAM4AAAAAAAAAAAAQwNgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T14:33:52.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T14:33:52.022Z"
             },
             {
               "$type": "Document",
@@ -168,8 +163,7 @@
               "RelativeToolTip": "DoAnLapTrinhWeb\\Models\\RecurringTransaction.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAswCIAAABkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T14:32:33.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T14:32:33.358Z"
             }
           ]
         }
