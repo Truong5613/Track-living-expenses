@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Hồ sơ người dùng";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6 flex flex-col gap-100">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            @*<div class="form-floating mb-3">
+                <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập." disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>*@
+            <div class="input-box">
+                <ejs-textbox ejs-for="Username" type="text" placeholder="Nhập tên đăng nhập" aria-required="true" ShowClearButton=false disabled></ejs-textbox>
+                <i class='bx bxs-user'></i>
+            </div>
+            <br />
+            <div class="input-box">
+                <ejs-textbox ejs-for="Input.PhoneNumber" class="form-control" type="text" placeholder=" Nhập Số Điện Thoại"  ShowClearButton=false ></ejs-textbox>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            @*<div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>*@
+            <br />
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

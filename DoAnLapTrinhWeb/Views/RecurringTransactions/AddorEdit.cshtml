@@ -1,0 +1,101 @@
+﻿@model DoAnLapTrinhWeb.Models.RecurringTransaction
+@{
+    ViewData["PageTitle"] = Model.RecurringTransactionId == 0 ? "Tạo mới một Subscription" : "Chỉnh sửa Subscription";
+}
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form asp-action="AddorEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="RecurringTransactionId" value="@Model.RecurringTransactionId" />
+
+                <div class="mb-3">
+                    <div class='e-btn-group custom-rbt-group'>
+                        <input type="radio" id="radioIncome" name="Type" value="Income" onclick="toggleDropdown('income')" checked />
+                        <label class="e-btn" for="radioIncome">Thu Nhập</label>
+                        <input type="radio" id="radioExpense" name="Type" value="Expense" onclick="toggleDropdown('expense')" />
+                        <label class="e-btn" for="radioExpense">Tiêu Dùng</label>
+                    </div>
+                </div>
+                <div id="incomeCategoriesDropdown" class="mb-3">
+                    <ejs-dropdownlist id="ddlIncomeCategoryId" placeholder="Danh Mục Thu Nhập" dataSource="@ViewBag.IncomeCategories" ejs-for="CategoryId"
+                                      floatLabelType="Auto" allowFiltering="true" ignoreAccent="true" filterType="Contains">
+                        <e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"></e-dropdownlist-fields>
+                    </ejs-dropdownlist>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div id="expenseCategoriesDropdown" class="mb-3" style="display: none;">
+                    <ejs-dropdownlist id="ddlExpenseCategoryId" placeholder="Danh Mục Tiêu Dùng" dataSource="@ViewBag.ExpenseCategories" ejs-for="CategoryId"
+                                      floatLabelType="Auto" allowFiltering="true" ignoreAccent="true" filterType="Contains">
+                        <e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"></e-dropdownlist-fields>
+                    </ejs-dropdownlist>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <div class="form-group">
+                        <ejs-datepicker id="StartDate" ejs-for="StartDate" placeholder="Ngày bắt đầu" floatLabelType="Always"
+                                        format="MM-dd-yyyy"></ejs-datepicker>
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <ejs-datepicker id="EndDate" ejs-for="EndDate" placeholder="Ngày kết thúc" floatLabelType="Always"
+                                        format="MM-dd-yyyy"></ejs-datepicker>
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <ejs-numerictextbox id="Amount" ejs-for="Amount" floatLabelType="Always" placeholder="Số tiền" min=0 format="c0"></ejs-numerictextbox>
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <div class='e-btn-group custom-rbt-group'>
+                    <input type="radio" id="radioDaily" name="RecurrenceInterval" value="Hằng Ngày" checked="@(Model.RecurrenceInterval == "Hằng Ngày")" />
+                    <label class="e-btn" for="radioDaily">Hằng Ngày</label>
+                    <input type="radio" id="radioWeekly" name="RecurrenceInterval" value="Hằng Tuần" checked="@(Model.RecurrenceInterval == "Hằng Tuần")" />
+                    <label class="e-btn" for="radioWeekly">Hằng Tuần</label>
+                    <input type="radio" id="radioMonthly" name="RecurrenceInterval" value="Hằng Tháng" checked="@(Model.RecurrenceInterval == "Hằng Tháng")" />
+                    <label class="e-btn" for="radioMonthly">Hằng Tháng</label>
+                    <input type="radio" id="radioYearly" name="RecurrenceInterval" value="Hằng Năm" checked="@(Model.RecurrenceInterval == "Hằng Năm")" />
+                    <label class="e-btn" for="radioYearly">Hằng Năm</label>
+                </div>
+                <br />
+                <div class="form-group">
+                    <ejs-button id="submit" type="submit" cssClass="e-success" content="Nhập"></ejs-button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center" style="background-color:#212b36">
+            <i class="fa-sharp fa-solid fa-list-check fa-2xl"></i>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleDropdown(type) {
+        var incomeDropdown = document.getElementById('incomeCategoriesDropdown');
+        var expenseDropdown = document.getElementById('expenseCategoriesDropdown');
+
+        // Reset the value of the opposite dropdown to the value at index 0
+        var oppositeDropdown = type === 'income' ? expenseDropdown : incomeDropdown;
+        var oppositeDropdownId = type === 'income' ? 'ddlExpenseCategoryId' : 'ddlIncomeCategoryId';
+
+        // Set the dropdown value to the value at index 0
+        document.getElementById(oppositeDropdownId).ej2_instances[0].value = null;
+
+        incomeDropdown.style.display = 'block';
+        expenseDropdown.style.display = 'none';
+
+        if (type === 'income') {
+            incomeDropdown.style.display = 'block';
+            expenseDropdown.style.display = 'none';
+        } else if (type === 'expense') {
+            incomeDropdown.style.display = 'none';
+            expenseDropdown.style.display = 'block';
+        }
+    }
+</script>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

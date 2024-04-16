@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {}
+    "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {
+    "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
+        "projectUniqueName": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
         "projectName": "DoAnLapTrinhWeb",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\New folder\\Track-living-expenses\\DoAnLapTrinhWeb\\obj\\",
+        "projectPath": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\DoAnLapTrinhWeb.csproj",
+        "packagesPath": "C:\\Users\\mrtru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrtru\\Desktop\\DOANLApTrinhWEb\\DoANLapTrinhWeb\\Track-living-expenses\\DoAnLapTrinhWeb\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mrtru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +49,34 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.1.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.0-preview.2.24128.4, )"
@@ -52,6 +84,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.0-preview.2.24128.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -62,6 +98,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             },
             "Syncfusion.EJ2.AspNet.Core": {
               "target": "Package",

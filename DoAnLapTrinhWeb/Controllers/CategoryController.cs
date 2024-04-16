@@ -6,26 +6,36 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnLapTrinhWeb.Models;
+using DoAnLapTrinhWeb.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using DoAnLapTrinhWeb.Repositories;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public CategoryController(ApplicationDbContext context)
+        private readonly UserManager<AppliactionUser> _userManager;
+        private readonly ICategoryRepository _categoryRepository;
+        public CategoryController(ApplicationDbContext context, UserManager<AppliactionUser> userManager, ICategoryRepository categoryRepository)
         {
+            this._userManager = userManager;
             _context = context;
+            _categoryRepository=categoryRepository;
         }
 
         // GET: Category
+        [Authorize]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            ViewData["UserID"] = _userManager.GetUserId(this.User);
+            return View(await _context.Categories.Where(x => x.UserID == _userManager.GetUserId(User)).ToListAsync());
         }
 
 
         // GET: Category/Create
+        [Authorize]
         public IActionResult AddorEdit(int id =0)
         {
             if(id==0)
@@ -43,14 +53,19 @@ namespace DoAnLapTrinhWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(category.CategoryId == 0)
+                if (category.CategoryId == 0)
                 {
+                    category.UserID = _userManager.GetUserId(User);
                     _context.Add(category);
+                    TempData["message"] = "Thêm danh mục thành công";
                 }
                 else
                 {
+                    category.UserID = _userManager.GetUserId(User);
                     _context.Update(category);
+                    TempData["message"] = "Chỉnh danh mục thành công";
                 }
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -76,6 +91,7 @@ namespace DoAnLapTrinhWeb.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["message"] = "Xóa danh mục thành công";
             return RedirectToAction(nameof(Index));
         }
 

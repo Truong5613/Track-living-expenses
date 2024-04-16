@@ -7,7 +7,49 @@
         font-size: 16px;
     }
 }
+@media only screen and (max-width: 992px) {
+    .row {
+        flex-direction: column;
+    }
 
+    .col-md-4,
+    .col-md-6,
+    .col-md-8 {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .progress-text,
+    .progress-text small {
+        font-size: smaller;
+    }
+
+    .budget {
+        padding: 10px;
+    }
+
+    progress {
+        width: 100%;
+    }
+
+    .widget {
+        margin-bottom: 20px;
+    }
+
+    .e-btn {
+        margin-right: 5px;
+    }
+
+    .widget.h-100 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #recent-transaction {
+        width: 100%;
+    }
+}
 html {
     position: relative;
     min-height: 100%;
@@ -19,20 +61,21 @@ html {
 }
 
 body {
-    zoom : 90%;
     margin-bottom: 60px;
     background-color: #12161d;
     color: #fff;
     overflow-y: scroll;
 }
-
+.e-content-animation {
+    transition: none !important;
+}
 .e-bigger {
     font-size: x-large;
 
 }
     
 .main-content {
-    overflow-y: auto;
+    margin-left: 0;
 }
 
 
@@ -202,7 +245,9 @@ nav.navbar {
             background-color: #48545f14;
             transform: scale(1.05) translateZ(0px);
         }
-
+nav.navbar {
+    margin-left: 290px;
+}
 /*Profile Pic*/
 img.profile-pic {
     width: 45px;
@@ -250,7 +295,7 @@ img.profile-pic {
 /*SideBar*/
 #sidebar {
     background-color: #12161d;
-    border-right: 1px dashed rgba(75,82,85,0.24);
+    border-right: 1px dashed rgba(75, 82, 85, 0.24);
     padding: 10px 20px;
     overflow: hidden;
 }
@@ -364,4 +409,37 @@ img.profile-pic {
         background-color: #48545f14;
         transform: scale(1.1) translateZ(0px);
     }
+
+
+/*tab navigation*/
+.login-logout-card .card-header {
+    padding: 0px 0px 12px 0px;
+    background-color: #12161d;
+}
+
+.login-logout-card ul.nav-tabs {
+    margin: 0px 0px -12px 0px;
+    background-color: #12161d;
+}
+
+.login-logout-card li.nav-item {
+    width: 50%;
+}
+
+.login-logout-card a.nav-link {
+    font-size: 1rem;
+    color: #495057;
+    text-align: center;
+    padding: 1rem;
+    background-color: #12161d;
+}
+
+.login-logout-card .card-body {
+    padding: 10px 20px;
+    background-color: #12161d;
+}
+
+.form-control {
+    background-color: #3f3030 
+}
 

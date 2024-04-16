@@ -1,7 +1,7 @@
 ﻿@model DoAnLapTrinhWeb.Models.Category
 
 @{
-    ViewData["PageTitle"]= Model.CategoryId==0? "Tạo mới một category" : "Chỉnh sửa category";
+    ViewData["PageTitle"]= Model.CategoryId==0? "Tạo danh mục" : "Chỉnh sửa danh mục";
 }
 <div class="row">
     <div class="col-md-7">
@@ -26,11 +26,18 @@
                     <div class="emoji-textbox">
                     <div class="row mb-2">
                         <div class="col-md-12">
-                            <ejs-textbox id="Icon" placeholder="Icon (Chọn 1 icon)" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
-                                <button class="btn1" style="top:25px;right:5px">😀</button>
-                                <span asp-validation-for="Icon" class="text-danger"></span>
+                            <div class="row">
+                                    <div class="col-md-11">
+                                        <ejs-textbox id="Icon" placeholder="Icon (Chọn 1 icon)" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
+                                        
+                                        <span asp-validation-for="Icon" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <asp:button class="btn1" runat="server" style="position:relative;top:25px;right:15px" CausesValidation="False">😀</asp:button>
+                                    </div>
+                            </div>
+                           
                         </div>
-
                     </div>
                     </div>
                 </div>       

@@ -8,13 +8,54 @@
 }
 
 <div class="row">
-    <div class="col-md-7">
-        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" gridLines="None" allowPaging="true" toolbar="@(new List<string>() {"Search" })" >
+    <div class="row mb-2">
+        <div class="col-md-2" style="margin-top:22px">
+            <ejs-button id="exportButton" cssClass="btn btn-primary e-success" content="Xuất ra Excel 📄"></ejs-button>
+        </div>
+        <form class="col-md-6">
+            <div class="row mb-2">
+                @if (ViewBag.month == null)
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="##" id="month" min="0" max="12" value="0" floatLabelType="Always" placeholder="Tháng"></ejs-numerictextbox>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="##" id="month" min="0" max="12" value="@ViewBag.month" floatLabelType="Always" placeholder="Tháng"></ejs-numerictextbox>
+                    </div>
+                }
+                @if(ViewBag.year == null)
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="####" id="year" min="00" value="2024" floatLabelType="Always" placeholder="Năm"></ejs-numerictextbox>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-5">
+                        <ejs-numerictextbox format="####" id="year" min="00" value="@ViewBag.year" floatLabelType="Always" placeholder="Năm"></ejs-numerictextbox>
+                    </div>
+                }
+                <div class="col-md-2" style="margin-top:22px">
+                    <button class="btn btn-success">📅</button>
+                </div>
+            </div> 
+        </form>
+        <div class="col-md-2" style="margin-top:22px">
+            <a class="btn btn-success" style="color:inherit" href="/Transaction/Index">🔃</a>
+  
+        </div>
+    </div>
+
+    <div class="col-md-7" style='overflow:auto'>
+        <ejs-grid id="transactions" dataSource="@Model" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true"width="600" toolbar="@(new List<string>() {"Search" })">
             <e-grid-pagesettings pagesize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
                 <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
-                <e-grid-column headerText="Số Lượng" field="FormatAmount"></e-grid-column>
+                <e-grid-column headerText="Số Tiền" field="FormatAmount"></e-grid-column>
                <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
@@ -25,14 +66,23 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("exportButton").addEventListener("click", function () {
+        var month = document.getElementById("month").ej2_instances[0].value;
+        var year = document.getElementById("year").ej2_instances[0].value;
+        var exportUrl = `/Transaction/ExportToExcel?month=${month}&year=${year}`;
+        window.location.href = exportUrl;
+    });
+</script>
 <script id="ActionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
         <a class="btn btn-sm no-a-decoration" href="/Transaction/AddorEdit/${TransactionId}">
             <i class="fa-solid fa-wand-magic"></i>
         </a>
         <form action="/Transaction/Delete/${TransactionId}" method="post">
+
     @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${Name} ?&quot;)">
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${CategoryNameWithIcon} ?&quot;)">
                 <i class="fa-solid fa-eraser fa-lg text-danger"></i>
             </button>
         </form>

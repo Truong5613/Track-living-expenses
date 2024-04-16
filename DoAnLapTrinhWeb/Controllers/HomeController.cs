@@ -1,16 +1,19 @@
 using System.Diagnostics;
+using DoAnLapTrinhWeb.Areas.Identity.Data;
 using DoAnLapTrinhWeb.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoAnLapTrinhWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<AppliactionUser> _userManager;
+        public HomeController(ApplicationDbContext context, UserManager<AppliactionUser> userManager)
         {
-            _logger = logger;
+            this._userManager = userManager;
+            _context = context;
         }
 
         public IActionResult Index()

@@ -1,0 +1,261 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    ViewData["isRegister"] = true;
+    Layout = "~/Areas/Identity/Pages/_ExpenseLayout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        color: #0FFF50;
+    }
+
+    body {
+        transform: scale(1);
+        transform-origin: 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+     
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+    }
+
+    .wrapper {
+        box-sizing: border-box;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, .2);
+        backdrop-filter: blur(9px);
+        color: #fff;
+        border-radius: 12px;
+        padding: 30px 40px;
+        width: 400px;
+    }
+
+    .wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .wrapper .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box input {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 40px;
+        font-size: 16px;
+        color: #fff;
+        padding: 20px 45px 20px 20px;
+    }
+
+    .input-box input::placeholder {
+        color: #fff;
+    }
+
+    .input-box i {
+        position: absolute;
+        right: 20px;
+        top: 30%;
+        transform: translate(-50%);
+        font-size: 20px;
+    }
+
+    .wrapper .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14.5px;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        accent-color: #fff;
+        margin-right: 3px;
+    }
+
+    .remember-forgot a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .remember-forgot a:hover {
+        text-decoration: underline;
+    }
+
+    .wrapper .btn {
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .wrapper .register-link {
+        font-size: 14.5px;
+        text-align: center;
+        margin: 20px 0 15px;
+    }
+
+    .register-link p a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .main-content {
+        overflow: hidden;
+    }
+
+
+    .register-link p a:hover {
+        text-decoration: underline;
+    }
+
+
+    /*Test*/
+    .e-input.e-placeholder::placeholder { /* EJ2 TextBox */
+        color: black;
+    }
+
+    .input-box input::placeholder {
+        color: #0FFF50 !important; /* Sử dụng !important để đảm bảo quy tắc này có ưu tiên */
+    }
+
+    input:focus + label {
+        color: #0FFF50;
+    }
+   
+    .main-content {
+        overflow-y: auto;
+    }
+
+</style>
+<div id="target" style="height: 1px;"></div>
+<form id="account" method="post">
+    <h1 style="color:#0FFF50">Register</h1>
+    <div class="input-box">
+        <ejs-textbox ejs-for = "Input.FirstName"  type="text" placeholder="FirstName" required ></ejs-textbox>
+        <i class='bx bxs-user'></i>
+    </div>
+    <div class="input-box">
+        <ejs-textbox ejs-for="Input.LastName" type="text" placeholder="LastName" required></ejs-textbox>
+        <i class='bx bxs-user'></i>
+    </div>
+    <div class="input-box">
+        <ejs-textbox ejs-for="Input.Email" type="Email" placeholder="Email" required></ejs-textbox>
+        <i class='bx bxs-user'></i>
+    </div>
+    <div class="input-box">
+        <ejs-textbox ejs-for="Input.Password" type="password" placeholder="Password" required></ejs-textbox>
+        <i class='bx bxs-lock-alt'></i>
+    </div>
+    <div class="input-box">
+        <ejs-textbox ejs-for="Input.ConfirmPassword" type="password" placeholder="ConfirmPassword" required></ejs-textbox>     
+        <i class='bx bxs-lock-alt'></i>
+    </div>
+    
+    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+    @*<button type="submit" class="btn">Login</button>*@
+    <div class="register-link">
+        <p>have an account? <a href="/Identity/Account/Login">Login</a></p>
+    </div>
+</form>
+<script>
+    function loadRandomBackground() {
+        var images = [
+            "1202329.webp",
+            "img.webp",
+            "bonus_looping_gif.gif",
+            "wallpaperflare.com_wallpaper.webp",
+            "images1.webp",
+            "kafka-1.gif",
+            "kafka.gif",
+            "silverwoft.gif",
+        ];
+        function setBackgroundImage() {
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomImage = images[randomIndex];
+            document.body.style.backgroundImage = "url('/BackgroundImage/" + randomImage + "')";
+        }
+        function lazyLoadCallback(entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    setBackgroundImage();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        var observer = new IntersectionObserver(lazyLoadCallback, { root: null, threshold: 0.1 });
+
+        var target = document.querySelector('#target');
+        observer.observe(target);
+    }
+    window.onload = loadRandomBackground;
+</script>
+
+
+@*
+<form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <h2>Tạo tài khoản!</h2>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Input.FirstName" class="form-control" aria-required="true" placeholder="Ho" />
+                <label asp-for="Input.FirstName">First Name</label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Input.LastName" class="form-control"  aria-required="true" placeholder="Ten" />
+                <label asp-for="Input.LastName">Last Name</label>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <label asp-for="Input.Email">Email</label>
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+        <label asp-for="Input.Password">Password</label>
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+        <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </div>
+    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+</form>
+*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

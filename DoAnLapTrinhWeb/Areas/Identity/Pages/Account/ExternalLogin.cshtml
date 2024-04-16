@@ -1,0 +1,40 @@
+﻿@page
+@model ExternalLoginModel
+@{
+    ViewData["Title"] = "Đăng ký";
+    ViewData["isAccount"] = true;
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2 id="external-login-title">  @Model.ProviderDisplayName account.</h2>
+<hr />
+
+<p id="external-login-description" class="text-info">
+    Bạn đăng thành công đăng nhập bằng tài khoản <strong>@Model.ProviderDisplayName</strong>.
+    Hãy điền thông tin cần thiệt đề hoàn tất đăng ký tài khoản.
+</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-4 gap-md-5">
+        <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="input-box">
+                <ejs-textbox ejs-for="Input.FirstName" type="text" placeholder="FirstName" required floatLabelType="Always"></ejs-textbox>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <ejs-textbox ejs-for="Input.LastName" type="text" placeholder="LastName" required floatLabelType="Always"></ejs-textbox>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <ejs-textbox ejs-for="Input.Email" type="Email" placeholder="Email" required floatLabelType="Always" readonly></ejs-textbox>
+                <i class='bx bxs-user'></i>
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-success">Đăng ký</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

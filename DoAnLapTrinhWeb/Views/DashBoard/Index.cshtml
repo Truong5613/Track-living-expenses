@@ -1,9 +1,82 @@
-﻿@*
+﻿@model Transaction
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     ViewData["isDashBoard"] = true;
 }
+
+<style>
+    .progress-text {
+        display: flex;
+        justify-content:space-between;
+        gap: 20px;
+
+    }
+    .budgets
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        row-gap: 20px
+    }
+    .budget{
+      padding: 20px;
+      width: 100%;
+      border: 4px solid;
+      border-radius:  20px;
+      border-color: red;
+      color: #f7f7f7;
+      flex: 1 0 auto;
+      height: 100%;
+    }
+
+   progress{
+       width: 100%;
+   }
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+         /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+         /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #222B33;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        height: auto;
+       
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+   </style>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="row mb-4">
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary income">
@@ -45,9 +118,9 @@
             <div class="p-4">
                 <div class='e-btn-group custom-rbt-group'>
                     <input type="radio" id="radioleft" name="align" value="Expense" checked />
-                    <label class="e-btn" for="radioleft">Expense</label>
+                    <label class="e-btn" for="radioleft">Tiêu dùng</label>
                     <input type="radio" id="radiomiddle" name="align" value="Income" />
-                    <label class="e-btn" for="radiomiddle">Income</label>
+                    <label class="e-btn" for="radiomiddle">Thu nhập</label>
                 </div>
                 <h5 class="fw-bold">Bảng tiêu dùng và thu nhập theo thể loại</h5>
             </div>
@@ -61,7 +134,7 @@
                 </e-accumulation-series-collection>
                 <e-accumulationchart-center x="50%" y="50%"></e-accumulationchart-center>
                 <e-accumulationchart-tooltipsettings enable="true" format="<b>${point.x}</b><br>Tiền:${point.y}</b>" header=""></e-accumulationchart-tooltipsettings>
-                <e-accumulationchart-legendsettings position="Top" visible="true" toggleVisibility="false">
+                <e-accumulationchart-legendsettings position="Top" visible="true">
                     <e-legendsettings-textstyle color="#fff" size ="1rem"></e-legendsettings-textstyle>
                 </e-accumulationchart-legendsettings>
             </ejs-accumulationchart>
@@ -76,7 +149,7 @@
                 </e-accumulation-series-collection>
                 <e-accumulationchart-center x="50%" y="50%"></e-accumulationchart-center>
                 <e-accumulationchart-tooltipsettings enable="true" format="<b>${point.x}</b><br>Tiền:${point.y}</b>" header=""></e-accumulationchart-tooltipsettings>
-                <e-accumulationchart-legendsettings position="Top" visible="true" toggleVisibility="false">
+                <e-accumulationchart-legendsettings position="Top" visible="true">
                     <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
                 </e-accumulationchart-legendsettings>
             </ejs-accumulationchart>
@@ -126,8 +199,8 @@
             <div class="p-4">
                 <h5 class="fw-bold">Bảng chi tiêu hoặc thu nhập gần đây</h5>
             </div>
-            <div class="px-4 pb-4">
-                <ejs-grid id="recent-transaction" datasource="@ViewBag.RecentTransactions" gridline="none">
+            <div class="px-4 pb-4" style='overflow:auto'>
+                <ejs-grid id="recent-transaction" datasource="@ViewBag.RecentTransactions" gridline="none" width="500">
                     <e-grid-columns>
                         <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
                         <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date" textalign=Left></e-grid-column>
@@ -138,12 +211,264 @@
     </div>
 </div>
     <div class="col-md-6">
-        <div class="widget h-100">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <span><i class="fa-solid fa-shrimp fa-2xl"></i>Shrimp</span>
+        <div class="widget h-100  ">
+            <div class="d-flex justify-content-center  align-items-center h-100">
+                <span><i class="fa-solid fa-shrimp fa-2xl"></i>Shrimp</span>             
             </div>
         </div>
     </div>
+</div>
+<br />
+<div class="row mb-4 budgets" style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    row-gap: 20px;
+">
+    @{
+        var i = 0; 
+    }
+    @foreach (var budget in ViewBag.BudGetList)
+    {
+       if ( budget.EndDate > DateTime.Now)
+        {
+            List<Transaction> transactionsId = new List<Transaction>();
+            var total = 0;
+            var Con = 0;
+            var phantram = 0;
+            string EndDate = budget.EndDate.ToString("dd/MM/yyyy");
+            string StartDate = budget.StartDate.ToString("dd/MM/yyyy");
+            <div class="col-md-6" style="flex: 0 0 auto">
+                <div class="budget" style="--accent: 0 65% 50%;border-color:green">
+                    <div class="progress-text" style="font-size: larger; font-weight: bold;">
+                        <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
+                        <p>
+                            Mục Tiêu : @budget.Amount $
+                        </p>
+                    </div>
+                    @{
+                        total = 0;
+                        @foreach (var totaltran in ViewBag.TransactionsBudger)
+                        {
+                            if (totaltran.CategoryId == budget.CategoryId)
+                            {
+                                if (totaltran.Date >= budget.StartDate && totaltran.Date <= budget.EndDate)
+                                {
+                                    total = total + totaltran.Amount;
+                                }
+                            }
+                        }
+
+                        phantram = (total * 100) / budget.Amount;
+
+                        Con = budget.Amount - total;
+                    }
+                    <div class="progress">
+                        @if(phantram<=100){
+                            <div class="progress-bar bg-success" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
+                        else
+                        {
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
+                    </div>
+                    <br />
+                    <div class="progress-text">
+
+                        <small>
+                            Đã có:
+                            @total$
+
+                        </small>
+                        <small>
+                            Ngày kết thúc:
+                            @EndDate
+                        </small>
+                        <small>
+                            @if (Con >= 0)
+                            {
+                                <p>Cần thêm :@Con$</p>
+                            }
+                            else
+                            {
+                                <p>Đã dùng quá :@{
+                                        Con=-Con;
+                                    }@Con$</p>
+                            }
+                        </small>
+
+                    </div>
+                    @*<form asp-action="AddorEditBudget" asp-controller="Transaction" method ="get">
+                        <input type="text" name="CategoryId" value="@budget.CategoryId" hidden />
+                        <button type="submit" class="btn btn-success">Thêm Giao Dịch</button>
+                    </form>*@
+
+
+                    <button class="myBtn btn btn-success" data-modal-target="#modal-@i">Xem chi tiết</button>
+
+
+                    <div id="modal-@i" class="modal">
+                        <div class="modal-content" style="
+                                 display: flex;
+                                 flex-direction: column;
+                                 gap: 20px;
+                                    padding: 50px">
+                            <span class="close">&times;</span>
+                            <h3 style="text-align:center">@budget.Category.TitleWithIcon</h3>
+                            <div style="display: flex; flex-direction: row; align-items: stretch; row-gap: 30px;     justify-content:space-evenly;">
+                                <h5>Ngày Bắt Đầu🏁: @StartDate</h5> <h5> Ngày Kết Thúc🚩: @EndDate</h5>
+                            </div>
+                            <form asp-action="AddorEditBud" asp-controller="Transaction" method="post" style="display: flex; flex-direction: column; align-items: stretch;">
+                                <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 20px;">
+                                    <input type="hidden" id="categoryId-@i" name="categoryId" value="@budget.CategoryId">
+                                    <div>
+                                        <ejs-numerictextbox id="amount-@i" ejs-for="Amount" floatLabelType="Always" placeholder="Số Tiền" min=0 format="c0"></ejs-numerictextbox>
+                                        <span asp-validation-for="amount-@i" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <ejs-datepicker id="date-@i" ejs-for="Date" placeholder="Ngày" floatLabelType="Always"
+                                                        format="MM-dd-yyyy"></ejs-datepicker>
+                                        <span asp-validation-for="Date" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <ejs-textbox id="Note-@i" placeholder="Ghi chú" ejs-for="Note" floatLabelType="Always" multiline="true"></ejs-textbox>
+                                        <span asp-validation-for="Note" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <ejs-button id="submit-@i" type="submit" cssClass="e-success" content="Gửi" style="width: 100%;"></ejs-button>
+                                </div>
+                            </form>
+
+                            
+                            
+                            
+
+                            <hr />
+                            @foreach (var item in ViewBag.TransactionsBudger)
+                            {
+                                if ( item.CategoryId == budget.CategoryId)
+                                {
+                                    if (item.Date >= budget.StartDate && item.Date <= budget.EndDate)
+                                    {
+                                         transactionsId.Add(item);
+                                    }
+                                   
+                                }
+                            }
+                       
+                            <div class="widget chart">
+                                <div class="p-4">
+                                    <h5 class="fw-bold">Bảng chi tiêu hoặc thu nhập gần đây</h5>
+                                </div>
+                                <div class="px-4 pb-4">
+                                    <ejs-grid id="@i" datasource="transactionsId" gridline=" none" allowSorting="true" allowMultiSorting="true" gridLines="None" allowPaging="true" allowFiltering="true">
+                                        <e-grid-columns>
+                                            <e-grid-column headerText="Giao Dịch" field="CategoryNameWithIcon"></e-grid-column>
+                                            <e-grid-column headerText="Ngày" field="Date" format="MM-dd-yyyy" typeof="date"></e-grid-column>
+                                            <e-grid-column headerText="Số Tiền" field="FormatAmount"></e-grid-column>
+                                            <e-grid-column headerText="Tác Vụ" template="#ActionColumnTemplate" width="100px"></e-grid-column>
+                                        </e-grid-columns>
+                                    </ejs-grid>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center" >
+                                <form action="/Budgets/Delete/@budget.BudgetId" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm(&quot;Bạn có muốn xóa @budget.CategoryNameWithIcon ?&quot;)">
+                                        Xoá Budget
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        i++;   
+        }
+        else
+        {
+            var total = 0;
+            var Con = 0;
+            var phantram = 0;
+            string EndDate = budget.EndDate.ToString("dd/MM/yyyy");
+            <div class="col-md-6">
+                <div class="budget" style="--accent: 0 65% 50%; border-color: gray">
+                    <div class="progress-text" style="font-size: larger; font-weight: bold;">
+                        <h3 style="font-size: larger; font-weight: bold;">@budget.Category.TitleWithIcon</h3>
+                        <p>
+                            Mục Tiêu : @budget.Amount $
+                        </p>
+                    </div>
+                    @{
+                        total = 0;
+                        @foreach (var totaltran in ViewBag.TransactionsBudger)
+                        {
+                            if (totaltran.CategoryId == budget.CategoryId)
+                            {
+                                if (totaltran.Date >= budget.StartDate && totaltran.Date <= budget.EndDate)
+                                {
+                                    total = total + totaltran.Amount;
+                                }
+                            }
+                        }
+
+                        phantram = (total * 100) / budget.Amount;
+
+                        Con = budget.Amount - total;
+                    }
+                    <div class="progress">
+                        @if (phantram <= 100)
+                        {
+                            <div class="progress-bar bg-success" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
+                        else
+                        {
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:@phantram%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@phantram%</div>
+                        }
+                    </div>
+                    <br />
+                    <div class="progress-text">
+
+                        <small>
+                            Đã có:
+                            @total$
+
+                        </small>
+                        <small>
+                            Đã kết thúc vào ngày: @EndDate
+                        </small>
+                        <small>
+                            @if (Con >= 0)
+                            {
+                                <p>Cần thêm :@Con$</p>
+                            }
+                            else
+                            {
+                                <p>
+                                    Đã dùng quá :@{
+                                        Con = -Con;
+                                    }@Con$
+                                </p>
+                            }
+                        </small>
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <form action="/Budgets/Delete/@budget.BudgetId" method="post">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger" onclick="return confirm(&quot;Bạn có muốn xóa @budget.CategoryNameWithIcon ?&quot;)">
+                                Xoá Budget
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            
+        }
+        <br/>
+    }
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -151,27 +476,91 @@
         var radioMiddle = document.getElementById('radiomiddle');
         var expenseChart = document.getElementById('expenseDoughnutChart');
         var incomeChart = document.getElementById('incomeDoughnutChart');
+        var splineChart = document.getElementById('spline-chart').ej2_instances[0];
+        expenseChart.ej2_instances[0].refresh();
+        incomeChart.ej2_instances[0].refresh();
         expenseChart.style.display = 'block';
         incomeChart.style.display = 'none';
+        splineChart.refresh();
 
         radioLeft.addEventListener('change', function () {
             expenseChart.style.display = 'block';
+            expenseChart.ej2_instances[0].refresh();
             incomeChart.style.display = 'none';
         });
 
         radioMiddle.addEventListener('change', function () {
             expenseChart.style.display = 'none';
             incomeChart.style.display = 'block';
+            incomeChart.ej2_instances[0].refresh();
+        });
+        window.addEventListener('resize', function () {
+            expenseChart.ej2_instances[0].refresh();
+            incomeChart.ej2_instances[0].refresh();
+            expenseChart.style.display = 'block';
+            incomeChart.style.display = 'none';
+            splineChart.refresh();
         });
     });
 </script>
+
+
 <script>
     document.getElementById('updateButton').addEventListener('click', function () {
         var numberOfDays = parseInt(document.getElementById('numberOfDays').value);
         if (numberOfDays >= 0 && numberOfDays <= 60) {
             window.location.href = '/Dashboard/Index?numberOfDays=' + numberOfDays;
         } else {
-            alert('Xin bạn hãy chọn từ 0 đến 60 ngày !');
+            alert('Xin hãy thêm từ 0 đến 60 ngày.');
         }
     });
+</script>
+
+<script>
+    var modals = document.querySelectorAll(".modal");
+    var btns = document.querySelectorAll(".myBtn");
+    var spans = document.querySelectorAll(".close");
+
+    btns.forEach((btn, index) => {
+        btn.onclick = function () {
+            modals[index].style.display = "block";
+        }
+    });
+
+    spans.forEach((span, index) => {
+        span.onclick = function () {
+            modals[index].style.display = "none";
+        }
+    });
+
+    window.onclick = function (event) {
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+
+</script>
+
+<script>
+    document.querySelectorAll(".myBtn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            window.scrollTo(0, 0);
+        });
+    });
+</script>
+<script id="ActionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Transaction/AddorEdit/${TransactionId}">
+            <i class="fa-solid fa-wand-magic"></i>
+        </a>
+        <form action="/Transaction/DeleteTransBudget/${TransactionId}" method="post">
+
+    @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm(&quot;Bạn có muốn xóa ${CategoryNameWithIcon} ?&quot;)">
+                <i class="fa-solid fa-eraser fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
 </script>
