@@ -133,23 +133,25 @@ namespace DoAnLapTrinhWeb.Controllers
             {
                 DateTime lastProcessedDate = recurringTransaction.LastProcessedDate ?? recurringTransaction.StartDate;
 
-                // Loop while the start date is within the range of the end date
-                while (lastProcessedDate <= recurringTransaction.EndDate)
+                while (lastProcessedDate <= recurringTransaction.EndDate && lastProcessedDate.Date <= DateTime.Today)
                 {
-                    // Generate a new transaction based on the recurring transaction details
-                    var newTransaction = new Transaction
+                    if (IsTimeToGenerateTransaction(recurringTransaction, lastProcessedDate))
                     {
-                        Amount = recurringTransaction.Amount,
-                        Note = recurringTransaction.Note,
-                        CategoryId = recurringTransaction.CategoryId,
-                        UserID = recurringTransaction.UserID,
-                        Date = lastProcessedDate.Date
-                    };
-                    _context.Add(newTransaction);
-                    await _context.SaveChangesAsync();
-                    UpdateNextOccurrence(recurringTransaction);
-                    var category = await _context.Categories.FindAsync(recurringTransaction.CategoryId);
-                    successMessages.Add($"Thêm {recurringTransaction.Amount:C0} vào {category.Name} thành công!");
+                        // Generate a new transaction based on the recurring transaction details
+                        var newTransaction = new Transaction
+                        {
+                            Amount = recurringTransaction.Amount,
+                            Note = recurringTransaction.Note,
+                            CategoryId = recurringTransaction.CategoryId,
+                            UserID = recurringTransaction.UserID,
+                            Date = lastProcessedDate.Date
+                        };
+                        _context.Add(newTransaction);
+                        await _context.SaveChangesAsync();
+                        UpdateNextOccurrence(recurringTransaction);
+                        var category = await _context.Categories.FindAsync(recurringTransaction.CategoryId);
+                        successMessages.Add($"Thêm {recurringTransaction.Amount:C0} vào {category.Name} thành công!");
+                    }
 
                     switch (recurringTransaction.RecurrenceInterval.ToLower())
                     {
@@ -169,10 +171,8 @@ namespace DoAnLapTrinhWeb.Controllers
                             throw new NotImplementedException($"Recurrence interval '{recurringTransaction.RecurrenceInterval}' is not implemented.");
                     }
                 }
-
                 recurringTransaction.LastProcessedDate = lastProcessedDate; // Update the last processed date
             }
-
             // Add the list of messages to TempData
             TempData["successMessages"] = successMessages;
         }
@@ -237,6 +237,7 @@ namespace DoAnLapTrinhWeb.Controllers
                     return false;
             }
         }
+
 
     }
 }
